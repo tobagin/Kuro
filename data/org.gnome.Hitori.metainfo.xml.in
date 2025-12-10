@@ -34,7 +34,7 @@
   <url type="homepage">https://wiki.gnome.org/Apps/Hitori</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/hitori/issues</url>
   <url type="donation">https://www.gnome.org/donate/</url>
-  <url type="help">https://help.gnome.org/hitori/index.html</url>
+  <url type="help">https://help.gnome.org/hitori/</url>
   <url type="translate">https://l10n.gnome.org/module/hitori/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/hitori</url>
   <update_contact>philip_at_tecnocode.co.uk</update_contact>
