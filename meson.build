@@ -16,7 +16,8 @@ application_id = 'org.gnome.Hitori'
 # Dependencies
 glib_dependency = dependency('glib-2.0')
 gio_dependency = dependency('gio-2.0', version: '>= 2.32')
-gtk_dependency = dependency('gtk+-3.0', version: '>= 3.22.0')
+gtk_dependency = dependency('gtk4', version: '>= 4.6.0')
+adw_dependency = dependency('libadwaita-1', version: '>= 1.5')
 gmodule_dependency = dependency('gmodule-2.0')
 cairo_dependency = dependency('cairo', version: '>= 1.4')
 

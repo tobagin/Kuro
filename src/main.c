@@ -21,6 +21,7 @@
 #include <locale.h>
 #include <stdlib.h>
 #include <gtk/gtk.h>
+#include <adwaita.h>
 #include <glib/gi18n.h>
 #include <glib/gprintf.h>
 
@@ -49,6 +50,27 @@ typedef enum {
 G_DEFINE_TYPE_WITH_PRIVATE (HitoriApplication, hitori_application, GTK_TYPE_APPLICATION)
 
 static void
+shutdown (GApplication *application)
+{
+	HitoriApplication *self = HITORI_APPLICATION (application);
+
+	hitori_free_board (self);
+	hitori_clear_undo_stack (self);
+	g_free (self->undo_stack); /* Clear the new game element */
+
+	if (self->normal_font_desc != NULL)
+		pango_font_description_free (self->normal_font_desc);
+	if (self->painted_font_desc != NULL)
+		pango_font_description_free (self->painted_font_desc);
+
+	if (self->settings)
+		g_object_unref (self->settings);
+
+	/* Chain up to the parent class */
+	G_APPLICATION_CLASS (hitori_application_parent_class)->shutdown (application);
+}
+
+static void
 hitori_application_class_init (HitoriApplicationClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
@@ -59,6 +81,7 @@ hitori_application_class_init (HitoriApplicationClass *klass)
 	gobject_class->set_property = set_property;
 
 	gapplication_class->startup = startup;
+	gapplication_class->shutdown = shutdown;
 	gapplication_class->activate = activate;
 
 	g_object_class_install_property (gobject_class, PROP_DEBUG,
@@ -113,7 +136,6 @@ constructed (GObject *object)
 
 	g_set_application_name (_("Hitori"));
 	g_set_prgname ("org.gnome.Hitori");
-	gtk_window_set_default_icon_name ("org.gnome.Hitori");
 
 	/* Chain up to the parent class */
 	G_OBJECT_CLASS (hitori_application_parent_class)->constructed (object);
@@ -180,6 +202,9 @@ startup (GApplication *application)
 	/* Chain up. */
 	G_APPLICATION_CLASS (hitori_application_parent_class)->startup (application);
 
+	/* Initialize Libadwaita */
+	adw_init ();
+
 	/* Debug log handling */
 	g_log_set_handler (G_LOG_DOMAIN, G_LOG_LEVEL_DEBUG, (GLogFunc) debug_handler, application);
 }
@@ -236,19 +261,16 @@ activate (GApplication *application)
 		if (window_maximized) {
 			gtk_window_maximize (GTK_WINDOW (self->window));
 		} else {
-			if (geometry.x > -1 && geometry.y > -1) {
-				gtk_window_move (GTK_WINDOW (self->window),
-												 geometry.x, geometry.y);
-			}
+			/* Note: gtk_window_move is removed in GTK4, position is managed by compositor */
 
 			if (geometry.width >= 0 && geometry.height >= 0) {
-				gtk_window_resize (GTK_WINDOW (self->window),
-													 geometry.width, geometry.height);
+				gtk_window_set_default_size (GTK_WINDOW (self->window),
+				                              geometry.width, geometry.height);
 			}
 		}
 
 		gtk_window_set_application (GTK_WINDOW (self->window), GTK_APPLICATION (self));
-		gtk_widget_show_all (self->window);
+		gtk_widget_set_visible (self->window, TRUE);
 	}
 
 	/* Bring it to the foreground */
@@ -302,32 +324,51 @@ hitori_clear_undo_stack (Hitori *hitori)
 	g_simple_action_set_enabled (hitori->redo_action, FALSE);
 }
 
+
+static void
+board_size_dialog_response_cb (GObject *source,
+                                 GAsyncResult *result,
+                                 gpointer user_data)
+{
+	guint board_size = GPOINTER_TO_UINT (user_data);
+	AdwAlertDialog *dialog = ADW_ALERT_DIALOG (source);
+	const char *response = adw_alert_dialog_choose_finish (dialog, result);
+	Hitori *hitori = HITORI_APPLICATION (g_object_get_data (G_OBJECT (dialog), "hitori"));
+
+	if (g_strcmp0 (response, "new-game") == 0) {
+		/* Kill the current game and resize the board */
+		hitori_new_game (hitori, board_size);
+	}
+}
+
 void
 hitori_set_board_size (Hitori *hitori, guint board_size)
 {
 	/* Ask the user if they want to stop the current game, if they're playing at the moment */
 	if (hitori->processing_events == TRUE && hitori->made_a_move == TRUE) {
-		GtkWidget *dialog = gtk_message_dialog_new (GTK_WINDOW (hitori->window),
-				GTK_DIALOG_MODAL,
-				GTK_MESSAGE_QUESTION,
-				GTK_BUTTONS_NONE,
-				_("Do you want to stop the current game?"));
+		AdwAlertDialog *dialog;
 
-		gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-					_("Keep _Playing"), GTK_RESPONSE_REJECT,
-					_("_New Game"), GTK_RESPONSE_ACCEPT,
-					NULL);
+		dialog = ADW_ALERT_DIALOG (adw_alert_dialog_new (_("Stop Current Game?"),
+		                                                   _("Do you want to stop the current game?")));
 
-		if (gtk_dialog_run (GTK_DIALOG (dialog)) != GTK_RESPONSE_ACCEPT) {
-			gtk_widget_destroy (dialog);
-			return;
-		}
+		adw_alert_dialog_add_responses (dialog,
+		                                   "keep-playing", _("Keep _Playing"),
+		                                   "new-game", _("_New Game"),
+		                                   NULL);
 
-		gtk_widget_destroy (dialog);
+		adw_alert_dialog_set_response_appearance (dialog, "new-game", ADW_RESPONSE_SUGGESTED);
+		adw_alert_dialog_set_default_response (dialog, "keep-playing");
+		adw_alert_dialog_set_close_response (dialog, "keep-playing");
+
+		g_object_set_data (G_OBJECT (dialog), "hitori", hitori);
+
+		adw_alert_dialog_choose (dialog, GTK_WIDGET (hitori->window), NULL,
+		                          board_size_dialog_response_cb,
+		                          GUINT_TO_POINTER (board_size));
+	} else {
+		/* Kill the current game and resize the board */
+		hitori_new_game (hitori, board_size);
 	}
-
-	/* Kill the current game and resize the board */
-	hitori_new_game (hitori, board_size);
 }
 
 void
@@ -359,6 +400,7 @@ hitori_free_board (Hitori *hitori)
 	for (i = 0; i < hitori->board_size; i++)
 		g_slice_free1 (sizeof (HitoriCell) * hitori->board_size, hitori->board[i]);
 	g_free (hitori->board);
+	hitori->board = NULL;
 }
 
 void
@@ -432,26 +474,6 @@ hitori_reset_timer (Hitori *hitori)
 void
 hitori_quit (Hitori *hitori)
 {
-	static gboolean quitting = FALSE;
-
-	if (quitting == TRUE)
-		return;
-	quitting = TRUE;
-
-	hitori_free_board (hitori);
-	hitori_clear_undo_stack (hitori);
-	g_free (hitori->undo_stack); /* Clear the new game element */
-
-	if (hitori->window != NULL)
-		gtk_widget_destroy (hitori->window);
-
-	if (hitori->normal_font_desc != NULL)
-		pango_font_description_free (hitori->normal_font_desc);
-	if (hitori->painted_font_desc != NULL)
-		pango_font_description_free (hitori->painted_font_desc);
-
-	g_object_unref (hitori->settings);
-
 	g_application_quit (G_APPLICATION (hitori));
 }
 

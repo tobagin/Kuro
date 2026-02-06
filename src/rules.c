@@ -20,6 +20,7 @@
 #include <glib.h>
 #include <glib/gprintf.h>
 #include <glib/gi18n.h>
+#include <adwaita.h>
 
 #include "main.h"
 #include "rules.h"
@@ -244,6 +245,23 @@ hitori_check_rule3 (Hitori *hitori)
 	return success;
 }
 
+
+static void
+win_dialog_response_cb (AdwAlertDialog *dialog,
+                         const char       *response,
+                         gpointer          user_data)
+{
+	Hitori *hitori = (Hitori *) user_data;
+
+	if (g_strcmp0 (response, "quit") == 0) {
+		hitori_quit (hitori);
+	} else if (g_strcmp0 (response, "play-again") == 0) {
+		hitori_new_game (hitori, hitori->board_size);
+	}
+
+	gtk_window_destroy (GTK_WINDOW (dialog));
+}
+
 gboolean
 hitori_check_win (Hitori *hitori)
 {
@@ -255,31 +273,32 @@ hitori_check_win (Hitori *hitori)
 
 	if (rule2 && rule3 && hitori_check_rule1 (hitori)) {
 		/* Win! */
-		GtkWidget *dialog;
+		AdwAlertDialog *dialog;
 		gchar *message;
-		gint ret;
 
 		/* Tell the user they've won */
 		hitori_disable_events (hitori);
 
 		/* Translators: The first parameter is the number of minutes which have elapsed since the start of the game; the second parameter is
 		 * the number of seconds. */
-		message = g_strdup_printf (_("You’ve won in a time of %02u:%02u!"), hitori->timer_value / 60, hitori->timer_value % 60);
-		dialog = gtk_message_dialog_new (GTK_WINDOW (hitori->window), GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_NONE, "%s", message);
+		message = g_strdup_printf (_("You've won in a time of %02u:%02u!"), hitori->timer_value / 60, hitori->timer_value % 60);
+		dialog = ADW_ALERT_DIALOG (adw_alert_dialog_new (_("You Won!"), message));
 		g_free (message);
 
-		gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-					_("_Quit"), GTK_RESPONSE_REJECT,
-					_("_Play Again"), GTK_RESPONSE_ACCEPT,
-					NULL);
+		adw_alert_dialog_add_responses (dialog,
+		                                   "quit", _("_Quit"),
+		                                   "play-again", _("_Play Again"),
+		                                   NULL);
 
-		ret = gtk_dialog_run (GTK_DIALOG (dialog));
-		gtk_widget_destroy (dialog);
+		adw_alert_dialog_set_response_appearance (dialog, "play-again", ADW_RESPONSE_SUGGESTED);
+		adw_alert_dialog_set_default_response (dialog, "play-again");
+		adw_alert_dialog_set_close_response (dialog, "play-again");
 
-		if (ret == GTK_RESPONSE_REJECT)
-			hitori_quit (hitori);
-		else if (ret == GTK_RESPONSE_ACCEPT)
-			hitori_new_game (hitori, hitori->board_size);
+		g_signal_connect (dialog, "response",
+		                  G_CALLBACK (win_dialog_response_cb),
+		                  hitori);
+
+		gtk_window_present (GTK_WINDOW (dialog));
 
 		return TRUE;
 	}

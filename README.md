@@ -11,7 +11,9 @@ See NEWS file.
 Dependencies
 ============
 
-[GNOME 3.0 development platform](http://www.gnome.org)
+* [GTK 4](https://www.gtk.org/)
+* [Libadwaita](https://gitlab.gnome.org/GNOME/libadwaita)
+* [Meson](https://mesonbuild.com/)
 
 Controls
 ========

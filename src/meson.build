@@ -28,6 +28,7 @@ executable(
     glib_dependency,
     gio_dependency,
     gtk_dependency,
+    adw_dependency,
     gmodule_dependency,
     cairo_dependency
   ],

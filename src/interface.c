@@ -18,6 +18,7 @@
  */
 
 #include <gtk/gtk.h>
+#include <adwaita.h>
 #include <cairo/cairo.h>
 #include <math.h>
 #include <glib/gi18n.h>
@@ -39,11 +40,10 @@
 static void hitori_cancel_hinting (Hitori *hitori);
 
 /* Declarations for GtkBuilder */
-gboolean hitori_draw_cb (GtkWidget *drawing_area, cairo_t *cr, Hitori *hitori);
-gboolean hitori_button_release_cb (GtkWidget *drawing_area, GdkEventButton *event, Hitori *hitori);
-gboolean hitori_key_press_cb (GtkWidget *drawing_area, GdkEventKey *event, Hitori *hitori);
-void hitori_destroy_cb (GtkWindow *window, Hitori *hitori);
-void hitori_window_state_event_cb (GtkWindow *window, GdkEventWindowState *event, Hitori *hitori);
+void hitori_draw_cb (GtkDrawingArea *drawing_area, cairo_t *cr, int width, int height, gpointer user_data);
+static void hitori_click_released_cb (GtkGestureClick *gesture, int n_press, double x, double y, gpointer user_data);
+static gboolean hitori_key_pressed_cb (GtkEventControllerKey *controller, guint keyval, guint keycode, GdkModifierType state, gpointer user_data);
+gboolean hitori_close_request_cb (GtkWindow *window, Hitori *hitori);
 static void new_game_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
 static void hint_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
 static void quit_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
@@ -51,6 +51,7 @@ static void undo_cb (GSimpleAction *action, GVariant *parameter, gpointer user_d
 static void redo_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
 static void help_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
 static void about_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
+static void show_help_overlay_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data);
 static void board_size_change_cb (GObject *object, GParamSpec *pspec, gpointer user_data);
 
 static GActionEntry app_entries[] = {
@@ -64,6 +65,7 @@ static GActionEntry win_entries[] = {
 	{ "hint", hint_cb, NULL, NULL, NULL },
 	{ "undo", undo_cb, NULL, NULL, NULL },
 	{ "redo", redo_cb, NULL, NULL, NULL },
+	{ "show-help-overlay", show_help_overlay_cb, NULL, NULL, NULL },
 };
 
 static void
@@ -83,12 +85,11 @@ hitori_window_unmap_cb (GtkWidget *window,
 	if (window_maximized)
 		return;
 
-	gtk_window_get_position (GTK_WINDOW (window), &geometry.x, &geometry.y);
-	gtk_window_get_size (GTK_WINDOW (window),
+	/* Note: gtk_window_get_position and gtk_window_get_size removed in GTK4 */
+	/* Window size/position is now managed by the compositor */
+	gtk_window_get_default_size (GTK_WINDOW (window),
 			     &geometry.width, &geometry.height);
 
-	g_settings_set (hitori->settings, "window-position", "(ii)",
-			geometry.x, geometry.y);
 	g_settings_set (hitori->settings, "window-size", "(ii)",
 			geometry.width, geometry.height);
 }
@@ -97,15 +98,12 @@ GtkWidget *
 hitori_create_interface (Hitori *hitori)
 {
 	GtkBuilder *builder;
-	GtkStyleContext *style_context;
 	GtkCssProvider *css_provider;
-	PangoFontDescription *font = NULL;
 	GAction *action;
 
 	builder = gtk_builder_new_from_resource ("/org/gnome/Hitori/ui/hitori.ui");
 
 	gtk_builder_set_translation_domain (builder, PACKAGE);
-	gtk_builder_connect_signals (builder, hitori);
 
 	/* Setup the main window */
 	hitori->window = GTK_WIDGET (gtk_builder_get_object (builder, "hitori_main_window"));
@@ -145,20 +143,16 @@ hitori_create_interface (Hitori *hitori)
 	gtk_application_set_accels_for_action (GTK_APPLICATION (hitori), "win.undo", vaccels_undo);
 
 	/* Set up font descriptions for the drawing area */
-	style_context = gtk_widget_get_style_context (hitori->drawing_area);
-	gtk_style_context_get (style_context,
-	                       gtk_style_context_get_state (style_context),
-	                       GTK_STYLE_PROPERTY_FONT, &font, NULL);
-	hitori->normal_font_desc = pango_font_description_copy (font);
-	hitori->painted_font_desc = pango_font_description_copy (font);
-
-	pango_font_description_free (font);
+	/* Note: In GTK4, we create default font descriptions instead of querying style context */
+	hitori->normal_font_desc = pango_font_description_from_string ("Sans 12");
+	hitori->painted_font_desc = pango_font_description_copy (hitori->normal_font_desc);
 
 	/* Load CSS for the drawing area */
 	css_provider = gtk_css_provider_new ();
 	gtk_css_provider_load_from_resource (css_provider, "/org/gnome/Hitori/ui/hitori.css");
-	gtk_style_context_add_provider (style_context, GTK_STYLE_PROVIDER (css_provider),
-                                            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+	gtk_style_context_add_provider_for_display (gdk_display_get_default (),
+	                                             GTK_STYLE_PROVIDER (css_provider),
+	                                             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	g_object_unref (css_provider);
 
 	/* Reset the timer */
@@ -167,6 +161,21 @@ hitori_create_interface (Hitori *hitori)
 	/* Disable undo/redo until a cell has been clicked. */
 	g_simple_action_set_enabled (hitori->undo_action, FALSE);
 	g_simple_action_set_enabled (hitori->redo_action, FALSE);
+
+	/* Set up drawing callback */
+	gtk_drawing_area_set_draw_func (GTK_DRAWING_AREA (hitori->drawing_area),
+	                                 hitori_draw_cb, hitori, NULL);
+
+	/* Set up mouse input */
+	GtkGesture *click_gesture = gtk_gesture_click_new ();
+	gtk_gesture_single_set_button (GTK_GESTURE_SINGLE (click_gesture), GDK_BUTTON_PRIMARY);
+	g_signal_connect (click_gesture, "released", G_CALLBACK (hitori_click_released_cb), hitori);
+	gtk_widget_add_controller (hitori->drawing_area, GTK_EVENT_CONTROLLER (click_gesture));
+
+	/* Set up keyboard input */
+	GtkEventController *key_controller = gtk_event_controller_key_new ();
+	g_signal_connect (key_controller, "key-pressed", G_CALLBACK (hitori_key_pressed_cb), hitori);
+	gtk_widget_add_controller (hitori->drawing_area, key_controller);
 
 	/* Cursor is initially not active as playing with the mouse is more common */
 	hitori->cursor_active = FALSE;
@@ -236,7 +245,7 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 	}
 
 	/* Set up the border */
-	gtk_style_context_get_border (style_context, state, &border);
+	gtk_style_context_get_border (style_context, &border);
 	border.left = BORDER_LEFT; /* Hack! */
 
 	/* Draw the fill */
@@ -344,19 +353,19 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 	}
 }
 
-gboolean
-hitori_draw_cb (GtkWidget *drawing_area, cairo_t *cr, Hitori *hitori)
+void
+hitori_draw_cb (GtkDrawingArea *drawing_area, cairo_t *cr, int width, int height, gpointer user_data)
 {
-	gint area_width, area_height;
+	Hitori *hitori = (Hitori *) user_data;
+	gint area_width = width;
+	gint area_height = height;
 	HitoriVector iter;
 	guint board_width, board_height;
 	gdouble cell_size;
 	gdouble x_pos, y_pos;
 	GtkStyleContext *style_context;
 
-	area_width = gdk_window_get_width (gtk_widget_get_window (hitori->drawing_area));
-	area_height = gdk_window_get_height (gtk_widget_get_window (hitori->drawing_area));
-	style_context = gtk_widget_get_style_context (hitori->drawing_area);
+	style_context = gtk_widget_get_style_context (GTK_WIDGET (drawing_area));
 
 	/* Clamp the width/height to the minimum */
 	if (area_height < area_width) {
@@ -412,8 +421,6 @@ hitori_draw_cb (GtkWidget *drawing_area, cairo_t *cr, Hitori *hitori)
 				 cell_size - line_width);
 		cairo_stroke (cr);
 	}
-
-	return FALSE;
 }
 
 static void
@@ -476,18 +483,20 @@ hitori_update_cell_state (Hitori *hitori, HitoriVector pos, gboolean tag1, gbool
 		hitori_check_win (hitori);
 }
 
-gboolean
-hitori_button_release_cb (GtkWidget *drawing_area, GdkEventButton *event, Hitori *hitori)
+static void
+hitori_click_released_cb (GtkGestureClick *gesture, int n_press, double x, double y, gpointer user_data)
 {
+	Hitori *hitori = (Hitori *) user_data;
 	gint width, height;
 	gdouble cell_size;
 	HitoriVector pos;
+	GdkModifierType state;
 
 	if (hitori->processing_events == FALSE)
-		return FALSE;
+		return;
 
-	width = gdk_window_get_width (gtk_widget_get_window (hitori->drawing_area));
-	height = gdk_window_get_height (gtk_widget_get_window (hitori->drawing_area));
+	width = gtk_widget_get_width (hitori->drawing_area);
+	height = gtk_widget_get_height (hitori->drawing_area);
 
 	/* Clamp the width/height to the minimum */
 	if (height < width)
@@ -496,11 +505,11 @@ hitori_button_release_cb (GtkWidget *drawing_area, GdkEventButton *event, Hitori
 	cell_size = (gdouble) width / (gdouble) hitori->board_size;
 
 	/* Determine the cell in which the button was released */
-	pos.x = (guchar) ((event->x - hitori->drawing_area_x_offset) / cell_size);
-	pos.y = (guchar) ((event->y - hitori->drawing_area_y_offset) / cell_size);
+	pos.x = (guchar) ((x - hitori->drawing_area_x_offset) / cell_size);
+	pos.y = (guchar) ((y - hitori->drawing_area_y_offset) / cell_size);
 
 	if (pos.x >= hitori->board_size || pos.y >= hitori->board_size)
-		return FALSE;
+		return;
 
 	/* Move the cursor to the clicked cell and deactivate it
 	 * (assuming player will use the mouse for the next move) */
@@ -508,20 +517,21 @@ hitori_button_release_cb (GtkWidget *drawing_area, GdkEventButton *event, Hitori
 	hitori->cursor_position.y = pos.y;
 	hitori->cursor_active = FALSE;
 
-	hitori_update_cell_state (hitori, pos,
-	                          event->state & GDK_SHIFT_MASK,
-	                          event->state & GDK_CONTROL_MASK);
+	state = gtk_event_controller_get_current_event_state (GTK_EVENT_CONTROLLER (gesture));
 
-	return FALSE;
+	hitori_update_cell_state (hitori, pos,
+	                          state & GDK_SHIFT_MASK,
+	                          state & GDK_CONTROL_MASK);
 }
 
-gboolean
-hitori_key_press_cb (GtkWidget *drawing_area, GdkEventKey *event, Hitori *hitori)
+static gboolean
+hitori_key_pressed_cb (GtkEventControllerKey *controller, guint keyval, guint keycode, GdkModifierType state, gpointer user_data)
 {
+	Hitori *hitori = (Hitori *) user_data;
 	gboolean did_something = TRUE;
 
 	if (hitori->cursor_active) {
-		switch (event->keyval) {
+		switch (keyval) {
 			case GDK_KEY_Left:
 			case GDK_KEY_h:
 				if (hitori->cursor_position.x > 0) {
@@ -549,15 +559,15 @@ hitori_key_press_cb (GtkWidget *drawing_area, GdkEventKey *event, Hitori *hitori
 			case GDK_KEY_space:
 			case GDK_KEY_Return:
 				hitori_update_cell_state (hitori, hitori->cursor_position,
-				                          event->state & GDK_SHIFT_MASK,
-				                          event->state & GDK_CONTROL_MASK);
+				                          state & GDK_SHIFT_MASK,
+				                          state & GDK_CONTROL_MASK);
 				break;
 			default:
 				did_something = FALSE;
 		}
 	} else {
 		/* Activate the cell cursor if any of the keys related to playing with keyboard are pressed */
-		switch (event->keyval) {
+		switch (keyval) {
 			case GDK_KEY_Left:
 			case GDK_KEY_h:
 			case GDK_KEY_Right:
@@ -583,10 +593,10 @@ hitori_key_press_cb (GtkWidget *drawing_area, GdkEventKey *event, Hitori *hitori
 	return did_something;
 }
 
-void
-hitori_destroy_cb (GtkWindow *window, Hitori *hitori)
+gboolean
+hitori_close_request_cb (GtkWindow *window, Hitori *hitori)
 {
-	hitori_quit (hitori);
+	return FALSE; /* Let default handler destroy the window */
 }
 
 static void
@@ -594,29 +604,6 @@ quit_cb (GSimpleAction *action, GVariant *parameters, gpointer user_data)
 {
 	HitoriApplication *self = HITORI_APPLICATION (user_data);
 	hitori_quit (self);
-}
-
-void
-hitori_window_state_event_cb (GtkWindow *window, GdkEventWindowState *event, Hitori *hitori)
-{
-	gboolean timer_was_running = FALSE;
-
-	if (hitori->debug)
-		g_debug ("Got window state event: %u (changed: %u)", event->new_window_state, event->changed_mask);
-
-	timer_was_running = (GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (window), "hitori-timer-was-running")) > 0) ? TRUE : FALSE;
-
-	if (!(event->new_window_state & GDK_WINDOW_STATE_FOCUSED)) {
-		/* Pause the timer */
-		if (hitori->timeout_id > 0) {
-			g_object_set_data (G_OBJECT (window), "hitori-timer-was-running", GUINT_TO_POINTER ((hitori->timeout_id > 0) ? TRUE : FALSE));
-		}
-
-		hitori_pause_timer (hitori);
-	} else if (timer_was_running && hitori->processing_events) {
-		/* Re-start the timer */
-		hitori_start_timer (hitori);
-	}
 }
 
 static void
@@ -641,10 +628,7 @@ hitori_cancel_hinting (Hitori *hitori)
 static gboolean
 hitori_update_hint (Hitori *hitori)
 {
-	gint area_width, area_height;
-	guint board_width, board_height;
-	gdouble drawing_area_x_offset, drawing_area_y_offset;
-	gdouble cell_size;
+
 
 	/* Check to see if hinting's been stopped by a cell being changed (race condition) */
 	if (hitori->hint_status == HINT_DISABLED)
@@ -655,30 +639,8 @@ hitori_update_hint (Hitori *hitori)
 	if (hitori->debug)
 		g_debug ("Updating hint status to %u.", hitori->hint_status);
 
-	/* Calculate the area to redraw (just the hinted cell, hopefully) */
-	area_width = gdk_window_get_width (gtk_widget_get_window (hitori->drawing_area));
-	area_height = gdk_window_get_height (gtk_widget_get_window (hitori->drawing_area));
-
-	/* Clamp the width/height to the minimum */
-	if (area_height < area_width) {
-		board_width = area_height;
-		board_height = area_height;
-	} else {
-		board_width = area_width;
-		board_height = area_width;
-	}
-
-	board_width -= BORDER_LEFT;
-	board_height -= BORDER_LEFT;
-
-	cell_size = (gdouble) board_width / (gdouble) hitori->board_size;
-
-	drawing_area_x_offset = (area_width - board_width) / 2.0;
-	drawing_area_y_offset = (area_height - board_height) / 2.0;
-
-	/* Redraw the cell */
-	gtk_widget_queue_draw_area (hitori->drawing_area, drawing_area_x_offset + hitori->hint_position.x * cell_size,
-	                            drawing_area_y_offset + hitori->hint_position.y * cell_size, cell_size, cell_size);
+	/* Redraw the widget (GTK4 doesn't support partial redraws) */
+	gtk_widget_queue_draw (hitori->drawing_area);
 
 	if (hitori->hint_status == HINT_DISABLED) {
 		hitori_cancel_hinting (hitori);
@@ -810,54 +772,60 @@ static void
 help_cb (GSimpleAction *action, GVariant *parameters, gpointer user_data)
 {
 	HitoriApplication *self = HITORI_APPLICATION (user_data);
-	GError *error = NULL;
-	gboolean retval;
 
-#if GTK_CHECK_VERSION(3, 22, 0)
-	retval = gtk_show_uri_on_window (GTK_WINDOW (self->window), "help:hitori", gtk_get_current_event_time (), &error);
-#else
-	retval = gtk_show_uri (gtk_widget_get_screen (self->window), "help:hitori", gtk_get_current_event_time (), &error);
-#endif
-
-	if (retval == FALSE) {
-		GtkWidget *dialog = gtk_message_dialog_new (GTK_WINDOW (self->window),
-							    GTK_DIALOG_MODAL,
-							    GTK_MESSAGE_ERROR,
-							    GTK_BUTTONS_OK,
-							    _("The help contents could not be displayed"));
-		gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog), "%s", error->message);
-
-		gtk_dialog_run (GTK_DIALOG (dialog));
-
-		gtk_widget_destroy (dialog);
-		g_error_free (error);
-	}
+	gtk_show_uri (GTK_WINDOW (self->window), "help:hitori", GDK_CURRENT_TIME);
 }
 
 static void
 about_cb (GSimpleAction *action, GVariant *parameters, gpointer user_data)
 {
 	HitoriApplication *self = HITORI_APPLICATION (user_data);
+	AdwDialog *about;
 
-	const gchar *authors[] =
-	{
-		"Philip Withnall <philip@tecnocode.co.uk>",
-		"Ben Windsor <benjw_823@hotmail.com>",
+	const char *developers[] = {
+		"Philip Withnall",
 		NULL
 	};
 
-	gtk_show_about_dialog (GTK_WINDOW (self->window),
-				"version", VERSION,
-				"copyright", _("Copyright \xc2\xa9 2007\342\200\2232010 Philip Withnall"),
-				"comments", _("A logic puzzle originally designed by Nikoli"),
-				"authors", authors,
-				"translator-credits", _("translator-credits"),
-				"logo-icon-name", "org.gnome.Hitori",
-				"license-type", GTK_LICENSE_GPL_3_0,
-				"wrap-license", TRUE,
-				"website-label", _("Hitori Website"),
-				"website", PACKAGE_URL,
-				NULL);
+	const char *designers[] = {
+		"Ben Windsor",
+		NULL
+	};
+
+	about = adw_about_dialog_new ();
+
+	adw_about_dialog_set_application_name (ADW_ABOUT_DIALOG (about), _("Hitori"));
+	adw_about_dialog_set_application_icon (ADW_ABOUT_DIALOG (about), "org.gnome.Hitori");
+	adw_about_dialog_set_version (ADW_ABOUT_DIALOG (about), VERSION);
+	adw_about_dialog_set_developer_name (ADW_ABOUT_DIALOG (about), "Philip Withnall");
+	adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about), "© 2007–2010 Philip Withnall");
+	adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about), _("A logic puzzle originally designed by Nikoli"));
+	adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about), developers);
+	adw_about_dialog_set_designers (ADW_ABOUT_DIALOG (about), designers);
+	adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about), _("translator-credits"));
+	adw_about_dialog_set_license_type (ADW_ABOUT_DIALOG (about), GTK_LICENSE_GPL_3_0);
+	adw_about_dialog_set_website (ADW_ABOUT_DIALOG (about), PACKAGE_URL);
+
+	adw_dialog_present (about, GTK_WIDGET (self->window));
+}
+
+static void
+show_help_overlay_cb (GSimpleAction *action, GVariant *parameter, gpointer user_data)
+{
+	HitoriApplication *self = HITORI_APPLICATION (user_data);
+	GtkBuilder *builder;
+	GObject *overlay;
+
+	builder = gtk_builder_new_from_resource ("/org/gnome/Hitori/gtk/help-overlay.ui");
+	overlay = gtk_builder_get_object (builder, "help_overlay");
+
+	if (overlay && ADW_IS_DIALOG (overlay)) {
+		adw_dialog_present (ADW_DIALOG (overlay), GTK_WIDGET (self->window));
+	} else {
+		g_warning ("Failed to load help overlay");
+	}
+
+	g_object_unref (builder);
 }
 
 static void
