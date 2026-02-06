@@ -10,7 +10,7 @@ build-and-test:
     - apt install -y -qq build-essential meson pkg-config gtk-doc-tools
                          libxml2-utils gobject-introspection dbus
                          libglib2.0-dev libgtk-4-dev libadwaita-1-dev appstream
-                         desktop-file-utils lcov gettext itstool
+                         desktop-file-utils lcov gettext itstool libgtk-4-bin
     - export LANG=C.UTF-8
   script:
     - meson --buildtype debug --werror _build .

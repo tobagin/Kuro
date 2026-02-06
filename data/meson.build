@@ -43,14 +43,12 @@ install_data(
     install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
 )
 
-xmllint = find_program('xmllint', required: false)
-if xmllint.found()
-  gtk_prefix = gtk_dependency.get_pkgconfig_variable('prefix')
+gtk4_builder_tool = find_program('gtk4-builder-tool', required: false)
+if gtk4_builder_tool.found()
   test(
-    'validate-ui', xmllint,
+    'validate-ui', gtk4_builder_tool,
     args: [
-      '--nonet', '--noblanks', '--noout',
-      '--relaxng', join_paths(gtk_prefix, 'share', 'gtk-3.0', 'gtkbuilder.rng'),
+      'validate',
       files('hitori.ui'),
     ],
   )
