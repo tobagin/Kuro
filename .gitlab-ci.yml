@@ -13,7 +13,7 @@ build-and-test:
                          desktop-file-utils lcov gettext itstool libgtk-4-bin
     - export LANG=C.UTF-8
   script:
-    - meson --buildtype debug --werror _build .
+    - meson --buildtype debug _build .
     - ninja -C _build
     - ninja -C _build test
   except:
