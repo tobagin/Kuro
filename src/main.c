@@ -474,6 +474,22 @@ hitori_reset_timer (Hitori *hitori)
 void
 hitori_quit (Hitori *hitori)
 {
+	static gboolean quitting = FALSE;
+
+	if (quitting == TRUE)
+		return;
+	quitting = TRUE;
+
+	hitori_free_board (hitori);
+	hitori_clear_undo_stack (hitori);
+	g_free (hitori->undo_stack); /* Clear the new game element */
+
+	if (hitori->window != NULL)
+		gtk_window_destroy (GTK_WINDOW (hitori->window));
+	
+	if (hitori->settings)
+		g_object_unref (hitori->settings);
+
 	g_application_quit (G_APPLICATION (hitori));
 }
 

@@ -258,8 +258,6 @@ win_dialog_response_cb (AdwAlertDialog *dialog,
 	} else if (g_strcmp0 (response, "play-again") == 0) {
 		hitori_new_game (hitori, hitori->board_size);
 	}
-
-	gtk_window_destroy (GTK_WINDOW (dialog));
 }
 
 gboolean
@@ -279,9 +277,10 @@ hitori_check_win (Hitori *hitori)
 		/* Tell the user they've won */
 		hitori_disable_events (hitori);
 
+
 		/* Translators: The first parameter is the number of minutes which have elapsed since the start of the game; the second parameter is
 		 * the number of seconds. */
-		message = g_strdup_printf (_("You've won in a time of %02u:%02u!"), hitori->timer_value / 60, hitori->timer_value % 60);
+		message = g_strdup_printf (_("You’ve won in a time of %02u:%02u!"), hitori->timer_value / 60, hitori->timer_value % 60);
 		dialog = ADW_ALERT_DIALOG (adw_alert_dialog_new (_("You Won!"), message));
 		g_free (message);
 
@@ -294,11 +293,12 @@ hitori_check_win (Hitori *hitori)
 		adw_alert_dialog_set_default_response (dialog, "play-again");
 		adw_alert_dialog_set_close_response (dialog, "play-again");
 
+
 		g_signal_connect (dialog, "response",
 		                  G_CALLBACK (win_dialog_response_cb),
 		                  hitori);
 
-		gtk_window_present (GTK_WINDOW (dialog));
+		adw_dialog_present (ADW_DIALOG (dialog), GTK_WIDGET (hitori->window));
 
 		return TRUE;
 	}

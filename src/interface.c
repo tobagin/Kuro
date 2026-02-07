@@ -185,14 +185,6 @@ hitori_create_interface (Hitori *hitori)
 
 #define BORDER_LEFT 2.0
 
-static void
-lookup_color (GtkStyleContext *style_context, const gchar *name, GdkRGBA *result)
-{
-	if (!gtk_style_context_lookup_color (style_context, name, result)) {
-		g_warning ("Failed to look up color %s", name);
-	}
-}
-
 /* Generate the text for a given cell, potentially localised to the current locale. */
 static const gchar *
 localise_cell_digit (Hitori             *hitori,
@@ -224,39 +216,25 @@ localise_cell_digit (Hitori             *hitori,
 }
 
 static void
-draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble cell_size, gdouble x_pos, gdouble y_pos,
+draw_cell (Hitori *hitori, cairo_t *cr, gdouble cell_size, gdouble x_pos, gdouble y_pos,
            HitoriVector iter)
 {
 	const gchar *text;
 	PangoLayout *layout;
 	gint text_width, text_height;
-	GtkStateFlags state;
 	gboolean painted = FALSE;
 	PangoFontDescription *font_desc;
-	GtkBorder border;
-	GdkRGBA colour = {0.0, 0.0, 0.0, 0.0};
-
-	state = gtk_style_context_get_state (style_context);
+	GdkRGBA colour = {0.0, 0.0, 0.0, 1.0};
 
 	if (hitori->board[iter.x][iter.y].status & CELL_PAINTED) {
 		painted = TRUE;
-		state = GTK_STATE_FLAG_INSENSITIVE;
-		gtk_style_context_set_state (style_context, state);
 	}
-
-	/* Set up the border */
-	gtk_style_context_get_border (style_context, &border);
-	border.left = BORDER_LEFT; /* Hack! */
 
 	/* Draw the fill */
-	if (hitori->debug == TRUE) {
-		g_debug ("State: %u", state);
-	}
-
 	if (painted) {
-		lookup_color (style_context, "painted-bg-color", &colour);
+		colour = (GdkRGBA) { 0.957, 0.957, 0.957, 1.0 }; /* #f4f4f4 */
 	} else {
-		lookup_color (style_context, "unpainted-bg-color", &colour);
+		colour = (GdkRGBA) { 0.929, 0.929, 0.929, 1.0 }; /* #ededed */
 	}
 
 	gdk_cairo_set_source_rgba (cr, &colour);
@@ -265,11 +243,7 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 
 	/* If the cell is tagged, draw the tag dots */
 	if (hitori->board[iter.x][iter.y].status & CELL_TAG1) {
-		if (painted) {
-			lookup_color (style_context, "tag1-painted-color", &colour);
-		} else {
-			lookup_color (style_context, "tag1-unpainted-color", &colour);
-		}
+		colour = (GdkRGBA) { 0.447, 0.624, 0.812, painted ? 0.7 : 1.0 }; /* #729fcf */
 		gdk_cairo_set_source_rgba (cr, &colour);
 
 		cairo_move_to (cr, x_pos, y_pos + TAG_OFFSET);
@@ -280,11 +254,7 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 	}
 
 	if (hitori->board[iter.x][iter.y].status & CELL_TAG2) {
-		if (painted) {
-			lookup_color (style_context, "tag2-painted-color", &colour);
-		} else {
-			lookup_color (style_context, "tag2-unpainted-color", &colour);
-		}
+		colour = (GdkRGBA) { 0.541, 0.886, 0.204, painted ? 0.7 : 1.0 }; /* #8ae234 */
 		gdk_cairo_set_source_rgba (cr, &colour);
 
 		cairo_move_to (cr, x_pos + cell_size - TAG_OFFSET, y_pos);
@@ -296,12 +266,12 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 
 	/* Draw the border */
 	if (painted) {
-		lookup_color (style_context, "painted-border-color", &colour);
+		colour = (GdkRGBA) { 0.730, 0.737, 0.722, 1.0 }; /* #babcb8 */
 	} else {
-		lookup_color (style_context, "unpainted-border-color", &colour);
+		colour = (GdkRGBA) { 0.180, 0.204, 0.212, 1.0 }; /* #2e3436 */
 	}
 	gdk_cairo_set_source_rgba (cr, &colour);
-	cairo_set_line_width (cr, border.left);
+	cairo_set_line_width (cr, BORDER_LEFT);
 	cairo_rectangle (cr, x_pos, y_pos, cell_size, cell_size);
 	cairo_stroke (cr);
 
@@ -314,16 +284,16 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 	font_desc = (painted == TRUE) ? hitori->painted_font_desc : hitori->normal_font_desc;
 
 	if (hitori->board[iter.x][iter.y].status & CELL_ERROR) {
-		lookup_color (style_context, "mistaken-number-color", &colour);
+		colour = (GdkRGBA) { 0.937, 0.161, 0.161, 1.0 }; /* #ef2929 */
 		gdk_cairo_set_source_rgba (cr, &colour);
 		pango_font_description_set_weight (font_desc, PANGO_WEIGHT_BOLD);
 	} else if (painted) {
-		lookup_color (style_context, "painted-number-color", &colour);
+		colour = (GdkRGBA) { 0.655, 0.671, 0.655, 1.0 }; /* #a7aba7 */
 		gdk_cairo_set_source_rgba (cr, &colour);
 		pango_font_description_set_weight (font_desc, PANGO_WEIGHT_NORMAL);
 	} else {
 		g_assert (!painted);
-		lookup_color (style_context, "unpainted-number-color", &colour);
+		colour = (GdkRGBA) { 0.180, 0.204, 0.212, 1.0 }; /* #2e3436 */
 		gdk_cairo_set_source_rgba (cr, &colour);
 		pango_font_description_set_weight (font_desc, PANGO_WEIGHT_NORMAL);
 	}
@@ -343,14 +313,15 @@ draw_cell (Hitori *hitori, GtkStyleContext *style_context, cairo_t *cr, gdouble 
 	    hitori->cursor_position.x == iter.x && hitori->cursor_position.y == iter.y &&
 	    gtk_widget_is_focus (hitori->drawing_area)) {
 		/* Draw the cursor */
-		lookup_color (style_context, "cursor-color", &colour);
+		colour = (GdkRGBA) { 0.208, 0.518, 0.894, 1.0 }; /* #3584e4 */
 		gdk_cairo_set_source_rgba (cr, &colour);
-		cairo_set_line_width (cr, border.left);
+		cairo_set_line_width (cr, BORDER_LEFT);
 		cairo_rectangle (cr,
 		                 x_pos + CURSOR_MARGIN, y_pos + CURSOR_MARGIN,
 		                 cell_size - (2 * CURSOR_MARGIN), cell_size - (2 * CURSOR_MARGIN));
 		cairo_stroke (cr);
 	}
+}
 }
 
 void
@@ -363,9 +334,6 @@ hitori_draw_cb (GtkDrawingArea *drawing_area, cairo_t *cr, int width, int height
 	guint board_width, board_height;
 	gdouble cell_size;
 	gdouble x_pos, y_pos;
-	GtkStyleContext *style_context;
-
-	style_context = gtk_widget_get_style_context (GTK_WIDGET (drawing_area));
 
 	/* Clamp the width/height to the minimum */
 	if (area_height < area_width) {
@@ -393,7 +361,7 @@ hitori_draw_cb (GtkDrawingArea *drawing_area, cairo_t *cr, int width, int height
 	for (iter.x = 0, x_pos = 0; iter.x < hitori->board_size; iter.x++, x_pos += cell_size) { /* columns (X) */
 		for (iter.y = 0, y_pos = 0; iter.y < hitori->board_size; iter.y++, y_pos += cell_size) { /* rows (Y) */
 			if (!(hitori->board[iter.x][iter.y].status & CELL_PAINTED)) {
-				draw_cell (hitori, style_context, cr, cell_size, x_pos, y_pos, iter);
+				draw_cell (hitori, cr, cell_size, x_pos, y_pos, iter);
 			}
 		}
 	}
@@ -402,7 +370,7 @@ hitori_draw_cb (GtkDrawingArea *drawing_area, cairo_t *cr, int width, int height
 	for (iter.x = 0, x_pos = 0; iter.x < hitori->board_size; iter.x++, x_pos += cell_size) { /* columns (X) */
 		for (iter.y = 0, y_pos = 0; iter.y < hitori->board_size; iter.y++, y_pos += cell_size) { /* rows (Y) */
 			if (hitori->board[iter.x][iter.y].status & CELL_PAINTED) {
-				draw_cell (hitori, style_context, cr, cell_size, x_pos, y_pos, iter);
+				draw_cell (hitori, cr, cell_size, x_pos, y_pos, iter);
 			}
 		}
 	}
@@ -410,8 +378,7 @@ hitori_draw_cb (GtkDrawingArea *drawing_area, cairo_t *cr, int width, int height
 	/* Draw a hint if applicable */
 	if (hitori->hint_status % 2 == 1) {
 		gdouble line_width = BORDER_LEFT * 2.5;
-		GdkRGBA colour;
-		lookup_color (style_context, "hint-border-color", &colour);
+		GdkRGBA colour = { 1.0, 0.0, 0.0, 1.0 }; /* red */
 		gdk_cairo_set_source_rgba (cr, &colour);
 		cairo_set_line_width (cr, line_width);
 		cairo_rectangle (cr,
@@ -784,10 +751,6 @@ about_cb (GSimpleAction *action, GVariant *parameters, gpointer user_data)
 
 	const char *developers[] = {
 		"Philip Withnall",
-		NULL
-	};
-
-	const char *designers[] = {
 		"Ben Windsor",
 		NULL
 	};
@@ -798,15 +761,14 @@ about_cb (GSimpleAction *action, GVariant *parameters, gpointer user_data)
 	adw_about_dialog_set_application_icon (ADW_ABOUT_DIALOG (about), "org.gnome.Hitori");
 	adw_about_dialog_set_version (ADW_ABOUT_DIALOG (about), VERSION);
 	adw_about_dialog_set_developer_name (ADW_ABOUT_DIALOG (about), "Philip Withnall");
-	adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about), "© 2007–2010 Philip Withnall");
+	adw_about_dialog_set_copyright (ADW_ABOUT_DIALOG (about), _("Copyright © 2007–2010 Philip Withnall"));
 	adw_about_dialog_set_comments (ADW_ABOUT_DIALOG (about), _("A logic puzzle originally designed by Nikoli"));
 	adw_about_dialog_set_developers (ADW_ABOUT_DIALOG (about), developers);
-	adw_about_dialog_set_designers (ADW_ABOUT_DIALOG (about), designers);
 	adw_about_dialog_set_translator_credits (ADW_ABOUT_DIALOG (about), _("translator-credits"));
 	adw_about_dialog_set_license_type (ADW_ABOUT_DIALOG (about), GTK_LICENSE_GPL_3_0);
 	adw_about_dialog_set_website (ADW_ABOUT_DIALOG (about), PACKAGE_URL);
 
-	adw_dialog_present (about, GTK_WIDGET (self->window));
+	adw_dialog_present (ADW_DIALOG (about), GTK_WIDGET (self->window));
 }
 
 static void

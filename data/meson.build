@@ -44,3 +44,15 @@ install_data(
 )
 
 
+gtk4_builder_tool = find_program('gtk4-builder-tool', required: false)
+if gtk4_builder_tool.found()
+  test(
+    'validate-ui', gtk4_builder_tool,
+    args: [
+      'validate',
+      files('hitori.ui'),
+    ],
+  )
+endif
+
+

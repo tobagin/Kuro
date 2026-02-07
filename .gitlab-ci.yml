@@ -10,12 +10,12 @@ build-and-test:
     - apt install -y -qq build-essential meson pkg-config gtk-doc-tools
                          libxml2-utils gobject-introspection dbus
                          libglib2.0-dev libgtk-4-dev libadwaita-1-dev appstream
-                         desktop-file-utils lcov gettext itstool libgtk-4-bin
+                         desktop-file-utils lcov gettext itstool libgtk-4-bin xvfb
     - export LANG=C.UTF-8
   script:
     - meson --buildtype debug _build .
     - ninja -C _build
-    - ninja -C _build test
+    - xvfb-run -a -s "-screen 0 1024x768x24" ninja -C _build test
   except:
     - tags
   artifacts:
