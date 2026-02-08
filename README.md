@@ -10,20 +10,7 @@ A modern, native GTK4 implementation of the Hitori logic puzzle game for GNOME.
 
 </div>
 
-## Screenshots
 
-<div align="center">
-  <img src="data/screenshots/dark-board-theme.png" width="45%" valign="top" alt="Dark Theme" />
-  <img src="data/screenshots/pause.png" width="45%" valign="top" alt="Pause Overlay" />
-</div>
-<div align="center">
-  <img src="data/screenshots/high-scores.png" width="45%" valign="top" alt="High Scores" />
-  <img src="data/screenshots/ab.png" width="45%" valign="top" alt="About Dialog" />
-</div>
-<div align="center">
-  <img src="data/screenshots/keyboard-shortcus.png" width="45%" valign="top" alt="Keyboard Shortcuts" />
-  <img src="data/screenshots/credits.png" width="45%" valign="top" alt="Credits" />
-</div>
 
 ## 🎉 Version 1.0.0 - Reimagined for GNOME
 
@@ -104,3 +91,17 @@ Kuro is licensed under the [GPL-3.0-or-later](COPYING).
 - **Original Hitori Developers**: Philip Withnall, Ben Windsor.
 - **GNOME**: For the GTK toolkit and Libadwaita.
 - **Nikoli**: For the original Hitori puzzle design.
+
+## Screenshots
+
+| Dark Theme | Pause Overlay |
+|------------|---------------|
+| ![Dark Theme](data/screenshots/dark-board-theme.png) | ![Pause Overlay](data/screenshots/pause.png) |
+
+| High Scores | About Dialog |
+|-------------|--------------|
+| ![High Scores](data/screenshots/high-scores.png) | ![About Dialog](data/screenshots/ab.png) |
+
+| Keyboard Shortcuts | Credits |
+|--------------------|---------|
+| ![Keyboard Shortcuts](data/screenshots/keyboard-shortcus.png) | ![Credits](data/screenshots/credits.png) |
