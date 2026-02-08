@@ -1,5 +1,5 @@
 project('kuro', 'c',
-  version: '1.0.0',
+  version: '1.0.1',
   meson_version : '>= 0.48.0',
   license: 'GPLv3+',
   default_options : [

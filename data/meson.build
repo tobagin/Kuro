@@ -1,8 +1,17 @@
 subdir('icons')
 
+app_conf = configuration_data()
+app_conf.set('APP_ID', application_id)
+
+configured_desktop = configure_file(
+  input: 'kuro.desktop.in',
+  output: 'kuro.desktop.in.configured',
+  configuration: app_conf
+)
+
 desktop_file = i18n.merge_file(
   type: 'desktop',
-  input: 'kuro.desktop.in',
+  input: configured_desktop,
   output: '@0@.desktop'.format(application_id),
   po_dir: join_paths(meson.source_root(), 'po'),
   install: true,
@@ -20,8 +29,14 @@ if desktop_file_validate.found()
   )
 endif
 
-metainfo_file = i18n.merge_file(
+configured_metainfo = configure_file(
   input: 'kuro.metainfo.xml.in',
+  output: 'kuro.metainfo.xml.in.configured',
+  configuration: app_conf
+)
+
+metainfo_file = i18n.merge_file(
+  input: configured_metainfo,
   output: '@0@.metainfo.xml'.format(application_id),
   po_dir: join_paths(meson.source_root(), 'po'),
   install: true,

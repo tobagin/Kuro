@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2014 Philip Withnall <philip@tecnocode.co.uk> -->
 <component type="desktop-application">
-  <id>io.github.tobagin.Kuro.Devel</id>
+  <id>@APP_ID@</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
 
@@ -60,7 +60,7 @@
   <provides>
     <binary>kuro</binary>
   </provides>
-  <launchable type="desktop-id">io.github.tobagin.Kuro.Devel.desktop</launchable>
+  <launchable type="desktop-id">@APP_ID@.desktop</launchable>
   <url type="homepage">https://github.com/tobagin/Kuro</url>
   <url type="bugtracker">https://github.com/tobagin/Kuro/issues</url>
   <url type="vcs-browser">https://github.com/tobagin/Kuro</url>
