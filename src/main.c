@@ -433,25 +433,7 @@ void kuro_reset_timer(Kuro *kuro) {
   set_timer_label(kuro);
 }
 
-void kuro_quit(Kuro *kuro) {
-  static gboolean quitting = FALSE;
-
-  if (quitting == TRUE)
-    return;
-  quitting = TRUE;
-
-  kuro_free_board(kuro);
-  kuro_clear_undo_stack(kuro);
-  g_free(kuro->undo_stack); /* Clear the new game element */
-
-  if (kuro->window != NULL)
-    gtk_window_destroy(GTK_WINDOW(kuro->window));
-
-  if (kuro->settings)
-    g_object_unref(kuro->settings);
-
-  g_application_quit(G_APPLICATION(kuro));
-}
+void kuro_quit(Kuro *kuro) { g_application_quit(G_APPLICATION(kuro)); }
 
 int main(int argc, char *argv[]) {
   KuroApplication *app;
