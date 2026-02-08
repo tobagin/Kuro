@@ -1,1 +1,1 @@
-option('application_id', type: 'string', value: 'io.github.tobagin.Kuro', description: 'The application ID')
+option('profile', type: 'combo', choices: ['default', 'development'], value: 'default', description: 'The build profile')

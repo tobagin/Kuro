@@ -1,6 +1,6 @@
 project('kuro', 'c',
-  version: '1.0.1',
-  meson_version : '>= 0.48.0',
+  version: '1.0.0',
+  meson_version : '>= 0.58.0',
   license: 'GPLv3+',
   default_options : [
     'buildtype=debugoptimized',
@@ -11,7 +11,15 @@ project('kuro', 'c',
 
 i18n = import('i18n')
 gnome = import('gnome')
-application_id = get_option('application_id')
+if get_option('profile') == 'development'
+  profile = 'Devel'
+  name_suffix = ' (Development)'
+  application_id = 'io.github.tobagin.Kuro.Devel'
+else
+  profile = ''
+  name_suffix = ''
+  application_id = 'io.github.tobagin.Kuro'
+endif
 
 # Dependencies
 glib_dependency = dependency('glib-2.0')

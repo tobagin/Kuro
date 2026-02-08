@@ -1,0 +1,417 @@
+Skipping: org.gnome.Sdk/x86_64/49 is already installed
+Skipping: org.gnome.Platform/x86_64/49 is already installed
+Building Development version...
+FB: Running: git config --get user.email
+FB: Running: git config --get user.name
+Emptying app dir 'build-dir'
+FB: Running: flatpak info --arch=x86_64 --show-commit org.gnome.Sdk 49
+FB: Using org.gnome.Sdk version 49 commit 1a30bd731d05642876ea1bbcaf54b0b240dde108bbe3c85233ba169f6a82dc16
+FB: Running: flatpak info --show-location --arch=x86_64 org.gnome.Sdk 49
+FB: Running: flatpak info --arch=x86_64 --show-commit org.gnome.Platform 49
+FB: Using org.gnome.Platform version 49 commit a884b7f190110b6de93bb7988d755ac21ba9248d7aeceab18f26795848ac7b12
+Downloading sources
+Starting build of io.github.tobagin.Kuro.Devel
+Cache miss, checking out last cache hit
+FB: Mounting read-only fs: rofiles-fuse /home/tobagin/Projects/hitori/build-dir /home/tobagin/Projects/hitori/.flatpak-builder/rofiles/rofiles-kyc5J2
+========================================================================
+Building module kuro in /home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30
+========================================================================
+FB: Running: flatpak build --die-with-parent --env=FLATPAK_BUILDER_BUILDDIR=/run/build/kuro --nofilesystem=host:reset --filesystem=/home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30 --bind-mount=/run/build/kuro=/home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30 --bind-mount=/run/active-build=/home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30 --build-dir=/run/build/kuro/_flatpak_build --bind-mount=/run/ccache=/home/tobagin/Projects/hitori/.flatpak-builder/ccache --env=SOURCE_DATE_EPOCH=1770573583 '--env=CFLAGS=-O2 -pipe -g -Wp,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer ' '--env=CXXFLAGS=-O2 -pipe -g -Wp,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer ' '--env=LDFLAGS=-L/app/lib -Wl,-z,relro,-z,now -Wl,--as-needed ' --env=CCACHE_DIR=/run/ccache/disabled --env=PATH=/app/bin:/usr/bin --env=LD_LIBRARY_PATH=/app/lib --env=PKG_CONFIG_PATH=/app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig --env=FLATPAK_BUILDER_N_JOBS=20 /home/tobagin/Projects/hitori/.flatpak-builder/rofiles/rofiles-kyc5J2 meson setup --wrap-mode=nodownload --prefix=/app --libdir=/app/lib .. -Dprofile=development
+The Meson build system
+Version: 1.9.2
+Source dir: /run/build/kuro
+Build dir: /run/build/kuro/_flatpak_build
+Build type: native build
+Project name: kuro
+Project version: 1.0.1
+C compiler for the host machine: ccache cc (gcc 15.2.0 "cc (GCC) 15.2.0")
+C linker for the host machine: cc ld.bfd 2.45.1
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Found pkg-config: YES (/usr/bin/pkg-config) 2.5.1
+Run-time dependency glib-2.0 found: YES 2.86.3
+Run-time dependency gio-2.0 found: YES 2.86.3
+Run-time dependency gtk4 found: YES 4.20.3
+Run-time dependency libadwaita-1 found: YES 1.8.3
+Run-time dependency gmodule-2.0 found: YES 2.86.3
+Run-time dependency cairo found: YES 1.18.4
+Compiler for C supports arguments -fno-strict-aliasing: YES 
+Compiler for C supports arguments -fstack-protector-strong: YES 
+Compiler for C supports arguments -Waggregate-return: YES 
+Compiler for C supports arguments -Wall: YES 
+Compiler for C supports arguments -Wunused: YES 
+Compiler for C supports arguments -Warray-bounds: YES 
+Compiler for C supports arguments -Wcast-align: YES 
+Compiler for C supports arguments -Wclobbered: YES 
+Compiler for C supports arguments -Wno-declaration-after-statement: YES 
+Compiler for C supports arguments -Wduplicated-branches: YES 
+Compiler for C supports arguments -Wduplicated-cond: YES 
+Compiler for C supports arguments -Wempty-body: YES 
+Compiler for C supports arguments -Wformat=2: YES 
+Compiler for C supports arguments -Wformat-nonliteral: YES 
+Compiler for C supports arguments -Wformat-security: YES 
+Compiler for C supports arguments -Wformat-signedness: YES 
+Compiler for C supports arguments -Wignored-qualifiers: YES 
+Compiler for C supports arguments -Wimplicit-function-declaration: YES 
+Compiler for C supports arguments -Wincompatible-pointer-types: YES 
+Compiler for C supports arguments -Wincompatible-pointer-types-discards-qualifiers: NO 
+Compiler for C supports arguments -Winit-self: YES 
+Compiler for C supports arguments -Wint-conversion: YES 
+Compiler for C supports arguments -Wlogical-op: YES 
+Compiler for C supports arguments -Wmisleading-indentation: YES 
+Compiler for C supports arguments -Wmissing-declarations: YES 
+Compiler for C supports arguments -Wmissing-format-attribute: YES 
+Compiler for C supports arguments -Wmissing-include-dirs: YES 
+Compiler for C supports arguments -Wmissing-noreturn: YES 
+Compiler for C supports arguments -Wmissing-parameter-type: YES 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -Wnested-externs: YES 
+Compiler for C supports arguments -Wno-error=cpp: YES 
+Compiler for C supports arguments -Wno-discarded-qualifiers: YES 
+Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+Compiler for C supports arguments -Wno-suggest-attribute=format: YES 
+Compiler for C supports arguments -Wno-unused-parameter: YES 
+Compiler for C supports arguments -Wnull-dereference: YES 
+Compiler for C supports arguments -Wold-style-definition: YES 
+Compiler for C supports arguments -Woverflow: YES 
+Compiler for C supports arguments -Woverride-init: YES 
+Compiler for C supports arguments -Wparentheses: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wredundant-decls: YES 
+Compiler for C supports arguments -Wreturn-type: YES 
+Compiler for C supports arguments -Wshadow: YES 
+Compiler for C supports arguments -Wsign-compare: YES 
+Compiler for C supports arguments -Wstrict-aliasing=2: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Compiler for C supports arguments -Wswitch-default: YES 
+Compiler for C supports arguments -Wswitch-enum: YES 
+Compiler for C supports arguments -Wtype-limits: YES 
+Compiler for C supports arguments -Wundef: YES 
+Compiler for C supports arguments -Wuninitialized: YES 
+Compiler for C supports arguments -Wunused-but-set-variable: YES 
+Compiler for C supports arguments -Wunused-result: YES 
+Compiler for C supports arguments -Wunused-variable: YES 
+Compiler for C supports arguments -Wwrite-strings: YES 
+../meson.build:100: WARNING: Consider using the built-in warning_level option instead of using "-Wall".
+Configuring kuro.desktop.in.configured using configuration
+../data/meson.build:16: WARNING: Project targets '>= 0.58.0' but uses feature deprecated since '0.56.0': meson.source_root. use meson.project_source_root() or meson.global_source_root() instead.
+Program msgfmt found: YES (/usr/bin/msgfmt)
+Program desktop-file-validate found: YES (/usr/bin/desktop-file-validate)
+Configuring kuro.metainfo.xml.in.configured using configuration
+../data/meson.build:41: WARNING: Project targets '>= 0.58.0' but uses feature deprecated since '0.56.0': meson.source_root. use meson.project_source_root() or meson.global_source_root() instead.
+Program appstreamcli found: YES (/usr/bin/appstreamcli)
+Configuring io.github.tobagin.Kuro.Devel.gschema.xml using configuration
+Program blueprint-compiler found: YES (/usr/bin/blueprint-compiler)
+Program gtk4-builder-tool found: YES (/usr/bin/gtk4-builder-tool)
+Program itstool found: YES (/usr/bin/itstool)
+Program msgmerge found: YES (/usr/bin/msgmerge)
+Program msgfmt found: YES (/usr/bin/msgfmt)
+Program msginit found: YES (/usr/bin/msginit)
+Program msgmerge found: YES (/usr/bin/msgmerge)
+Program xgettext found: YES (/usr/bin/xgettext)
+Checking for function "atexit" : YES 
+Configuring kuro.gresource.xml using configuration
+../src/meson.build:27: WARNING: Project targets '>= 0.58.0' but uses feature deprecated since '0.56.0': meson.source_root. use meson.project_source_root() or meson.global_source_root() instead.
+Dependency gio-2.0 found: YES 2.86.3 (cached)
+Program /usr/bin/glib-compile-resources found: YES (/usr/bin/glib-compile-resources)
+Configuring config.h using configuration
+Build targets in project: 132
+WARNING: Deprecated features used:
+ * 0.56.0: {'meson.source_root'}
+
+kuro 1.0.1
+
+  User defined options
+    libdir   : /app/lib
+    prefix   : /app
+    profile  : development
+    wrap_mode: nodownload
+
+Found ninja-1.13.2 at /usr/bin/ninja
+FB: Running: flatpak build --die-with-parent --env=FLATPAK_BUILDER_BUILDDIR=/run/build/kuro --nofilesystem=host:reset --filesystem=/home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30 --bind-mount=/run/build/kuro=/home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30 --bind-mount=/run/active-build=/home/tobagin/Projects/hitori/.flatpak-builder/build/kuro-30 --build-dir=/run/build/kuro/_flatpak_build --bind-mount=/run/ccache=/home/tobagin/Projects/hitori/.flatpak-builder/ccache --env=SOURCE_DATE_EPOCH=1770573583 '--env=CFLAGS=-O2 -pipe -g -Wp,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer ' '--env=CXXFLAGS=-O2 -pipe -g -Wp,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer ' '--env=LDFLAGS=-L/app/lib -Wl,-z,relro,-z,now -Wl,--as-needed ' --env=CCACHE_DIR=/run/ccache/disabled --env=PATH=/app/bin:/usr/bin --env=LD_LIBRARY_PATH=/app/lib --env=PKG_CONFIG_PATH=/app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig --env=FLATPAK_BUILDER_N_JOBS=20 /home/tobagin/Projects/hitori/.flatpak-builder/rofiles/rofiles-kyc5J2 ninja -j20 -l40
+[1/112] Generating yelp doc help/eu/help-kuro-eu-gmo
+[2/112] Generating yelp doc help/ro/help-kuro-ro-gmo
+[3/112] Generating yelp doc help/cs/help-kuro-cs-gmo
+[4/112] Generating yelp doc help/en_GB/help-kuro-en_GB-gmo
+[5/112] Generating yelp doc help/es/help-kuro-es-gmo
+[6/112] Generating yelp doc help/hu/help-kuro-hu-gmo
+[7/112] Generating yelp doc help/id/help-kuro-id-gmo
+[8/112] Generating yelp doc help/pl/help-kuro-pl-gmo
+[9/112] Generating yelp doc help/ca/help-kuro-ca-gmo
+[10/112] Generating yelp doc help/da/help-kuro-da-gmo
+[11/112] Generating yelp doc help/el/help-kuro-el-gmo
+[12/112] Generating yelp doc help/pt_BR/help-kuro-pt_BR-gmo
+[13/112] Generating yelp doc help/de/help-kuro-de-gmo
+[14/112] Generating yelp doc help/ru/help-kuro-ru-gmo
+[15/112] Generating yelp doc help/fr/help-kuro-fr-gmo
+[16/112] Generating yelp doc help/ko/help-kuro-ko-gmo
+[17/112] Generating yelp doc help/sl/help-kuro-sl-gmo
+[18/112] Generating yelp doc help/fur/help-kuro-fur-gmo
+[19/112] Generating yelp doc help/tr/help-kuro-tr-gmo
+[20/112] Generating yelp doc help/sv/help-kuro-sv-gmo
+[21/112] Generating yelp doc help/uk/help-kuro-uk-gmo
+[22/112] Generating yelp doc help/eu/help-kuro-eu
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[23/112] Merging translations for data/io.github.tobagin.Kuro.Devel.metainfo.xml
+FAILED: [code=1] data/io.github.tobagin.Kuro.Devel.metainfo.xml 
+/usr/bin/meson --internal msgfmthelper --msgfmt=/usr/bin/msgfmt data/kuro.metainfo.xml.in.configured data/io.github.tobagin.Kuro.Devel.metainfo.xml xml /run/build/kuro/po
+/usr/bin/msgfmt: cannot locate ITS rules for data/kuro.metainfo.xml.in.configured
+[24/112] Generating yelp doc help/en_GB/help-kuro-en_GB
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[25/112] Generating yelp doc help/el/help-kuro-el
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[26/112] Generating yelp doc help/hu/help-kuro-hu
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[27/112] Generating yelp doc help/cs/help-kuro-cs
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[28/112] Generating yelp doc help/es/help-kuro-es
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[29/112] Generating yelp doc help/ca/help-kuro-ca
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[30/112] Generating yelp doc help/pt_BR/help-kuro-pt_BR
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[31/112] Generating yelp doc help/de/help-kuro-de
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[32/112] Generating yelp doc help/ro/help-kuro-ro
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[33/112] Merging translations for data/io.github.tobagin.Kuro.Devel.desktop
+[34/112] Generating yelp doc help/pl/help-kuro-pl
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[35/112] Generating yelp doc help/ko/help-kuro-ko
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[36/112] Generating yelp doc help/ru/help-kuro-ru
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[37/112] Generating yelp doc help/id/help-kuro-id
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[38/112] Generating yelp doc help/fur/help-kuro-fur
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[39/112] Generating yelp doc help/fr/help-kuro-fr
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[40/112] Generating yelp doc help/da/help-kuro-da
+/usr/bin/itstool:223: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', ' ', text).strip() != '':
+/usr/bin/itstool:321: SyntaxWarning: invalid escape sequence '\s'
+  message = re.sub('\s+', ' ', message).strip()
+/usr/bin/itstool:459: SyntaxWarning: invalid escape sequence '\s'
+  return re.sub('\s+', ' ', self.locnote).strip()
+/usr/bin/itstool:461: SyntaxWarning: invalid escape sequence '\s'
+  return '(itstool) link: ' + re.sub('\s+', ' ', self.locnoteref).strip()
+/usr/bin/itstool:892: SyntaxWarning: invalid escape sequence '\<'
+  regex = re.compile('(.*) \<(.*)\>, (.*)')
+/usr/bin/itstool:927: SyntaxWarning: invalid escape sequence '\s'
+  if re.sub('\s+', '', prevtext) == '':
+/usr/bin/itstool:1471: SyntaxWarning: invalid escape sequence '\.'
+  _locale_pattern = re.compile('([a-zA-Z0-9-]+)(_[A-Za-z0-9]+)?(@[A-Za-z0-9]+)?(\.[A-Za-z0-9]+)?')
+[41/112] Generating data/help_overlay_blp_ui with a custom command
+[42/112] Generating data/kuro_blp_ui with a custom command
+ninja: build stopped: subcommand failed.
+Error: module kuro: Child process exited with code 1
+FB: Unmounting read-only fs: fusermount -uz /home/tobagin/Projects/hitori/.flatpak-builder/rofiles/rofiles-kyc5J2

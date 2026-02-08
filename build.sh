@@ -15,4 +15,4 @@ else
 fi
 
 # Build the flatpak
-flatpak-builder --user --install --force-clean build-dir "$MANIFEST"
+flatpak-builder -v --user --install --force-clean build-dir "$MANIFEST"

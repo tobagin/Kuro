@@ -13,7 +13,7 @@ modules:
   - name: kuro
     buildsystem: meson
     config-opts:
-      - -Dapplication_id=io.github.tobagin.Kuro.Devel
+      - -Dprofile=development
     sources:
       - type: dir
         path: ..

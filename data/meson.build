@@ -5,7 +5,7 @@ app_conf.set('APP_ID', application_id)
 
 configured_desktop = configure_file(
   input: 'kuro.desktop.in',
-  output: 'kuro.desktop.in.configured',
+  output: 'kuro.desktop.in.in',
   configuration: app_conf
 )
 
@@ -31,7 +31,7 @@ endif
 
 configured_metainfo = configure_file(
   input: 'kuro.metainfo.xml.in',
-  output: 'kuro.metainfo.xml.in.configured',
+  output: 'kuro.metainfo.xml.in',
   configuration: app_conf
 )
 
