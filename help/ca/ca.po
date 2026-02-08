@@ -1,11 +1,11 @@
-# Catalan translation for hitori.
-# Copyright (C) 2020 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Catalan translation for kuro.
+# Copyright (C) 2020 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 # Miniàngel <miquel.angel.burgos@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori master\n"
+"Project-Id-Version: kuro master\n"
 "POT-Creation-Date: 2021-05-03 22:23+0000\n"
 "PO-Revision-Date: 2020-09-08 15:06+0200\n"
 "Last-Translator: Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail."
@@ -46,35 +46,35 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
 "Per a canviar la mida del tauler, premeu el botó de menú de la cantonada "
 "superior dreta de la finestra i seleccioneu una opció a <gui style=\"menuitem"
-"\">Mida del tauler</gui>. L'<app>Hitori</app> us preguntarà si voleu aturar "
+"\">Mida del tauler</gui>. L'<app>Kuro</app> us preguntarà si voleu aturar "
 "la partida actual si n'esteu jugant una i iniciarà una nova partida amb la "
 "mida de tauler sol·licitada."
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Introducció al joc de l'Hitori."
+msgid "Introduction to the game of Kuro."
+msgstr "Introducció al joc de l'Kuro."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "El joc de l'Hitori"
+msgid "Kuro the Game"
+msgstr "El joc de l'Kuro"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"L'Hitori és un petit trencaclosques lògic similar al Sudoku, més popular. Al "
+"L'Kuro és un petit trencaclosques lògic similar al Sudoku, més popular. Al "
 "joc, el jugador comença amb un tauler quadrat amb nombres i ha de "
 "<em>pintar</em> les caselles fins que no hi hagi cap nombre duplicat a cada "
 "fila i columna. Les regles són les següents:"
@@ -108,10 +108,10 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "Aquestes són les tres úniques regles del joc, i, per tant, poden haver-hi "
-"múltiples solucions per a un tauler del trencaclosques Hitori."
+"múltiples solucions per a un tauler del trencaclosques Kuro."
 
 #. (itstool) path: figure/title
 #: C/game.page:20
@@ -120,8 +120,8 @@ msgstr "Finestra principal del joc"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "Finestra principal de l'<app>Hitori</app>"
+msgid "<app>Kuro</app> main window"
+msgstr "Finestra principal de l'<app>Kuro</app>"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -131,34 +131,34 @@ msgstr "Finestra principal de l'<app>Hitori</app>"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "Finestra principal de l'<app>Hitori</app>."
+msgid "<app>Kuro</app> main window."
+msgstr "Finestra principal de l'<app>Kuro</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
-msgstr "Ajuda de l'Hitori"
+msgid "Kuro Help"
+msgstr "Ajuda de l'Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
-msgstr "Ajuda de l'Hitori"
+msgid "Kuro Help"
+msgstr "Ajuda de l'Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
-msgstr "Ajuda de l'Hitori"
+msgid "Kuro Help"
+msgstr "Ajuda de l'Kuro"
 
 #. (itstool) path: credit/name
 #: C/index.page:11
@@ -183,8 +183,8 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
-msgstr "<_:media-1/> Ajuda de l'Hitori"
+msgid "<_:media-1/> Kuro Help"
+msgstr "<_:media-1/> Ajuda de l'Kuro"
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -208,8 +208,8 @@ msgstr "Aquesta obra està llicenciada sota una <_:link-1/>."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Jugueu una partida a l'<app>Hitori</app>."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Jugueu una partida a l'<app>Kuro</app>."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -221,12 +221,12 @@ msgstr "Jugar una partida"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "Per a començar una partida nova, premeu el botó de menú de la cantonada "
 "superior dreta de la finestra i seleccioneu <gui style=\"menuitem\">Partida nova</"
-"gui>. Si ja esteu jugant una partida, l'<app>Hitori</app> us demanarà si "
+"gui>. Si ja esteu jugant una partida, l'<app>Kuro</app> us demanarà si "
 "voleu aturar-la."
 
 #. (itstool) path: page/p
@@ -243,14 +243,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
 "be un-tagged by clicking on them again while holding either <key>Ctrl</key> "
 "or <key>Shift</key> again."
 msgstr ""
-"L'<app>Hitori</app> també us permet d'etiquetar caselles com a referència "
+"L'<app>Kuro</app> també us permet d'etiquetar caselles com a referència "
 "per a resoldre un tauler. Això es pot fer prement <key>Ctrl</key> o "
 "<key>Maj</key> i fent clic en una casella alhora. Cada combinació etiqueta "
 "de manera diferent i les caselles es poden etiquetar de les dues maneres "
@@ -300,8 +300,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Estratègies per a jugar a l'Hitori."
+msgid "Strategies for playing Kuro."
+msgstr "Estratègies per a jugar a l'Kuro."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -311,13 +311,13 @@ msgstr "Estratègies del joc"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
 "em>."
 msgstr ""
-"L'Hitori és força semblant al Sudoku, ja que requereix deducció lògica per a "
+"L'Kuro és força semblant al Sudoku, ja que requereix deducció lògica per a "
 "esbrinar quines caselles pintar. Una estratègia és utilitzar la tecla "
 "<key>Maj</key> per a etiquetar tots els nombres repetits de cada "
 "<em>columna</em> i la tecla <key>Ctrl</key> per a etiquetar tots els nombres "
@@ -330,26 +330,26 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Una vegada fet això pertot el tauler, les caselles etiquetades de les dues "
 "maneres són bones candidates per a pintar-les, encara que no sempre. Quan es "
 "pinta una casella, restablir-ne les altres amb el mateix nombre de la "
 "mateixa fila i columna és una bona manera de fer un seguiment de les cel·les "
-"que encara estan violant <link xref=\"game\">la primera regla de l'Hitori</"
+"que encara estan violant <link xref=\"game\">la primera regla de l'Kuro</"
 "link>."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Tingueu sempre present que la segona regla de l'Hitori significa que dues "
-"caselles adjacents no es poden pintar. L'<app>Hitori</app> ressaltarà en "
+"Tingueu sempre present que la segona regla de l'Kuro significa que dues "
+"caselles adjacents no es poden pintar. L'<app>Kuro</app> ressaltarà en "
 "vermell les caselles que violin la segona regla. De manera similar, els "
 "grups de caselles que violin la tercera regla separant una o més caselles no "
 "pintades de les altres es ressaltaran en vermell."
@@ -358,10 +358,10 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Si us quedeu bloquejat en cap moment, premeu <gui style=\"button\">Obtingueu "
 "un suggeriment per al vostre proper moviment</gui> a la barra de capçalera "
-"perquè l'<app>Hitori</app> indiqui una casella que s'hauria de pintar o "
+"perquè l'<app>Kuro</app> indiqui una casella que s'hauria de pintar o "
 "restablir per a apropar-vos a una solució."

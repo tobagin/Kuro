@@ -1,0 +1,43 @@
+/* Cell background color */
+
+@define-color unpainted-bg-color #241f31;
+@define-color painted-bg-color #1a1a1a;
+
+/* Cell border color */
+
+@define-color unpainted-border-color #3d3846;
+@define-color painted-border-color #1a1a1a;
+@define-color hint-border-color #ff7b63;
+/* Softer red for dark theme */
+
+/* Colors of numbers within cells */
+
+@define-color unpainted-number-color #f6f5f4;
+@define-color painted-number-color #6d6d6d;
+@define-color mistaken-number-color #ff7b63;
+
+/* Shift-click a cell for tag1, ctrl-click for tag2 */
+
+@define-color tag1-unpainted-color #3584e4;
+/* GNOME Blue */
+@define-color tag1-painted-color alpha(@tag1-unpainted-color, 0.5);
+
+@define-color tag2-unpainted-color #33d17a;
+/* GNOME Green */
+@define-color tag2-painted-color alpha(@tag2-unpainted-color, 0.5);
+
+/* Cursor color */
+
+@define-color cursor-color #9141ac;
+/* Purple for visibility on dark */
+
+/* Pause Overlay */
+.pause-overlay {
+    background-color: alpha(black, 0.75);
+    color: white;
+}
+
+.pause-overlay .large-title {
+    font-size: 36pt;
+    font-weight: bold;
+}

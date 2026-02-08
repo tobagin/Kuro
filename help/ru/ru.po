@@ -1,11 +1,11 @@
-# Russian translation for hitori.
-# Copyright (C) 2022 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Russian translation for kuro.
+# Copyright (C) 2022 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 # Ser82-png <sw@atrus.ru>, 2022.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori main\n"
+"Project-Id-Version: kuro main\n"
 "POT-Creation-Date: 2021-12-24 06:51+0000\n"
 "PO-Revision-Date: 2022-01-15 13:10+1000\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
@@ -59,18 +59,18 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
+msgid "Introduction to the game of Kuro."
 msgstr "Знакомство с игрой Хитори."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
+msgid "Kuro the Game"
 msgstr "Игра \"Хитори\""
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
@@ -109,7 +109,7 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "Эти три правила единственные, поэтому у головоломки \"Хитори\" вполне может "
 "быть несколько решений."
@@ -121,7 +121,7 @@ msgstr "Главное окно игры"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
+msgid "<app>Kuro</app> main window"
 msgstr "Главное окно <app>\"Хитори\"</app>"
 
 #. (itstool) path: figure/media
@@ -132,33 +132,33 @@ msgstr "Главное окно <app>\"Хитори\"</app>"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
+msgid "<app>Kuro</app> main window."
 msgstr "Главное окно <app>\"Хитори\"</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
+msgid "Kuro Help"
 msgstr "Справка по \"Хитори\""
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
+msgid "Kuro Help"
 msgstr "Справка по \"Хитори\""
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
+msgid "Kuro Help"
 msgstr "Справка по \"Хитори\""
 
 #. (itstool) path: credit/name
@@ -184,7 +184,7 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
+msgid "<_:media-1/> Kuro Help"
 msgstr "Справка по \"Хитори\""
 
 #. (itstool) path: section/title
@@ -209,7 +209,7 @@ msgstr "Эта работа находится под лицензией <_:link
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
+msgid "Using <app>Kuro</app> to play a game."
 msgstr "Как играть в <app>\"Хитори\"</app>."
 
 #. (itstool) path: page/title
@@ -222,7 +222,7 @@ msgstr "Играть в игру"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "Чтобы начать новую игру, нажмите кнопку меню в правом верхнем углу окна и "
@@ -244,7 +244,7 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
@@ -299,7 +299,7 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
+msgid "Strategies for playing Kuro."
 msgstr "Стратегии игры в \"Хитори\"."
 
 #. (itstool) path: page/title
@@ -310,7 +310,7 @@ msgstr "Стратегия игры"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
@@ -330,7 +330,7 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Как только это будет сделано для всей доски, ячейки, помеченные в обоих "
 "направлениях, станут хорошими кандидатами на закрашивание, хотя и не всегда. "
@@ -342,8 +342,8 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
@@ -359,7 +359,7 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Если вы застряли на каком-либо этапе, нажмите кнопку <gui style=\"button"

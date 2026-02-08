@@ -1,4 +1,4 @@
-Overview of changes in Hitori 44.0
+Overview of changes in Kuro 44.0
 ==================================
 
 * Remove GNOME branding as it’s not an official GNOME game any more
@@ -35,7 +35,7 @@ Overview of changes in Hitori 44.0
   - Ukrainian (Yuri Chornoivan)
 
 
-Overview of changes in Hitori 3.38.4
+Overview of changes in Kuro 3.38.4
 ====================================
 
 * Initial support for playing the game with a keyboard
@@ -55,7 +55,7 @@ Overview of changes in Hitori 3.38.4
  - Russian
 
 
-Overview of changes in Hitori 3.38.3
+Overview of changes in Kuro 3.38.3
 ====================================
 
 * Bugs fixed:
@@ -67,11 +67,11 @@ Overview of changes in Hitori 3.38.3
  - Occitan (post 1500)
 
 
-Overview of changes in Hitori 3.38.2
+Overview of changes in Kuro 3.38.2
 ====================================
 
 * Bugs fixed:
- - !28 help: Add Hitori icon as SVG
+ - !28 help: Add Kuro icon as SVG
  - !29 appdata: Fix project license
 
 * Translation updates:
@@ -88,7 +88,7 @@ Overview of changes in Hitori 3.38.2
  - Ukrainian
 
 
-Overview of changes in Hitori 3.38.1
+Overview of changes in Kuro 3.38.1
 ====================================
 
 * Translation updates:
@@ -104,7 +104,7 @@ Overview of changes in Hitori 3.38.1
  - Slovak
 
 
-Overview of changes in Hitori 3.38.0
+Overview of changes in Kuro 3.38.0
 ====================================
 
 * Translation updates:
@@ -116,7 +116,7 @@ Overview of changes in Hitori 3.38.0
  - Slovak
 
 
-Overview of changes in Hitori 3.37.1
+Overview of changes in Kuro 3.37.1
 ====================================
 
 * Translation updates:
@@ -132,7 +132,7 @@ Overview of changes in Hitori 3.37.1
  - Turkish
 
 
-Overview of changes in Hitori 3.37.0
+Overview of changes in Kuro 3.37.0
 ====================================
 
 * Bugs fixed:
@@ -156,13 +156,13 @@ Overview of changes in Hitori 3.37.0
  - Ukrainian
 
 
-Overview of changes in Hitori 3.36.0
+Overview of changes in Kuro 3.36.0
 ====================================
 
 * No changes, version bump only
 
 
-Overview of changes in Hitori 3.35.0
+Overview of changes in Kuro 3.35.0
 ====================================
 
 * Bugs fixed:
@@ -179,7 +179,7 @@ Overview of changes in Hitori 3.35.0
  - Slovak
 
 
-Overview of changes in Hitori 3.34.0
+Overview of changes in Kuro 3.34.0
 ====================================
 
 * Translation updates:
@@ -190,7 +190,7 @@ Overview of changes in Hitori 3.34.0
  - Turkish
 
 
-Overview of changes in Hitori 3.33.0
+Overview of changes in Kuro 3.33.0
 ====================================
 
 * Remember window size and position (#3, #4)
@@ -233,16 +233,16 @@ Overview of changes in Hitori 3.33.0
  - Swedish
 
 
-Overview of changes in Hitori 3.31.92
+Overview of changes in Kuro 3.31.92
 =====================================
 
 * Add high-resolution icon. (#6)
 
 * Bugs fixed:
- - #6 [BZ#779630] Hitori is missing high resolution icon
+ - #6 [BZ#779630] Kuro is missing high resolution icon
  - !16 Update help manual
  - !17 help: Add missing LINGUAS
- - !19 flatpak: Hitori now only builds with Meson
+ - !19 flatpak: Kuro now only builds with Meson
 
 * Translation updates:
  - Dutch
@@ -256,7 +256,7 @@ Overview of changes in Hitori 3.31.92
  - Slovenian
 
 
-Overview of changes in Hitori 3.31.0
+Overview of changes in Kuro 3.31.0
 ====================================
 
 * Migrated to Meson. (#10)
@@ -290,7 +290,7 @@ Overview of changes in Hitori 3.31.0
  - Turkish
 
 
-Overview of changes in Hitori 3.22.4
+Overview of changes in Kuro 3.22.4
 ====================================
 
 * Translations:
@@ -305,7 +305,7 @@ Overview of changes in Hitori 3.22.4
  - tr (Muhammet Kara)
 
 
-Overview of changes in Hitori 3.22.3
+Overview of changes in Kuro 3.22.3
 ====================================
 
 * Minor rendering improvements (bug #732776)
@@ -321,7 +321,7 @@ Overview of changes in Hitori 3.22.3
  - uk (Daniel Korostil)
 
 
-Overview of changes in Hitori 3.22.2
+Overview of changes in Kuro 3.22.2
 ====================================
 
 * Add more build-time checks (this adds an optional build-time dependency on desktop-file-validate)
@@ -335,7 +335,7 @@ Overview of changes in Hitori 3.22.2
  - zh_TW (Chao-Hsiung Liao)
 
 
-Overview of changes in Hitori 3.22.1
+Overview of changes in Kuro 3.22.1
 ====================================
 
 * Port from intltool to gettext (this drops the intltool dependency)
@@ -360,7 +360,7 @@ Overview of changes in Hitori 3.22.1
  - zh_CN (liushuyu, Mandy Wang)
 
 
-Overview of changes in Hitori 3.22.0
+Overview of changes in Kuro 3.22.0
 ====================================
 
 * Various AppData fixes
@@ -373,7 +373,7 @@ Overview of changes in Hitori 3.22.0
  - sv (Anders Jonsson)
 
 
-Overview of changes in Hitori 3.20.0
+Overview of changes in Kuro 3.20.0
 ====================================
 
 * Various AppData fixes
@@ -386,20 +386,20 @@ Overview of changes in Hitori 3.20.0
  - oc (Cédric Valmary)
 
 
-Overview of changes in Hitori 3.19.1
+Overview of changes in Kuro 3.19.1
 ====================================
 
-* Rename icon, desktop and appdata files to use ‘org.gnome.Hitori’ prefix
+* Rename icon, desktop and appdata files to use ‘io.github.tobagin.Kuro’ prefix
 * Remove dependency on gnome-common in favour of autoconf-archive (or m4-common)
 
 
-Overview of changes in Hitori 3.16.1
+Overview of changes in Kuro 3.16.1
 ====================================
 
 * Updated symbolic icon
 
 
-Overview of changes in Hitori 3.16.0
+Overview of changes in Kuro 3.16.0
 ====================================
 
 * Port to GResource for UI and CSS
@@ -420,7 +420,7 @@ Overview of changes in Hitori 3.16.0
  - uk (Daniel Korostil)
 
 
-Overview of changes in Hitori 3.14.3
+Overview of changes in Kuro 3.14.3
 ====================================
 
 * Translations:
@@ -443,13 +443,13 @@ Overview of changes in Hitori 3.14.3
  - zh_TW (Chao-Hsiung Liao)
 
 
-Overview of changes in Hitori 3.14.2.1
+Overview of changes in Kuro 3.14.2.1
 ======================================
 
 * Revert string freeze break
 
 
-Overview of changes in Hitori 3.14.2
+Overview of changes in Kuro 3.14.2
 ====================================
 
 * Translations:
@@ -457,7 +457,7 @@ Overview of changes in Hitori 3.14.2
  - tr (Necdet Yücel, Muhammet Kara)
 
 
-Overview of changes in Hitori 3.14.1
+Overview of changes in Kuro 3.14.1
 ====================================
 
 * Translations:
@@ -471,14 +471,14 @@ Overview of changes in Hitori 3.14.1
  - zh_CN (Yunqiang Su)
 
 
-Overview of changes in Hitori 3.14.0.1
+Overview of changes in Kuro 3.14.0.1
 ======================================
 
 * autoreconf with up-to-date appstream-glib;
-  fixes install location for hitori.appdata.xml
+  fixes install location for kuro.appdata.xml
 
 
-Overview of changes in Hitori 3.14.0
+Overview of changes in Kuro 3.14.0
 ====================================
 
 * Translations:
@@ -487,7 +487,7 @@ Overview of changes in Hitori 3.14.0
  - hu (Gabor Kelemen)
 
 
-Overview of changes in Hitori 3.13.92
+Overview of changes in Kuro 3.13.92
 =====================================
 
 * Minor UI and translation updates
@@ -512,7 +512,7 @@ Overview of changes in Hitori 3.13.92
  - zh_TW (Chao-Hsiung Liao)
 
 
-Overview of changes in Hitori 3.13.90
+Overview of changes in Kuro 3.13.90
 =====================================
 
 * Follow guidelines for including license info in help
@@ -524,7 +524,7 @@ Overview of changes in Hitori 3.13.90
  - uk (Daniel Korostil)
 
 
-Overview of changes in Hitori 3.13.4
+Overview of changes in Kuro 3.13.4
 ====================================
 
 * Modernize UI, removing menu bar and status bar
@@ -548,7 +548,7 @@ Overview of changes in Hitori 3.13.4
  - ru (Yuri Myasoedov)
 
 
-Overview of changes in Hitori 0.4.3
+Overview of changes in Kuro 0.4.3
 ===================================
 
 * Translations:
@@ -563,7 +563,7 @@ Overview of changes in Hitori 0.4.3
  - sr (Мирослав Николић)
 
 
-Overview of changes in Hitori 0.4.2
+Overview of changes in Kuro 0.4.2
 ===================================
 
 * Add an AppData file
@@ -580,7 +580,7 @@ Overview of changes in Hitori 0.4.2
  - sr (Мирослав Николић)
 
 
-Overview of changes in Hitori 0.4.1
+Overview of changes in Kuro 0.4.1
 ===================================
 
 * Fix timer pausing on winning a game
@@ -597,7 +597,7 @@ Overview of changes in Hitori 0.4.1
  - ru (Yuri Myasoedov)
 
 
-Overview of changes in Hitori 0.4.0
+Overview of changes in Kuro 0.4.0
 ===================================
 
 * Remove implicit dependency on libm
@@ -618,7 +618,7 @@ Overview of changes in Hitori 0.4.0
  - sr (Мирослав Николић)
 
 
-Overview of changes in Hitori 0.3.0
+Overview of changes in Kuro 0.3.0
 ===================================
 
 * Port to GTK+ 3
@@ -641,7 +641,7 @@ Overview of changes in Hitori 0.3.0
  - vi (Lê Trường An)
 
 
-Overview of changes in Hitori 0.2.5
+Overview of changes in Kuro 0.2.5
 ===================================
 
 * Convert documentation to Mallard format
@@ -658,7 +658,7 @@ Overview of changes in Hitori 0.2.5
  - sl (Matej Urbančič)
 
 
-Overview of changes in Hitori 0.2.4
+Overview of changes in Kuro 0.2.4
 ===================================
 
 * Translations:
@@ -671,7 +671,7 @@ Overview of changes in Hitori 0.2.4
  - zh_CN (zhang ping)
 
 
-Overview of changes in Hitori 0.2.3
+Overview of changes in Kuro 0.2.3
 ===================================
 
 * Move ChangeLogs to be generated from git logs
@@ -688,14 +688,14 @@ Overview of changes in Hitori 0.2.3
  - cz (Marek Cernocky)
 
 
-Overview of changes in Hitori 0.2.2
+Overview of changes in Kuro 0.2.2
 ===================================
 
 * Fixed how hints are drawn
 * Cleaned up some of the code
 * Fixed markup validation in the documentation
-* Migrated bug handling to GNOME Bugzilla (http://bugzilla.gnome.org/enter_bug.cgi?product=hitori)
-* Migrated website to live.gnome.org (http://live.gnome.org/Hitori)
+* Migrated bug handling to GNOME Bugzilla (http://bugzilla.gnome.org/enter_bug.cgi?product=kuro)
+* Migrated website to live.gnome.org (http://live.gnome.org/Kuro)
 * Translations:
  - de (Mario Blättermann)
  - en_GB (Philip Withnall)
@@ -704,14 +704,14 @@ Overview of changes in Hitori 0.2.2
  - sv (Daniel Nylander)
 
 
-Overview of changes in Hitori 0.2.1
+Overview of changes in Kuro 0.2.1
 ===================================
 
 * Fixed some build problems
 * Fixed documentation licensing
 
 
-Overview of changes in Hitori 0.2
+Overview of changes in Kuro 0.2
 =================================
 
 * Added --seed option
@@ -725,7 +725,7 @@ Overview of changes in Hitori 0.2
 * Added desktop file
 
 
-Overview of changes in Hitori 0.1
+Overview of changes in Kuro 0.1
 =================================
 
 * Project created

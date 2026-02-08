@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Hitori-Doc\n"
+"Project-Id-Version: Kuro-Doc\n"
 "POT-Creation-Date: 2021-03-16 11:31+0000\n"
 "PO-Revision-Date: 2021-03-16 15:23+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -50,35 +50,35 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
 "För att ändra brädstorleken, klicka på menyknappen i fönstrets övre högra "
 "hörn och välj ett av alternativen från <gui style=\"menuitem\">Brädstorlek</"
-"gui>. <app>Hitori</app> kommer att fråga om du vill avbryta det pågående "
+"gui>. <app>Kuro</app> kommer att fråga om du vill avbryta det pågående "
 "spelet, om du är mitt i ett spel, för att sedan starta ett nytt spel med den "
 "begärda brädstorleken."
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Introduktion till spelet Hitori."
+msgid "Introduction to the game of Kuro."
+msgstr "Introduktion till spelet Kuro."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "Spelet Hitori"
+msgid "Kuro the Game"
+msgstr "Spelet Kuro"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"Hitori är ett litet logikpussel i liknande stil som det mer populära spelet "
+"Kuro är ett litet logikpussel i liknande stil som det mer populära spelet "
 "Sudoku. I det här spelet startar spelaren med ett kvadratiskt bräde av "
 "siffror, och måste <em>tona ner</em> celler tills det inte finns några "
 "dubbletter i någon rad eller kolumn. Följande regler gäller:"
@@ -112,10 +112,10 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "Dessa är de enda tre spelreglerna, så det kan mycket väl finnas flera "
-"lösningar på ett Hitoripussel."
+"lösningar på ett Kuropussel."
 
 #. (itstool) path: figure/title
 #: C/game.page:20
@@ -124,8 +124,8 @@ msgstr "Huvudspelsfönster"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "Huvudfönster för <app>Hitori</app>"
+msgid "<app>Kuro</app> main window"
+msgstr "Huvudfönster för <app>Kuro</app>"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -135,34 +135,34 @@ msgstr "Huvudfönster för <app>Hitori</app>"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "Huvudfönster för <app>Hitori</app>."
+msgid "<app>Kuro</app> main window."
+msgstr "Huvudfönster för <app>Kuro</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
-msgstr "Hjälp för Hitori"
+msgid "Kuro Help"
+msgstr "Hjälp för Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
-msgstr "Hjälp för Hitori"
+msgid "Kuro Help"
+msgstr "Hjälp för Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
-msgstr "Hjälp för Hitori"
+msgid "Kuro Help"
+msgstr "Hjälp för Kuro"
 
 #. (itstool) path: credit/name
 #: C/index.page:11
@@ -187,8 +187,8 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
-msgstr "<_:media-1/> Hjälp för Hitori"
+msgid "<_:media-1/> Kuro Help"
+msgstr "<_:media-1/> Hjälp för Kuro"
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -212,8 +212,8 @@ msgstr "Det här verket är licensierat under licensen <_:link-1/>."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Att använda <app>Hitori</app> för att spela."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Att använda <app>Kuro</app> för att spela."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -225,12 +225,12 @@ msgstr "Spela ett spel"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "För att starta ett nytt spel, klicka på menyknappen i fönstrets övre högra "
 "hörn och välj <gui style=\"menuitem\">Nytt spel</gui>. Om du redan spelar "
-"ett spel kommer <app>Hitori</app> att fråga om du vill avbryta det pågående "
+"ett spel kommer <app>Kuro</app> att fråga om du vill avbryta det pågående "
 "spelet."
 
 #. (itstool) path: page/p
@@ -247,14 +247,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
 "be un-tagged by clicking on them again while holding either <key>Ctrl</key> "
 "or <key>Shift</key> again."
 msgstr ""
-"<app>Hitori</app> låter dig också tagga celler för egen referens när du "
+"<app>Kuro</app> låter dig också tagga celler för egen referens när du "
 "löser pusslet. Detta kan åstadkommas genom att trycka <key>Ctrl</key> eller "
 "<key>Skift</key> och klicka på en cell. De taggar båda cellen på olika sätt, "
 "och cellen kan markeras på båda sätten samtidigt. Taggade celler kan "
@@ -304,8 +304,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Strategier för att spela Hitori."
+msgid "Strategies for playing Kuro."
+msgstr "Strategier för att spela Kuro."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -315,13 +315,13 @@ msgstr "Spelstrategier"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
 "em>."
 msgstr ""
-"Hitori är ganska likt spelet Sudoku, genom att det krävs logisk slutledning "
+"Kuro är ganska likt spelet Sudoku, genom att det krävs logisk slutledning "
 "för att räkna ut vilka celler att tona ner. En strategi är att <key>Skift</"
 "key>-klicka för att tagga alla upprepade siffror i varje <em>kolumn</em> och "
 "sedan <key>Ctrl</key>-klicka för att tagga alla upprepade siffror i varje "
@@ -334,26 +334,26 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "När detta är gjort för hela brädet, är de celler som har blivit taggade i "
 "båda riktningarna goda kandidater för att tonas ned, men inte alltid. När "
 "man tonar ned en cell, är att ta bort taggarna från cellerna med samma "
 "nummer i samma rad och kolumn som den cellen ett bra sätt att hålla reda på "
-"de celler som fortfarande bryter mot <link xref=\"game\">regel 1 i Hitori</"
+"de celler som fortfarande bryter mot <link xref=\"game\">regel 1 i Kuro</"
 "link>."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Ha alltid i beaktande att regel 2 i Hitori innebär att två angränsande "
-"celler inte båda kan tonas ned. <app>Hitori</app> kommer markera de cellerna "
+"Ha alltid i beaktande att regel 2 i Kuro innebär att två angränsande "
+"celler inte båda kan tonas ned. <app>Kuro</app> kommer markera de cellerna "
 "som bryter mot regel 2 med rött. På samma sätt kommer grupper av celler som "
 "bryter mot regel 3 genom att de separerar en eller flera icke-nedtonade "
 "celler från andra icke-nedtonade celler att markeras i rött."
@@ -362,9 +362,9 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Om du fastnar på något ställe, klicka på <gui style=\"button\">Tips</gui> i "
-"rubrikraden för att <app>Hitori</app> ska visa en cell som ska tonas ned "
+"rubrikraden för att <app>Kuro</app> ska visa en cell som ska tonas ned "
 "eller där en nedtoning behöver tas bort för att komma närmare en lösning."

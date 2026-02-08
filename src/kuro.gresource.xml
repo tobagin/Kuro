@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io.github.tobagin.Kuro/ui">
+    <file preprocess="xml-stripblanks" alias="kuro.ui">./data/kuro.ui</file>
+    <file alias="kuro.css">./data/kuro.css</file>
+  </gresource>
+  <gresource prefix="/io.github.tobagin.Kuro/gtk">
+    <file preprocess="xml-stripblanks" alias="help-overlay.ui">./data/help-overlay.ui</file>
+    <file alias="io.github.tobagin.Kuro.metainfo.xml">./data/io.github.tobagin.Kuro.metainfo.xml</file>
+  </gresource>
+</gresources>

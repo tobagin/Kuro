@@ -1,11 +1,11 @@
-# Czech translation for hitori help.
-# Copyright (C) 2009 the author(s) of hitori.
-# This file is distributed under the same license as the hitori help.
+# Czech translation for kuro help.
+# Copyright (C) 2009 the author(s) of kuro.
+# This file is distributed under the same license as the kuro help.
 # Marek Černocký <marek@manet.cz>, 2009, 2011, 2012, 2014, 2019, 2020, 2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori master\n"
+"Project-Id-Version: kuro master\n"
 "POT-Creation-Date: 2021-03-16 11:31+0000\n"
 "PO-Revision-Date: 2021-03-16 23:34+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
@@ -46,35 +46,35 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
 "Pokud chcete změnit velikost hrací desky, zmáčkněte tlačítko nabídky v "
 "pravém horním rohu okna a vyberte <gui style=\"menuitem\">Velikost hrací "
-"desky</gui>. V případě, že máte rozehranou hru, dotáže se <app>Hitori</app>, "
+"desky</gui>. V případě, že máte rozehranou hru, dotáže se <app>Kuro</app>, "
 "jestli ji má ukončit a po té spustí novou hru s požadovanými rozměry hrací "
 "desky."
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Úvod do hry Hitori."
+msgid "Introduction to the game of Kuro."
+msgstr "Úvod do hry Kuro."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "Hra Hitori"
+msgid "Kuro the Game"
+msgstr "Hra Kuro"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"Hitori je malý logický hlavolam podobné povahy jako populárnější Sudoku. "
+"Kuro je malý logický hlavolam podobné povahy jako populárnější Sudoku. "
 "Hráč začíná hru s čtvercovou hrací deskou s čísly a musí <quote>zatřít</"
 "quote> políčka tak, aby se v žádném řádku ani sloupci žádné číslo "
 "neopakovalo. Platí přitom následující pravidla:"
@@ -106,10 +106,10 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "Musí se dodržovat pouhá tři pravidla, a tak je dost dobře možné, že může mít "
-"dané rozložení hrací desky Hitori více řešení."
+"dané rozložení hrací desky Kuro více řešení."
 
 #. (itstool) path: figure/title
 #: C/game.page:20
@@ -118,8 +118,8 @@ msgstr "Hlavní okno hry"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "Hlavní okno hry <app>Hitori</app>"
+msgid "<app>Kuro</app> main window"
+msgstr "Hlavní okno hry <app>Kuro</app>"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -129,34 +129,34 @@ msgstr "Hlavní okno hry <app>Hitori</app>"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='87d45985011fb154102fc63cc1e30d9d'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "Hlavní okno hry <app>Hitori</app>."
+msgid "<app>Kuro</app> main window."
+msgstr "Hlavní okno hry <app>Kuro</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
-msgstr "Nápověda ke hře Hitori"
+msgid "Kuro Help"
+msgstr "Nápověda ke hře Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
-msgstr "Nápověda ke hře Hitori"
+msgid "Kuro Help"
+msgstr "Nápověda ke hře Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
-msgstr "Nápověda ke hře Hitori"
+msgid "Kuro Help"
+msgstr "Nápověda ke hře Kuro"
 
 #. (itstool) path: credit/name
 #: C/index.page:11
@@ -181,8 +181,8 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
-msgstr "<_:media-1/> Nápověda ke hře Hitori"
+msgid "<_:media-1/> Kuro Help"
+msgstr "<_:media-1/> Nápověda ke hře Kuro"
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -206,8 +206,8 @@ msgstr "Tato práce je licencována pod <_:link-1/>."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Použití <app>Hitori</app> k hraní hry."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Použití <app>Kuro</app> k hraní hry."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -219,12 +219,12 @@ msgstr "Jak hrát"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "Novou hru spustíte volbou zmáčknutím tlačítka nabídky v pravém horním rohu "
 "okna a následným vybráním <gui style=\"menuitem\">Nová hra</gui>. Pokud už "
-"máte rozehranou hru, <app>Hitori</app> se vás dotáže, jestli chcete "
+"máte rozehranou hru, <app>Kuro</app> se vás dotáže, jestli chcete "
 "současnou hru ukončit."
 
 #. (itstool) path: page/p
@@ -241,14 +241,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
 "be un-tagged by clicking on them again while holding either <key>Ctrl</key> "
 "or <key>Shift</key> again."
 msgstr ""
-"<app>Hitori</app> vám také umožňuje si pro své potřeby při řešení políčka "
+"<app>Kuro</app> vám také umožňuje si pro své potřeby při řešení políčka "
 "označovat. Dělá se to podržením klávesy <key>Ctrl</key> nebo <key>Shift</"
 "key> a kliknutím na políčko. Obě označení se liší a mohou být u stejného "
 "políčka použita i naráz. Označení zrušíte opětovným kliknutím za současného "
@@ -296,8 +296,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Strategie pro hraní Hitori."
+msgid "Strategies for playing Kuro."
+msgstr "Strategie pro hraní Kuro."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -307,13 +307,13 @@ msgstr "Herní strategie"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
 "em>."
 msgstr ""
-"Hra Hitori je trochu podobná Sudoku, také vyžaduje logickou dedukci k "
+"Hra Kuro je trochu podobná Sudoku, také vyžaduje logickou dedukci k "
 "určení, která políčka zatřít. Jednou ze strategií je použít klikání spolu s "
 "klávesou <key>Shift</key> k označení všech čísel, která se v jednotlivých "
 "<em>sloupcích</em> opakují, a s klávesou <key>Ctrl</key> k označení těch, "
@@ -326,24 +326,24 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Až to uděláte na celé desce, budou některá políčka označena oběma způsoby a "
 "ty jsou horkými kandidáty na zatření, ale naplatí to vždy. Když políčko "
 "zatíráte, zrušte označení všech políček se stejným číslem v příslušném řádku "
 "a sloupci, tak si udržíte přehled, které buňky stále porušují <link xref="
-"\"game\">pravidlo 1 hry Hitori</link>."
+"\"game\">pravidlo 1 hry Kuro</link>."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Stále mějte na paměti také pravidlo číslo 2 hry <app>Hitori</app>, že nesmí "
+"Stále mějte na paměti také pravidlo číslo 2 hry <app>Kuro</app>, že nesmí "
 "být zatřeny naráz sousedící políčka. Políčka, která druhé pravidlo poruší, "
 "budou zvýrazněna červeně. Stejně tak budou červeně zvýrazněny skupiny "
 "políček, které porušují pravidlo číslo 3 oddělením jednoho nebo více "
@@ -353,10 +353,10 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Pokud budete v nějakém bodě v koncích, zmáčkněte <gui style=\"button\">Rada</"
-"gui> v záhlavní liště a aplikace <app>Hitori</app> vám označí políčko, které "
+"gui> v záhlavní liště a aplikace <app>Kuro</app> vám označí políčko, které "
 "by se mělo zatřít nebo očistit, a tím vám pomůže přiblížit se k řešení."
 

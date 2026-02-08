@@ -39,20 +39,44 @@ if appstreamcli.found()
 endif
 
 install_data(
-    'org.gnome.hitori.gschema.xml', 
+    'io.github.tobagin.kuro.gschema.xml', 
     install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
 )
 
 
-gtk4_builder_tool = find_program('gtk4-builder-tool', required: false)
-if gtk4_builder_tool.found()
-  test(
-    'validate-ui', gtk4_builder_tool,
-    args: [
-      'validate',
-      files('hitori.ui'),
+# Blueprint UI files
+blueprint_compiler = find_program('blueprint-compiler', required: true)
+
+blueprint_files = [
+  'kuro.blp',
+  'help-overlay.blp',
+]
+
+compiled_ui_files = []
+
+foreach blp : blueprint_files
+  compiled_ui_files += custom_target(
+    blp.underscorify() + '_ui',
+    input: blp,
+    output: '@BASENAME@.ui',
+    command: [
+      blueprint_compiler, 'batch-compile', '@OUTDIR@', '@CURRENT_SOURCE_DIR@', '@INPUT@'
     ],
   )
+endforeach
+
+gtk4_builder_tool = find_program('gtk4-builder-tool', required: false)
+if gtk4_builder_tool.found()
+  foreach ui : compiled_ui_files
+    test(
+      'validate-ui-' + ui.full_path().underscorify(),
+      gtk4_builder_tool,
+      args: [
+        'validate',
+        ui,
+      ],
+    )
+  endforeach
 endif
 
 

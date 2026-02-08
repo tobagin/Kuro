@@ -1,12 +1,12 @@
-# Romanian translation for hitori.
-# Copyright (C) 2011 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Romanian translation for kuro.
+# Copyright (C) 2011 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 # Cristian Iacobescu <cristy_hereg93@yahoo.com>, 2011.
 # Master <cristy_hereg93@yahoo.com>, 2011.
 # Daniel Șerbănescu <daniel@serbanescu.dk>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori master\n"
+"Project-Id-Version: kuro master\n"
 "POT-Creation-Date: 2021-03-16 11:31+0000\n"
 "PO-Revision-Date: 2021-05-04 00:22+0200\n"
 "Last-Translator: Daniel Șerbănescu <daniel@serbanescu.dk>\n"
@@ -52,35 +52,35 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
 "Pentru a modifica dimensiunea tablei, apăsați butonul meniu din dreapta sus "
 "a ferestrei, ș selectați <gui style=\"menuitem\">Mărime tablă</gui>. "
-"<app>Hitori</app> va întreba dacă doriți să opriți jocul actual, dacă vă "
+"<app>Kuro</app> va întreba dacă doriți să opriți jocul actual, dacă vă "
 "aflați în mijlocul unuia, apoi va începe un joc nou cu dimensiunea tablei "
 "solicitate."
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Introducere în jocul de Hitori."
+msgid "Introduction to the game of Kuro."
+msgstr "Introducere în jocul de Kuro."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "Jocul Hitori"
+msgid "Kuro the Game"
+msgstr "Jocul Kuro"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"Hitori este un mic puzzle logic similar popularului Sudoku. În joc, "
+"Kuro este un mic puzzle logic similar popularului Sudoku. În joc, "
 "jucătorul începe cu o tablă pătrată de numere și trebuie să <em>picteze</em> "
 "celulele până nu există mai multe numere identice în fiecare rând și "
 "coloană. Se aplică următoarele reguli:"
@@ -113,10 +113,10 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "Acestea sunt doar trei reguli de joc, și deci pot fi mai multe soluții "
-"pentru o tablă de puzzle Hitori."
+"pentru o tablă de puzzle Kuro."
 
 #. (itstool) path: figure/title
 #: C/game.page:20
@@ -125,8 +125,8 @@ msgstr "Fereastra principală de joc"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "Fereastra principală <app>Hitori</app>"
+msgid "<app>Kuro</app> main window"
+msgstr "Fereastra principală <app>Kuro</app>"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -136,34 +136,34 @@ msgstr "Fereastra principală <app>Hitori</app>"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "Fereastra principală <app>Hitori</app>."
+msgid "<app>Kuro</app> main window."
+msgstr "Fereastra principală <app>Kuro</app>."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
-msgstr "Ajutor Hitori"
+msgid "Kuro Help"
+msgstr "Ajutor Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
-msgstr "Ajutor Hitori"
+msgid "Kuro Help"
+msgstr "Ajutor Kuro"
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
-msgstr "Ajutor Hitori"
+msgid "Kuro Help"
+msgstr "Ajutor Kuro"
 
 #. (itstool) path: credit/name
 #: C/index.page:11
@@ -188,8 +188,8 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
-msgstr "<_:media-1/> Ajutor Hitori"
+msgid "<_:media-1/> Kuro Help"
+msgstr "<_:media-1/> Ajutor Kuro"
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -215,8 +215,8 @@ msgstr "Această lucrare este licențiată sub o <_:link-1/>."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Utilizarea <app>Hitori</app> pentru a juca un joc."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Utilizarea <app>Kuro</app> pentru a juca un joc."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -228,12 +228,12 @@ msgstr "Jucarea unei partide"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "Pentru a porni un nou joc, apăsați butonul meniu din colțul dreapta sus al "
 "ferestrei, și selectați <gui style=\"menuitem\">Joc nou</gui>. Dacă jucați "
-"deja un alt joc, <app>Hitori</app> vă va întreba dacă doriți să opriți jocul "
+"deja un alt joc, <app>Kuro</app> vă va întreba dacă doriți să opriți jocul "
 "curent."
 
 #. (itstool) path: page/p
@@ -251,14 +251,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
 "be un-tagged by clicking on them again while holding either <key>Ctrl</key> "
 "or <key>Shift</key> again."
 msgstr ""
-"<app>Hitori</app> de asemenea, vă permite să etichetați celule pentru "
+"<app>Kuro</app> de asemenea, vă permite să etichetați celule pentru "
 "referința dumneavoastră atunci când rezolvați o tablă. Acest lucru poate fi "
 "realizat prin menținerea <key>Ctrl</key> sau <key>Shift</key> și apăsând "
 "clic pe acea celulă. Amândouă etichetează celulele diferit și celulele pot "
@@ -308,8 +308,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Strategii pentru a juca Hitori."
+msgid "Strategies for playing Kuro."
+msgstr "Strategii pentru a juca Kuro."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -319,13 +319,13 @@ msgstr "Strategii de joc"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
 "em>."
 msgstr ""
-"Hitori este destul de similar cu Sudoku, în care este nevoie de deducție "
+"Kuro este destul de similar cu Sudoku, în care este nevoie de deducție "
 "logică pentru a determina care celule trebuiesc pictate. O strategie este de "
 "a utiliza <key>Shift</key>-clic pentru a eticheta toate numerele ce se "
 "repetă în fiecare <em>coloană</em>, apoi utilizați <key>Ctrl</key>-clic "
@@ -338,26 +338,26 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Odată ce acest lucru se face pentru întreaga tablă, celulele care au fost "
 "etichetate în ambele sensuri sunt bune candidate pentru pictare, deși nu "
 "întotdeauna. Când o celulă este pictată, neetichetarea altor celule cu "
 "același număr în același rând și coloană ca acea celula este o modalitate "
 "bună de a urmări care celulele încă încalcă <link xref=\"game\">regula 1 din "
-"Hitori</link>."
+"Kuro</link>."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Întotdeauna țineți minte că regula 2 din Hitori înseamnă că două celule "
-"adiacente nu pot fi ambele pictate. <app>Hitori</app> va evidenția în roșu "
+"Întotdeauna țineți minte că regula 2 din Kuro înseamnă că două celule "
+"adiacente nu pot fi ambele pictate. <app>Kuro</app> va evidenția în roșu "
 "celulele care încalcă regula 2. În mod similar, grupuri de celule care "
 "încalcă regula 3, prin separarea a uneia sau mai multe celule nepictate de "
 "alte celule nepictate vor fi evidențiate în roșu."
@@ -366,11 +366,11 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Dacă rămâneți blocat în orice moment, apăsați <gui style=\"button\">Indiciu</"
-"gui> din bara de unelte ca <app>Hitori</app> să evidențieze o celulă care ar "
+"gui> din bara de unelte ca <app>Kuro</app> să evidențieze o celulă care ar "
 "trebui să fie pictată sau depictată, pentru a vă apropia de o soluție."
 
 #~ msgid "Legal information."

@@ -1,12 +1,12 @@
-# Slovenian translation for hitori help.
-# Copyright (C) 2010 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Slovenian translation for kuro help.
+# Copyright (C) 2010 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 #
 # Andrej Žnidaršič <andrej.znidarsic@gmaik.com>, 2010
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori help master\n"
+"Project-Id-Version: kuro help master\n"
 "POT-Creation-Date: 2010-11-14 21:31+0000\n"
 "PO-Revision-Date: 2010-11-22 11:32+0100\n"
 "Last-Translator: Andrej Žnidaršič <andrej.znidarsic@gmail.com>\n"
@@ -21,48 +21,48 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: C/strategy.page:5(desc)
-msgid "Strategies for playing Hitori."
-msgstr "Strategije za igranje Hitori."
+msgid "Strategies for playing Kuro."
+msgstr "Strategije za igranje Kuro."
 
 #: C/strategy.page:7(title)
 msgid "Gameplay Strategies"
 msgstr "Strategije igranja"
 
 #: C/strategy.page:9(p)
-msgid "Hitori is quite similar to Sudoku, in that it takes logical deduction to work out which cells to paint out. One strategy is to use <key>Shift</key>-clicking to highlight all the repeated numbers in each <em>column</em>, then use <key>Ctrl</key>-clicking to highlight all the repeated numbers in each <em>row</em>."
-msgstr "Hitori je precej podoben Sudokuju, saj zahteva logično sklepanje s pomočjo katerega ugotovite katere celice je treba pobarvati. Ena strategija je uporaba <key>Shift</key> in klika za poudarjanje ponovljenih števil v vsakem <em>stolpcu</em>. nato uporabite <key>Ctrl</key> in klik za poudarjanje vseh ponovljenih števil v vsaki <em>vrstici</em>."
+msgid "Kuro is quite similar to Sudoku, in that it takes logical deduction to work out which cells to paint out. One strategy is to use <key>Shift</key>-clicking to highlight all the repeated numbers in each <em>column</em>, then use <key>Ctrl</key>-clicking to highlight all the repeated numbers in each <em>row</em>."
+msgstr "Kuro je precej podoben Sudokuju, saj zahteva logično sklepanje s pomočjo katerega ugotovite katere celice je treba pobarvati. Ena strategija je uporaba <key>Shift</key> in klika za poudarjanje ponovljenih števil v vsakem <em>stolpcu</em>. nato uporabite <key>Ctrl</key> in klik za poudarjanje vseh ponovljenih števil v vsaki <em>vrstici</em>."
 
 #: C/strategy.page:12(p)
-msgid "Once this is done for the entire board, the cells which have been highlighted both ways are good candidates for painting, although not always. When painting a cell, unhighlighting the other cells with the same number in the same row and column as that cell is a good way to keep track of which cells are still violating <link xref=\"game\">rule 1 of Hitori</link>."
-msgstr "Ko je to storjeno za celotno ploščo so poudarjene celice, ki so poudarjene obakrat dobri kandidati za barvanje, čeprav ne vedno. Pri barvanju celice je odstranjevanje poudarjanja drugih celic z istim številom v isti vrstici in stolpcu kot ta celica dober način za sledenje celicam, ki kršijo <link xref=\"game\">prvo pravilo igre Hitori</link>."
+msgid "Once this is done for the entire board, the cells which have been highlighted both ways are good candidates for painting, although not always. When painting a cell, unhighlighting the other cells with the same number in the same row and column as that cell is a good way to keep track of which cells are still violating <link xref=\"game\">rule 1 of Kuro</link>."
+msgstr "Ko je to storjeno za celotno ploščo so poudarjene celice, ki so poudarjene obakrat dobri kandidati za barvanje, čeprav ne vedno. Pri barvanju celice je odstranjevanje poudarjanja drugih celic z istim številom v isti vrstici in stolpcu kot ta celica dober način za sledenje celicam, ki kršijo <link xref=\"game\">prvo pravilo igre Kuro</link>."
 
 #: C/strategy.page:15(p)
-msgid "Always bear in mind that rule 2 of Hitori means that two adjacent cells can't both be painted. <app>Hitori</app> will highlight in red the cells which violate rule 2. Similarly, groups of cells which violate rule 3 by separating one or more unpainted cells from the other unpainted cells will be highlighted in red."
-msgstr "Vedno imejte v mislih, da pravilo 2 Hitorija pomeni, da dve sosednji celici ne moreta biti hkrati pobarvani.  <app>Hitori</app> v rdečem poudaril celice, ki kršijo pravilo 2. Podobno bodo skupine celic, ki kršijo pravilo 3 z ločevanjem ene ali več nepobarvanih celic z drugimi nepobarvanimi celicami, poudarjene z rdečo."
+msgid "Always bear in mind that rule 2 of Kuro means that two adjacent cells can't both be painted. <app>Kuro</app> will highlight in red the cells which violate rule 2. Similarly, groups of cells which violate rule 3 by separating one or more unpainted cells from the other unpainted cells will be highlighted in red."
+msgstr "Vedno imejte v mislih, da pravilo 2 Kuroja pomeni, da dve sosednji celici ne moreta biti hkrati pobarvani.  <app>Kuro</app> v rdečem poudaril celice, ki kršijo pravilo 2. Podobno bodo skupine celic, ki kršijo pravilo 3 z ločevanjem ene ali več nepobarvanih celic z drugimi nepobarvanimi celicami, poudarjene z rdečo."
 
 #: C/strategy.page:19(p)
-msgid "If you get stuck at any point, choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Hint</gui></guiseq> for <app>Hitori</app> to flag a cell which should be painted or unpainted to move closer to a solution."
-msgstr "Če kadarkoli obtičite izberite <guiseq><gui style=\"menu\">Igra</gui><gui style=\"menuitem\">Namig</gui></guiseq>. <app>Hitori</app> bo označil celico, ki jo je treba pobarvati ali pa odstraniti pobarvanost za približanje rešitvi."
+msgid "If you get stuck at any point, choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Hint</gui></guiseq> for <app>Kuro</app> to flag a cell which should be painted or unpainted to move closer to a solution."
+msgstr "Če kadarkoli obtičite izberite <guiseq><gui style=\"menu\">Igra</gui><gui style=\"menuitem\">Namig</gui></guiseq>. <app>Kuro</app> bo označil celico, ki jo je treba pobarvati ali pa odstraniti pobarvanost za približanje rešitvi."
 
 #: C/playing.page:5(desc)
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Uporaba <app>Hitorija</app> za igranje igre."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Uporaba <app>Kuroja</app> za igranje igre."
 
 #: C/playing.page:7(title)
 msgid "Playing a Game"
 msgstr "Igranje igre"
 
 #: C/playing.page:9(p)
-msgid "To start a new game, choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">New Game</gui></guiseq>. If you are already playing a game, <app>Hitori</app> will ask if you want to stop the current game."
-msgstr "Za začetek nove igre izberite <guiseq><gui style=\"menu\">Igra</gui><gui style=\"menuitem\">Nova igra</gui></guiseq>. V primeru, da že igrate igro, vas bo <app>Hitori</app> vprašal, če želite ustaviti trenutno igro."
+msgid "To start a new game, choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">New Game</gui></guiseq>. If you are already playing a game, <app>Kuro</app> will ask if you want to stop the current game."
+msgstr "Za začetek nove igre izberite <guiseq><gui style=\"menu\">Igra</gui><gui style=\"menuitem\">Nova igra</gui></guiseq>. V primeru, da že igrate igro, vas bo <app>Kuro</app> vprašal, če želite ustaviti trenutno igro."
 
 #: C/playing.page:11(p)
 msgid "To paint a cell, click on it; to unpaint it again, click on it again. When cells are painted such that none of the three rules are broken, the game will end and the board may no longer be manipulated."
 msgstr "Za pobarvanje celice kliknite nanjo. Za odstranitev pobarvanosti ponovno kliknite nanjo. Ko so celice pobarvane tako, da ni prekršeno nobeno od treh pravil, se bo igra končala in z njo ne bo več mogoče upravljati."
 
 #: C/playing.page:13(p)
-msgid "<app>Hitori</app> also allows you to highlight cells for your own reference when solving a board. This can be achieved by holding <key>Ctrl</key> or <key>Shift</key> and clicking on a cell. They both highlight cells differently, and cells can be highlighted in both manners at the same time. Highlighted cells can be de-highlighted by clicking on them again while holding either <key>Ctrl</key> or <key>Shift</key> again."
-msgstr "<app>Hitori</app> vam omogoča poudarjanje celic za vašo evidenco pri reševanju plošče. To lahko dosežete s pritiskom na <key>Ctrl</key> ali <key>Shift</key> in klikom na celico. Tipki celice različno poudarjata. Hkrati je celice mogoče poudariti na oba načina. Poudarjanje celic je mogoče  odstraniti s pritiskom na<key>Ctrl</key> ali <key>Shift</key> in ponovnim klikom na polje."
+msgid "<app>Kuro</app> also allows you to highlight cells for your own reference when solving a board. This can be achieved by holding <key>Ctrl</key> or <key>Shift</key> and clicking on a cell. They both highlight cells differently, and cells can be highlighted in both manners at the same time. Highlighted cells can be de-highlighted by clicking on them again while holding either <key>Ctrl</key> or <key>Shift</key> again."
+msgstr "<app>Kuro</app> vam omogoča poudarjanje celic za vašo evidenco pri reševanju plošče. To lahko dosežete s pritiskom na <key>Ctrl</key> ali <key>Shift</key> in klikom na celico. Tipki celice različno poudarjata. Hkrati je celice mogoče poudariti na oba načina. Poudarjanje celic je mogoče  odstraniti s pritiskom na<key>Ctrl</key> ali <key>Shift</key> in ponovnim klikom na polje."
 
 #: C/playing.page:17(p)
 msgid "To undo or redo a move, choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Undo</gui></guiseq> or <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Redo</gui></guiseq>. You may undo or redo as many moves as you like without restriction."
@@ -145,8 +145,8 @@ msgid "This work is licensed under a <link href=\"http://creativecommons.org/lic
 msgstr "To delo je licencirano pod <link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-Share Alike 3.0 Unported License</link>."
 
 #: C/index.page:15(title)
-msgid "Hitori Help"
-msgstr "Hitori pomoč"
+msgid "Kuro Help"
+msgstr "Kuro pomoč"
 
 #: C/index.page:18(title)
 msgid "Basic Gameplay &amp; Usage"
@@ -160,20 +160,20 @@ msgstr "Namigi &amp; triki"
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/game.page:21(None)
 #, fuzzy
-msgid "@@image: 'figures/hitori_main_window.png'; md5=b6ea3ee1ff73311d002cfdb4463032be"
-msgstr "@@image: 'figures/hitori_main_window.png'; md5=7d84786ca244435340ecd6c7cb98dfd1"
+msgid "@@image: 'figures/kuro_main_window.png'; md5=b6ea3ee1ff73311d002cfdb4463032be"
+msgstr "@@image: 'figures/kuro_main_window.png'; md5=7d84786ca244435340ecd6c7cb98dfd1"
 
 #: C/game.page:5(desc)
-msgid "Introduction to the game of Hitori."
-msgstr "Uvod v igro Hitori"
+msgid "Introduction to the game of Kuro."
+msgstr "Uvod v igro Kuro"
 
 #: C/game.page:7(title)
-msgid "Hitori the Game"
-msgstr "Igra Hitori"
+msgid "Kuro the Game"
+msgstr "Igra Kuro"
 
 #: C/game.page:9(p)
-msgid "Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. In the game, the player starts with a square board of numbers, and has to <em>paint out</em> cells until there are no duplicate numbers in each row and column. The following rules apply:"
-msgstr "Hitori je majhna logična igra, ki je podobna veliko bolj priljubljenemu Sudokuju. V igri igralec začne s kvadratno ploščo števil, ki jim mora <em>pobarvati</em> dokler v vsaki vrstici in stolpcu ni podvojenih števil. Veljajo naslednja pravila:"
+msgid "Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. In the game, the player starts with a square board of numbers, and has to <em>paint out</em> cells until there are no duplicate numbers in each row and column. The following rules apply:"
+msgstr "Kuro je majhna logična igra, ki je podobna veliko bolj priljubljenemu Sudokuju. V igri igralec začne s kvadratno ploščo števil, ki jim mora <em>pobarvati</em> dokler v vsaki vrstici in stolpcu ni podvojenih števil. Veljajo naslednja pravila:"
 
 #: C/game.page:12(p)
 msgid "There must only be one of each number in the unpainted cells in each row and column."
@@ -188,20 +188,20 @@ msgid "All the unpainted cells must be joined together vertically and horizontal
 msgstr "Vse nepobarvane celice je treba združiti skupaj tako vodoravno kot navpično v eno skupino."
 
 #: C/game.page:16(p)
-msgid "These are the only three rules of the game, and so there may well be multiple solutions to a Hitori puzzle board."
-msgstr "Obstajajo samo tri pravila igra zato lahko za rešitev uganke Hitori obstaja več rešitev."
+msgid "These are the only three rules of the game, and so there may well be multiple solutions to a Kuro puzzle board."
+msgstr "Obstajajo samo tri pravila igra zato lahko za rešitev uganke Kuro obstaja več rešitev."
 
 #: C/game.page:19(title)
 msgid "Main game window"
 msgstr "Glavno okno igre"
 
 #: C/game.page:20(desc)
-msgid "<app>Hitori</app> main window"
-msgstr "Glavno okno <app>Hitori</app>"
+msgid "<app>Kuro</app> main window"
+msgstr "Glavno okno <app>Kuro</app>"
 
 #: C/game.page:22(p)
-msgid "<app>Hitori</app> main window."
-msgstr "Glavno okno <app>Hitori</app>."
+msgid "<app>Kuro</app> main window."
+msgstr "Glavno okno <app>Kuro</app>."
 
 #: C/customization.page:5(desc)
 msgid "Changing how the game appears and plays."
@@ -216,8 +216,8 @@ msgid "The game can be customized by changing the board size — boards from 5�
 msgstr "Igro je mogoče prilagoditi s spremembo velikosti plošče - dovoljene so kvadratne plošče s stranico od 5 do 10 celic."
 
 #: C/customization.page:10(p)
-msgid "To change the board size, choose an option from <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Board Size</gui></guiseq>. <app>Hitori</app> will ask if you want to stop the current game if you're in the middle of one, then start a new game with the requested board size."
-msgstr "Za spremembo velikosti plošče izberite možnost v meniju <guiseq><gui style=\"menu\">Igra</gui><gui style=\"menuitem\">Velikost plošče</gui></guiseq>. <app>Hitori</app> vas bo v primeru da igrate igro vprašal ali jo želite ustaviti in nato začel novo igro z zahtevano velikostjo plošče."
+msgid "To change the board size, choose an option from <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Board Size</gui></guiseq>. <app>Kuro</app> will ask if you want to stop the current game if you're in the middle of one, then start a new game with the requested board size."
+msgstr "Za spremembo velikosti plošče izberite možnost v meniju <guiseq><gui style=\"menu\">Igra</gui><gui style=\"menuitem\">Velikost plošče</gui></guiseq>. <app>Kuro</app> vas bo v primeru da igrate igro vprašal ali jo želite ustaviti in nato začel novo igro z zahtevano velikostjo plošče."
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)

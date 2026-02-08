@@ -1,0 +1,224 @@
+using Gtk 4.0;
+using Adw 1;
+
+menu primary-menu {
+  section {
+    item {
+      label: _("_New Game");
+      action: "app.new-game";
+    }
+  }
+
+  section {
+    submenu {
+      label: _("Board _Size");
+      section {
+        item {
+          label: _("5×5");
+          action: "app.board-size";
+          target: "5";
+        }
+        item {
+          label: _("6×6");
+          action: "app.board-size";
+          target: "6";
+        }
+        item {
+          label: _("7×7");
+          action: "app.board-size";
+          target: "7";
+        }
+        item {
+          label: _("8×8");
+          action: "app.board-size";
+          target: "8";
+        }
+        item {
+          label: _("9×9");
+          action: "app.board-size";
+          target: "9";
+        }
+        item {
+          label: _("10×10");
+          action: "app.board-size";
+          target: "10";
+        }
+      }
+    }
+
+    submenu {
+      label: _("Board _Theme");
+      section {
+        item {
+          label: _("Auto");
+          action: "app.board-theme";
+          target: "auto";
+        }
+        item {
+          label: _("Kuro");
+          action: "app.board-theme";
+          target: "kuro";
+        }
+        item {
+          label: _("Hitori");
+          action: "app.board-theme";
+          target: "hitori";
+        }
+      }
+    }
+  }
+
+  section {
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+    item {
+      label: _("_Help");
+      action: "app.help";
+    }
+    item {
+      label: _("_About Kuro");
+      action: "app.about";
+    }
+  }
+}
+
+Adw.ApplicationWindow kuro_main_window {
+  close-request => $kuro_close_request_cb();
+
+  content: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {
+      title-widget: Adw.WindowTitle {
+        title: "Kuro";
+        subtitle: _("GTK4 Hitori game");
+      };
+
+      [start]
+      Gtk.Box undo_redo_box {
+        styles ["linked"]
+
+        Gtk.Button undo_button {
+          sensitive: false;
+          valign: center;
+          focus-on-click: false;
+          action-name: "win.undo";
+          tooltip-text: _("Undo your last move");
+          icon-name: "edit-undo-symbolic";
+        }
+
+        Gtk.Button redo_button {
+          sensitive: false;
+          valign: center;
+          focus-on-click: false;
+          action-name: "win.redo";
+          tooltip-text: _("Redo a move");
+          icon-name: "edit-redo-symbolic";
+        }
+      }
+
+      [start]
+      Gtk.Button pause_button {
+        valign: center;
+        focus-on-click: false;
+        tooltip-text: _("Pause the game");
+        icon-name: "media-playback-pause-symbolic";
+        action-name: "win.pause";
+      }
+
+      [end]
+      Gtk.MenuButton primary_menu {
+        valign: center;
+        focus-on-click: false;
+        menu-model: primary-menu;
+        icon-name: "open-menu-symbolic";
+        primary: true;
+      }
+
+      [end]
+      Gtk.Button hint_button {
+        sensitive: false;
+        valign: center;
+        focus-on-click: false;
+        action-name: "win.hint";
+        tooltip-text: _("Get a hint for your next move");
+        icon-name: "dialog-question-symbolic";
+      }
+    }
+
+    content: Gtk.Box vbox1 {
+      orientation: vertical;
+      focus-on-click: true;
+
+      Gtk.Overlay {
+        vexpand: true;
+
+        Gtk.DrawingArea kuro_drawing_area {
+          vexpand: true;
+          hexpand: true;
+          valign: fill;
+          halign: fill;
+          can-focus: true;
+          focusable: true;
+          focus-on-click: true;
+          width-request: 360;
+          height-request: 360;
+        }
+
+        [overlay]
+        Gtk.Box pause_overlay {
+          halign: fill;
+          valign: fill;
+          hexpand: true;
+          vexpand: true;
+          visible: false;
+
+          styles ["pause-overlay"]
+
+          Gtk.Box {
+            orientation: vertical;
+            halign: center;
+            valign: center;
+            spacing: 12;
+            margin-start: 24;
+            margin-end: 24;
+            margin-top: 24;
+            margin-bottom: 24;
+
+            Gtk.Label {
+              label: _("Paused");
+              justify: center;
+              halign: center;
+              styles ["large-title"]
+            }
+
+            Gtk.Label {
+              label: _("Press Play to resume");
+              justify: center;
+              halign: center;
+              styles ["title-2"]
+            }
+          }
+        }
+      }
+
+      Gtk.Box {
+        orientation: horizontal;
+        halign: center;
+        spacing: 6;
+        margin-top: 6;
+        margin-bottom: 6;
+
+        Gtk.Image timer_image {
+          icon-name: "preferences-system-time-symbolic";
+          valign: center;
+        }
+
+        Gtk.Label kuro_timer {
+          valign: center;
+        }
+      }
+    };
+  };
+}

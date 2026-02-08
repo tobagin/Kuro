@@ -1,11 +1,11 @@
-# Korean translation for hitori.
-# Copyright (C) 2021 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Korean translation for kuro.
+# Copyright (C) 2021 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 # Seong-ho Cho <shcho@gnome.org>, 2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori main\n"
+"Project-Id-Version: kuro main\n"
 "POT-Creation-Date: 2021-07-05 14:48+0000\n"
 "PO-Revision-Date: 2021-09-09 14:51+0900\n"
 "Language-Team: Korean <gnome-kr@googlegroups.com>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
@@ -57,18 +57,18 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
+msgid "Introduction to the game of Kuro."
 msgstr "히토리 게임을 소개합니다."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
+msgid "Kuro the Game"
 msgstr "히토리 게임"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
@@ -101,7 +101,7 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "게임의 규칙은 세가지 뿐이기에 히토리 퍼즐 게임판에는 다양한 해결책이 있을 수 "
 "있습니다."
@@ -113,7 +113,7 @@ msgstr "메인 게임 창"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
+msgid "<app>Kuro</app> main window"
 msgstr "<app>히토리</app> 메인 창"
 
 #. (itstool) path: figure/media
@@ -124,33 +124,33 @@ msgstr "<app>히토리</app> 메인 창"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
+msgid "<app>Kuro</app> main window."
 msgstr "<app>히토리</app> 메인 창입니다."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
+msgid "Kuro Help"
 msgstr "히토리 도움말"
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
+msgid "Kuro Help"
 msgstr "히토리 도움말"
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
+msgid "Kuro Help"
 msgstr "히토리 도움말"
 
 #. (itstool) path: credit/name
@@ -176,7 +176,7 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
+msgid "<_:media-1/> Kuro Help"
 msgstr "<_:media-1/> 히토리 도움말"
 
 #. (itstool) path: section/title
@@ -201,7 +201,7 @@ msgstr "이 문서는 <_:link-1/>를 따릅니다."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
+msgid "Using <app>Kuro</app> to play a game."
 msgstr "<app>히토리</app> 게임 진행 방법입니다."
 
 #. (itstool) path: page/title
@@ -214,7 +214,7 @@ msgstr "게임하기"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "새 게임을 시작하려면, 창 우측 상단의 메뉴 단추를 누른 후 <gui style="
@@ -234,7 +234,7 @@ msgstr "칸을 채우려면 칸을 누르고, 색을 지우려면 다시 누르�
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
@@ -288,7 +288,7 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
+msgid "Strategies for playing Kuro."
 msgstr "히토리를 플레이하는 전략입니다."
 
 #. (itstool) path: page/title
@@ -299,7 +299,7 @@ msgstr "게임 플레이 전략"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
@@ -318,7 +318,7 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "일단 게임판 전체에 대해 과정을 끝내면, 두 방식으로 태그를 붙인 칸이 색을 칠"
 "할 적절한 후보가 됩니다. 칸을 칠할 때 동일한 행 열 방향에 있는 동일한 숫자가 "
@@ -328,8 +328,8 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
@@ -343,7 +343,7 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "어떤 상황에 막혔을 때 <app>히토리</app>의 헤더 표시줄에 있는 <gui style="

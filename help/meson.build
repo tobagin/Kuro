@@ -2,8 +2,8 @@ help_media = [
   'figures/dialog-question-symbolic.svg',
   'figures/edit-redo-symbolic.svg',
   'figures/edit-undo-symbolic.svg',
-  'figures/hitori_main_window.png',
-  'figures/org.gnome.Hitori.svg',
+  'figures/kuro_main_window.png',
+  'figures/io.github.tobagin.Kuro.svg',
 ]
 help_files = [
   'customization.page',

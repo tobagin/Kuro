@@ -1,0 +1,97 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog help_overlay {
+  Adw.ShortcutsSection {
+    title: _("General");
+
+    Adw.ShortcutsItem {
+      action-name: "app.new-game";
+      title: _("Start a new game");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<Ctrl><Shift>";
+      title: _("Tag a cell");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.undo";
+      title: _("Undo your last move");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.redo";
+      title: _("Redo a move");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.hint";
+      title: _("Get a hint for your next move");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "app.help";
+      title: _("Show Help");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.show-help-overlay";
+      title: _("Show Keyboard Shortcuts");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "app.quit";
+      title: _("Quit");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "F10";
+      title: _("Toggle Menu");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.pause";
+      title: _("Pause/Resume game");
+      accelerator: "p";
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: _("Navigation");
+
+    Adw.ShortcutsItem {
+      accelerator: "Up Down Left Right";
+      title: _("Move the cursor");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "w s a d";
+      title: _("Move the cursor");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "k j h l";
+      title: _("Move the cursor");
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: _("Game");
+
+    Adw.ShortcutsItem {
+      accelerator: "space Return";
+      title: _("Paint a cell");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<Shift>space <Shift>Return";
+      title: _("Tag a cell (First tag)");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<Ctrl>space <Ctrl>Return";
+      title: _("Tag a cell (Second tag)");
+    }
+  }
+}

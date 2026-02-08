@@ -1,20 +1,20 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /*
- * Hitori
+ * Kuro
  * Copyright (C) Philip Withnall 2007-2009 <philip@tecnocode.co.uk>
  * 
- * Hitori is free software: you can redistribute it and/or modify
+ * Kuro is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Hitori is distributed in the hope that it will be useful,
+ * Kuro is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Hitori.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Kuro.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include <config.h>
@@ -40,22 +40,22 @@ typedef struct {
 	/* Command line parameters. */
 	gboolean debug;
 	guint seed;
-} HitoriApplicationPrivate;
+} KuroApplicationPrivate;
 
 typedef enum {
 	PROP_DEBUG = 1,
 	PROP_SEED
-} HitoriProperty;
+} KuroProperty;
 
-G_DEFINE_TYPE_WITH_PRIVATE (HitoriApplication, hitori_application, GTK_TYPE_APPLICATION)
+G_DEFINE_TYPE_WITH_PRIVATE (KuroApplication, kuro_application, GTK_TYPE_APPLICATION)
 
 static void
 shutdown (GApplication *application)
 {
-	HitoriApplication *self = HITORI_APPLICATION (application);
+	KuroApplication *self = KURO_APPLICATION (application);
 
-	hitori_free_board (self);
-	hitori_clear_undo_stack (self);
+	kuro_free_board (self);
+	kuro_clear_undo_stack (self);
 	g_free (self->undo_stack); /* Clear the new game element */
 
 	if (self->normal_font_desc != NULL)
@@ -67,11 +67,11 @@ shutdown (GApplication *application)
 		g_object_unref (self->settings);
 
 	/* Chain up to the parent class */
-	G_APPLICATION_CLASS (hitori_application_parent_class)->shutdown (application);
+	G_APPLICATION_CLASS (kuro_application_parent_class)->shutdown (application);
 }
 
 static void
-hitori_application_class_init (HitoriApplicationClass *klass)
+kuro_application_class_init (KuroApplicationClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	GApplicationClass *gapplication_class = G_APPLICATION_CLASS (klass);
@@ -98,11 +98,11 @@ hitori_application_class_init (HitoriApplicationClass *klass)
 }
 
 static void
-hitori_application_init (HitoriApplication *self)
+kuro_application_init (KuroApplication *self)
 {
-	HitoriApplicationPrivate *priv;
+	KuroApplicationPrivate *priv;
 
-	priv = hitori_application_get_instance_private (self);
+	priv = kuro_application_get_instance_private (self);
 
 	priv->debug = FALSE;
 	priv->seed = 0;
@@ -111,12 +111,12 @@ hitori_application_init (HitoriApplication *self)
 static void
 constructed (GObject *object)
 {
-	HitoriApplicationPrivate *priv;
+	KuroApplicationPrivate *priv;
 
-	priv = hitori_application_get_instance_private (HITORI_APPLICATION (object));
+	priv = kuro_application_get_instance_private (KURO_APPLICATION (object));
 
 	/* Set various properties up */
-	g_application_set_application_id (G_APPLICATION (object), "org.gnome.Hitori");
+	g_application_set_application_id (G_APPLICATION (object), "io.github.tobagin.Kuro");
 
 	/* Localisation */
 	setlocale (LC_ALL, "");
@@ -132,21 +132,21 @@ constructed (GObject *object)
 	};
 
 	g_application_add_main_option_entries (G_APPLICATION (object), options);
-	g_application_set_option_context_parameter_string (G_APPLICATION (object), _("- Play a game of Hitori"));
+	g_application_set_option_context_parameter_string (G_APPLICATION (object), _("- Play a game of Kuro"));
 
-	g_set_application_name (_("Hitori"));
-	g_set_prgname ("org.gnome.Hitori");
+	g_set_application_name (_("Kuro"));
+	g_set_prgname ("io.github.tobagin.Kuro");
 
 	/* Chain up to the parent class */
-	G_OBJECT_CLASS (hitori_application_parent_class)->constructed (object);
+	G_OBJECT_CLASS (kuro_application_parent_class)->constructed (object);
 }
 
 static void
 get_property (GObject *object, guint property_id, GValue *value, GParamSpec *pspec)
 {
-	HitoriApplicationPrivate *priv;
+	KuroApplicationPrivate *priv;
 
-	priv = hitori_application_get_instance_private (HITORI_APPLICATION (object));
+	priv = kuro_application_get_instance_private (KURO_APPLICATION (object));
 
 	switch (property_id) {
 		case PROP_DEBUG:
@@ -165,9 +165,9 @@ get_property (GObject *object, guint property_id, GValue *value, GParamSpec *psp
 static void
 set_property (GObject *object, guint property_id, const GValue *value, GParamSpec *pspec)
 {
-	HitoriApplicationPrivate *priv;
+	KuroApplicationPrivate *priv;
 
-	priv = hitori_application_get_instance_private (HITORI_APPLICATION (object));
+	priv = kuro_application_get_instance_private (KURO_APPLICATION (object));
 
 	switch (property_id) {
 		case PROP_DEBUG:
@@ -184,11 +184,11 @@ set_property (GObject *object, guint property_id, const GValue *value, GParamSpe
 }
 
 static void
-debug_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, HitoriApplication *self)
+debug_handler (const char *log_domain, GLogLevelFlags log_level, const char *message, KuroApplication *self)
 {
-	HitoriApplicationPrivate *priv;
+	KuroApplicationPrivate *priv;
 
-	priv = hitori_application_get_instance_private (self);
+	priv = kuro_application_get_instance_private (self);
 
 	/* Only display debug messages if we've been run with --debug */
 	if (priv->debug == TRUE) {
@@ -200,7 +200,7 @@ static void
 startup (GApplication *application)
 {
 	/* Chain up. */
-	G_APPLICATION_CLASS (hitori_application_parent_class)->startup (application);
+	G_APPLICATION_CLASS (kuro_application_parent_class)->startup (application);
 
 	/* Initialize Libadwaita */
 	adw_init ();
@@ -212,21 +212,21 @@ startup (GApplication *application)
 static void
 activate (GApplication *application)
 {
-	HitoriApplication *self = HITORI_APPLICATION (application);
-	HitoriApplicationPrivate *priv;
+	KuroApplication *self = KURO_APPLICATION (application);
+	KuroApplicationPrivate *priv;
 
-	priv = hitori_application_get_instance_private (self);
+	priv = kuro_application_get_instance_private (self);
 
 	/* Create the interface. */
 	if (self->window == NULL) {
 		GdkRectangle geometry;
-		HitoriUndo *undo;
+		KuroUndo *undo;
 		gboolean window_maximized;
 		gchar *size_str;
 
 		/* Setup */
 		self->debug = priv->debug;
-		self->settings = g_settings_new ("org.gnome.hitori");
+		self->settings = g_settings_new ("io.github.tobagin.kuro");
 		size_str = g_settings_get_string (self->settings, "board-size");
 		self->board_size = g_ascii_strtoull (size_str, NULL, 10);
 		g_free (size_str);
@@ -240,13 +240,13 @@ activate (GApplication *application)
 			g_assert (self->board_size <= MAX_BOARD_SIZE);
 		}
 
-		undo = g_new0 (HitoriUndo, 1);
+		undo = g_new0 (KuroUndo, 1);
 		undo->type = UNDO_NEW_GAME;
 		self->undo_stack = undo;
 
 		/* Showtime! */
-		hitori_create_interface (self);
-		hitori_generate_board (self, self->board_size, priv->seed);
+		kuro_create_interface (self);
+		kuro_generate_board (self, self->board_size, priv->seed);
 
 		/* Restore window position and size */
 		window_maximized = g_settings_get_boolean (self->settings,
@@ -277,51 +277,51 @@ activate (GApplication *application)
 	gtk_window_present (GTK_WINDOW (self->window));
 }
 
-HitoriApplication *
-hitori_application_new (void)
+KuroApplication *
+kuro_application_new (void)
 {
-	return HITORI_APPLICATION (g_object_new (HITORI_TYPE_APPLICATION, NULL));
+	return KURO_APPLICATION (g_object_new (KURO_TYPE_APPLICATION, NULL));
 }
 
 void
-hitori_new_game (Hitori *hitori, guint board_size)
+kuro_new_game (Kuro *kuro, guint board_size)
 {
-	hitori->made_a_move = FALSE;
+	kuro->made_a_move = FALSE;
 
-	hitori_generate_board (hitori, board_size, 0);
-	hitori_clear_undo_stack (hitori);
-	gtk_widget_queue_draw (hitori->drawing_area);
+	kuro_generate_board (kuro, board_size, 0);
+	kuro_clear_undo_stack (kuro);
+	gtk_widget_queue_draw (kuro->drawing_area);
 
-	hitori_reset_timer (hitori);
-	hitori_start_timer (hitori);
+	kuro_reset_timer (kuro);
+	kuro_start_timer (kuro);
 
 	/* Reset the cursor position */
-	hitori->cursor_position.x = 0;
-	hitori->cursor_position.y = 0;
+	kuro->cursor_position.x = 0;
+	kuro->cursor_position.y = 0;
 }
 
 void
-hitori_clear_undo_stack (Hitori *hitori)
+kuro_clear_undo_stack (Kuro *kuro)
 {	
 	/* Clear the undo stack */
-	if (hitori->undo_stack != NULL) {
-		while (hitori->undo_stack->redo != NULL)
-			hitori->undo_stack = hitori->undo_stack->redo;
+	if (kuro->undo_stack != NULL) {
+		while (kuro->undo_stack->redo != NULL)
+			kuro->undo_stack = kuro->undo_stack->redo;
 
-		while (hitori->undo_stack->undo != NULL) {
-			hitori->undo_stack = hitori->undo_stack->undo;
-			g_free (hitori->undo_stack->redo);
-			if (hitori->undo_stack->type == UNDO_NEW_GAME)
+		while (kuro->undo_stack->undo != NULL) {
+			kuro->undo_stack = kuro->undo_stack->undo;
+			g_free (kuro->undo_stack->redo);
+			if (kuro->undo_stack->type == UNDO_NEW_GAME)
 				break;
 		}
 
 		/* Reset the "new game" item */
-		hitori->undo_stack->undo = NULL;
-		hitori->undo_stack->redo = NULL;
+		kuro->undo_stack->undo = NULL;
+		kuro->undo_stack->redo = NULL;
 	}
 
-	g_simple_action_set_enabled (hitori->undo_action, FALSE);
-	g_simple_action_set_enabled (hitori->redo_action, FALSE);
+	g_simple_action_set_enabled (kuro->undo_action, FALSE);
+	g_simple_action_set_enabled (kuro->redo_action, FALSE);
 }
 
 
@@ -333,19 +333,19 @@ board_size_dialog_response_cb (GObject *source,
 	guint board_size = GPOINTER_TO_UINT (user_data);
 	AdwAlertDialog *dialog = ADW_ALERT_DIALOG (source);
 	const char *response = adw_alert_dialog_choose_finish (dialog, result);
-	Hitori *hitori = HITORI_APPLICATION (g_object_get_data (G_OBJECT (dialog), "hitori"));
+	Kuro *kuro = KURO_APPLICATION (g_object_get_data (G_OBJECT (dialog), "kuro"));
 
 	if (g_strcmp0 (response, "new-game") == 0) {
 		/* Kill the current game and resize the board */
-		hitori_new_game (hitori, board_size);
+		kuro_new_game (kuro, board_size);
 	}
 }
 
 void
-hitori_set_board_size (Hitori *hitori, guint board_size)
+kuro_set_board_size (Kuro *kuro, guint board_size)
 {
 	/* Ask the user if they want to stop the current game, if they're playing at the moment */
-	if (hitori->processing_events == TRUE && hitori->made_a_move == TRUE) {
+	if (kuro->processing_events == TRUE && kuro->made_a_move == TRUE) {
 		AdwAlertDialog *dialog;
 
 		dialog = ADW_ALERT_DIALOG (adw_alert_dialog_new (_("Stop Current Game?"),
@@ -360,27 +360,27 @@ hitori_set_board_size (Hitori *hitori, guint board_size)
 		adw_alert_dialog_set_default_response (dialog, "keep-playing");
 		adw_alert_dialog_set_close_response (dialog, "keep-playing");
 
-		g_object_set_data (G_OBJECT (dialog), "hitori", hitori);
+		g_object_set_data (G_OBJECT (dialog), "kuro", kuro);
 
-		adw_alert_dialog_choose (dialog, GTK_WIDGET (hitori->window), NULL,
+		adw_alert_dialog_choose (dialog, GTK_WIDGET (kuro->window), NULL,
 		                          board_size_dialog_response_cb,
 		                          GUINT_TO_POINTER (board_size));
 	} else {
 		/* Kill the current game and resize the board */
-		hitori_new_game (hitori, board_size);
+		kuro_new_game (kuro, board_size);
 	}
 }
 
 void
-hitori_print_board (Hitori *hitori)
+kuro_print_board (Kuro *kuro)
 {
-	if (hitori->debug) {
-		HitoriVector iter;
+	if (kuro->debug) {
+		KuroVector iter;
 
-		for (iter.y = 0; iter.y < hitori->board_size; iter.y++) {
-			for (iter.x = 0; iter.x < hitori->board_size; iter.x++) {
-				if ((hitori->board[iter.x][iter.y].status & CELL_PAINTED) == FALSE)
-					g_printf ("%u ", hitori->board[iter.x][iter.y].num);
+		for (iter.y = 0; iter.y < kuro->board_size; iter.y++) {
+			for (iter.x = 0; iter.x < kuro->board_size; iter.x++) {
+				if ((kuro->board[iter.x][iter.y].status & CELL_PAINTED) == FALSE)
+					g_printf ("%u ", kuro->board[iter.x][iter.y].num);
 				else
 					g_printf ("X ");
 			}
@@ -390,89 +390,89 @@ hitori_print_board (Hitori *hitori)
 }
 
 void
-hitori_free_board (Hitori *hitori)
+kuro_free_board (Kuro *kuro)
 {
 	guint i;
 
-	if (hitori->board == NULL)
+	if (kuro->board == NULL)
 		return;
 
-	for (i = 0; i < hitori->board_size; i++)
-		g_slice_free1 (sizeof (HitoriCell) * hitori->board_size, hitori->board[i]);
-	g_free (hitori->board);
-	hitori->board = NULL;
+	for (i = 0; i < kuro->board_size; i++)
+		g_slice_free1 (sizeof (KuroCell) * kuro->board_size, kuro->board[i]);
+	g_free (kuro->board);
+	kuro->board = NULL;
 }
 
 void
-hitori_enable_events (Hitori *hitori)
+kuro_enable_events (Kuro *kuro)
 {
-	hitori->processing_events = TRUE;
+	kuro->processing_events = TRUE;
 
-	if (hitori->undo_stack->redo != NULL)
-		g_simple_action_set_enabled (hitori->redo_action, TRUE);
-	if (hitori->undo_stack->undo != NULL)
-		g_simple_action_set_enabled (hitori->redo_action, TRUE);
-	g_simple_action_set_enabled (hitori->hint_action, TRUE);
+	if (kuro->undo_stack->redo != NULL)
+		g_simple_action_set_enabled (kuro->redo_action, TRUE);
+	if (kuro->undo_stack->undo != NULL)
+		g_simple_action_set_enabled (kuro->undo_action, TRUE);
+	g_simple_action_set_enabled (kuro->hint_action, TRUE);
 
-	hitori_start_timer (hitori);
+	kuro_start_timer (kuro);
 }
 
 void
-hitori_disable_events (Hitori *hitori)
+kuro_disable_events (Kuro *kuro)
 {
-	hitori->processing_events = FALSE;
-	g_simple_action_set_enabled (hitori->redo_action, FALSE);
-	g_simple_action_set_enabled (hitori->undo_action, FALSE);
-	g_simple_action_set_enabled (hitori->hint_action, FALSE);
+	kuro->processing_events = FALSE;
+	g_simple_action_set_enabled (kuro->redo_action, FALSE);
+	g_simple_action_set_enabled (kuro->undo_action, FALSE);
+	g_simple_action_set_enabled (kuro->hint_action, FALSE);
 
-	hitori_pause_timer (hitori);
+	kuro_pause_timer (kuro);
 }
 
 static void
-set_timer_label (Hitori *hitori)
+set_timer_label (Kuro *kuro)
 {
-	gchar *text = g_strdup_printf ("%02u∶\xE2\x80\x8E%02u", hitori->timer_value / 60, hitori->timer_value % 60);
-	gtk_label_set_text (hitori->timer_label, text);
+	gchar *text = g_strdup_printf ("%02u∶\xE2\x80\x8E%02u", kuro->timer_value / 60, kuro->timer_value % 60);
+	gtk_label_set_text (kuro->timer_label, text);
 	g_free (text);
 }
 
 static gboolean
-update_timer_cb (Hitori *hitori)
+update_timer_cb (Kuro *kuro)
 {
-	hitori->timer_value++;
-	set_timer_label (hitori);
+	kuro->timer_value++;
+	set_timer_label (kuro);
 
 	return TRUE;
 }
 
 void
-hitori_start_timer (Hitori *hitori)
+kuro_start_timer (Kuro *kuro)
 {
 	// Remove any old timeout
-	hitori_pause_timer (hitori);
+	kuro_pause_timer (kuro);
 
-	set_timer_label (hitori);
-	hitori->timeout_id = g_timeout_add_seconds (1, (GSourceFunc) update_timer_cb, hitori);
+	set_timer_label (kuro);
+	kuro->timeout_id = g_timeout_add_seconds (1, (GSourceFunc) update_timer_cb, kuro);
 }
 
 void
-hitori_pause_timer (Hitori *hitori)
+kuro_pause_timer (Kuro *kuro)
 {
-	if (hitori->timeout_id > 0) {
-		g_source_remove (hitori->timeout_id);
-		hitori->timeout_id = 0;
+	if (kuro->timeout_id > 0) {
+		g_source_remove (kuro->timeout_id);
+		kuro->timeout_id = 0;
 	}
 }
 
 void
-hitori_reset_timer (Hitori *hitori)
+kuro_reset_timer (Kuro *kuro)
 {
-	hitori->timer_value = 0;
-	set_timer_label (hitori);
+	kuro->timer_value = 0;
+	set_timer_label (kuro);
 }
 
 void
-hitori_quit (Hitori *hitori)
+kuro_quit (Kuro *kuro)
 {
 	static gboolean quitting = FALSE;
 
@@ -480,30 +480,30 @@ hitori_quit (Hitori *hitori)
 		return;
 	quitting = TRUE;
 
-	hitori_free_board (hitori);
-	hitori_clear_undo_stack (hitori);
-	g_free (hitori->undo_stack); /* Clear the new game element */
+	kuro_free_board (kuro);
+	kuro_clear_undo_stack (kuro);
+	g_free (kuro->undo_stack); /* Clear the new game element */
 
-	if (hitori->window != NULL)
-		gtk_window_destroy (GTK_WINDOW (hitori->window));
+	if (kuro->window != NULL)
+		gtk_window_destroy (GTK_WINDOW (kuro->window));
 	
-	if (hitori->settings)
-		g_object_unref (hitori->settings);
+	if (kuro->settings)
+		g_object_unref (kuro->settings);
 
-	g_application_quit (G_APPLICATION (hitori));
+	g_application_quit (G_APPLICATION (kuro));
 }
 
 int
 main (int argc, char *argv[])
 {
-	HitoriApplication *app;
+	KuroApplication *app;
 	int status;
 
 #if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
 #endif
 
-	app = hitori_application_new ();
+	app = kuro_application_new ();
 	status = g_application_run (G_APPLICATION (app), argc, argv);
 	g_object_unref (app);
 

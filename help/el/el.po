@@ -1,11 +1,11 @@
-# Greek translation for hitori.
-# Copyright (C) 2014 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Greek translation for kuro.
+# Copyright (C) 2014 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 # Dimitris Spingos <dmtrs32@gmail.com>, 2014.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori master\n"
+"Project-Id-Version: kuro master\n"
 "POT-Creation-Date: 2014-08-28 21:20+0000\n"
 "PO-Revision-Date: 2014-08-30 14:19+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
@@ -48,13 +48,13 @@ msgstr ""
 #: C/customization.page:11
 msgid ""
 "To change the board size, choose an option from <guiseq><gui style=\"menu"
-"\">Game</gui><gui style=\"menuitem\">Board Size</gui></guiseq>. <app>Hitori</"
+"\">Game</gui><gui style=\"menuitem\">Board Size</gui></guiseq>. <app>Kuro</"
 "app> will ask if you want to stop the current game if you're in the middle "
 "of one, then start a new game with the requested board size."
 msgstr ""
 "Για να αλλάξετε το μέγεθος του πίνακα, επιλέξτε από το <guiseq><gui style="
 "\"menu\">Παιχνίδι</gui><gui style=\"menuitem\">Μέγεθος πίνακα</gui></"
-"guiseq>. Το <app>Hitori</app> θα σας ρωτήσει αν θέλετε να σταματήσετε το "
+"guiseq>. Το <app>Kuro</app> θα σας ρωτήσει αν θέλετε να σταματήσετε το "
 "τρέχον παιχνίδι αν είσαστε στο μέσο ενός παιχνιδιού, έπειτα αρχίστε με ένα "
 "νέο παιχνίδι με το ζητούμενο μέγεθος πίνακα."
 
@@ -66,31 +66,31 @@ msgstr ""
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='b6ea3ee1ff73311d002cfdb4463032be'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='b6ea3ee1ff73311d002cfdb4463032be'"
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Εισαγωγή στο παιχνίδι του Hitori."
+msgid "Introduction to the game of Kuro."
+msgstr "Εισαγωγή στο παιχνίδι του Kuro."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "Το παιχνίδι Hitori"
+msgid "Kuro the Game"
+msgstr "Το παιχνίδι Kuro"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"Το Hitori είναι ένα παιχνίδι λογικής με γρίφους, με παρόμοιο ύφος με το πιο "
+"Το Kuro είναι ένα παιχνίδι λογικής με γρίφους, με παρόμοιο ύφος με το πιο "
 "δημοφιλές Σουντόκου. Στο παιχνίδι, ο παίκτης ξεκινά με έναν τετράγωνο πίνακα "
 "αριθμών και πρέπει να <em>ξεβάψει</em> κελιά μέχρι να μην υπάρχουν διπλοί "
 "αριθμοί σε κάθε γραμμή και στήλη. Οι παρακάτω κανόνες εφαρμόζονται:"
@@ -124,10 +124,10 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "Αυτοί είναι οι μόνοι τρεις κανόνες του παιχνιδιού και έτσι μπορεί να "
-"υπάρξουν πολλές λύσεις σε ένα πίνακα γρίφου Hitori."
+"υπάρξουν πολλές λύσεις σε ένα πίνακα γρίφου Kuro."
 
 #. (itstool) path: figure/title
 #: C/game.page:20
@@ -136,13 +136,13 @@ msgstr "Το κυρίως παράθυρο του παιχνιδιού"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "Το κυρίως παράθυρο του <app>Hitori</app>"
+msgid "<app>Kuro</app> main window"
+msgstr "Το κυρίως παράθυρο του <app>Kuro</app>"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "Το κυρίως παράθυρο του <app>Hitori</app>."
+msgid "<app>Kuro</app> main window."
+msgstr "Το κυρίως παράθυρο του <app>Kuro</app>."
 
 #. (itstool) path: credit/name
 #: C/index.page:6
@@ -167,8 +167,8 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:15
-msgid "Hitori Help"
-msgstr "Βοήθεια του Hitori"
+msgid "Kuro Help"
+msgstr "Βοήθεια του Kuro"
 
 #. (itstool) path: section/title
 #: C/index.page:18
@@ -192,8 +192,8 @@ msgstr "Αυτό το έργο έχει αδειοδοτηθεί υπό την <
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Χρησιμοποιήστε το <app>Hitori</app> για να παίξετε ένα παιχνίδι."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Χρησιμοποιήστε το <app>Kuro</app> για να παίξετε ένα παιχνίδι."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -205,11 +205,11 @@ msgstr "Παίζοντας ένα παιχνίδι"
 msgid ""
 "To start a new game, choose <guiseq><gui style=\"menu\">Game</gui><gui style="
 "\"menuitem\">New Game</gui></guiseq>. If you are already playing a game, "
-"<app>Hitori</app> will ask if you want to stop the current game."
+"<app>Kuro</app> will ask if you want to stop the current game."
 msgstr ""
 "Για να ξεκινήσετε ένα νέο παιχνίδι, επιλέξτε <guiseq><gui style=\"menu"
 "\">Παιχνίδι</gui><gui style=\"menuitem\">Νέο παιχνίδι</gui></guiseq>. Αν "
-"παίζετε ήδη ένα παιχνίδι, το <app>Hitori</app> θα σας ρωτήσει αν θέλετε να "
+"παίζετε ήδη ένα παιχνίδι, το <app>Kuro</app> θα σας ρωτήσει αν θέλετε να "
 "σταματήσετε το τρέχον παιχνίδι."
 
 #. (itstool) path: page/p
@@ -227,14 +227,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:14
 msgid ""
-"<app>Hitori</app> also allows you to highlight cells for your own reference "
+"<app>Kuro</app> also allows you to highlight cells for your own reference "
 "when solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both highlight cells "
 "differently, and cells can be highlighted in both manners at the same time. "
 "Highlighted cells can be de-highlighted by clicking on them again while "
 "holding either <key>Ctrl</key> or <key>Shift</key> again."
 msgstr ""
-"Το <app>Hitori</app> σας επιτρέπει επίσης να επισημάνετε κελιά για τη δική "
+"Το <app>Kuro</app> σας επιτρέπει επίσης να επισημάνετε κελιά για τη δική "
 "σας αναφορά όταν λύνετε έναν πίνακα. Αυτό μπορεί να επιτευχθεί κρατώντας "
 "πατημένο το <key>Ctrl</key> ή το <key>Shift</key> και κάνοντας κλικ σε ένα "
 "κελί. Και τα δυο επισημαίνουν τα κελιά διαφορετικά και τα κελιά μπορούν να "
@@ -273,8 +273,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Στρατηγικές για να παίξετε το Hitori."
+msgid "Strategies for playing Kuro."
+msgstr "Στρατηγικές για να παίξετε το Kuro."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -284,13 +284,13 @@ msgstr "Στρατηγικές αναπαραγωγής παιχνιδιού"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to highlight all the repeated numbers in each <em>column</em>, then "
 "use <key>Ctrl</key>-clicking to highlight all the repeated numbers in each "
 "<em>row</em>."
 msgstr ""
-"Το Hitori είναι αρκετά παρόμοιο με το Σουντόκου, στο ότι παίρνει λογική "
+"Το Kuro είναι αρκετά παρόμοιο με το Σουντόκου, στο ότι παίρνει λογική "
 "επαγωγή για να υπολογίσει ποια κελιά θα ξεβαφτούν. Μια στρατηγική είναι να "
 "χρησιμοποιήσετε το <key>Shift</key> για να επισημανθούν όλοι οι "
 "επαναλαμβανόμενοι αριθμοί σε κάθε <em>στήλη</em>, έπειτα να χρησιμοποιήσετε "
@@ -304,26 +304,26 @@ msgid ""
 "highlighted both ways are good candidates for painting, although not always. "
 "When painting a cell, unhighlighting the other cells with the same number in "
 "the same row and column as that cell is a good way to keep track of which "
-"cells are still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"cells are still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Αφού γίνει αυτό για όλον τον πίνακα, τα κελιά που έχουν επισημανθεί και με "
 "τους δύο τρόπους είναι καλοί υποψήφιοι για βαφή, αν και όχι πάντα. Όταν "
 "βάφετε ένα κελί, η αποεπισήμανση των άλλων κελιών με τον ίδιο αριθμό στην "
 "ίδια γραμμή και στήλη με αυτό το κελί είναι ένας καλός τρόπος να "
 "παρακολουθήσετε ποια κελιά παραβιάζουν ακόμα τον <link xref=\"game\">κανόνα "
-"1 του Hitori</link>."
+"1 του Kuro</link>."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can't both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can't both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Να έχετε κατά νου πάντα ότι ο κανόνας 2 του Hitori σημαίνει ότι δύο "
-"γειτονικά κελιά δεν μπορούν να βαφτούν και τα δύο. Το <app>Hitori</app> θα "
+"Να έχετε κατά νου πάντα ότι ο κανόνας 2 του Kuro σημαίνει ότι δύο "
+"γειτονικά κελιά δεν μπορούν να βαφτούν και τα δύο. Το <app>Kuro</app> θα "
 "επισημάνει με κόκκινο τα κελιά που παραβιάζουν τον κανόνα 2. Παρόμοια, οι "
 "ομάδες των κελιών που παραβιάζουν τον κανόνα 3 χωρίζοντας ένα ή περισσότερα "
 "άβαφα κελιά από τα άλλα βαμμένα κελιά θα επισημανθούν με κόκκινο."
@@ -332,13 +332,13 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, choose <guiseq><gui style=\"menu\">Game</"
-"gui><gui style=\"menuitem\">Hint</gui></guiseq> for <app>Hitori</app> to "
+"gui><gui style=\"menuitem\">Hint</gui></guiseq> for <app>Kuro</app> to "
 "flag a cell which should be painted or unpainted to move closer to a "
 "solution."
 msgstr ""
 "Αν κολλήσετε οπουδήποτε, επιλέξτε <guiseq><gui style=\"menu\">Παιχνίδι</"
 "gui><gui style=\"menuitem\">Υπόδειξη</gui></guiseq> για να τοποθετήσει το "
-"<app>Hitori</app> μια σημαία σε ένα κελί που πρέπει να βαφτεί ή να ξεβαφτεί "
+"<app>Kuro</app> μια σημαία σε ένα κελί που πρέπει να βαφτεί ή να ξεβαφτεί "
 "για να πλησιάσετε μια λύση."
 
 #~ msgid "Legal information."

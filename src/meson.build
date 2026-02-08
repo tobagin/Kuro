@@ -10,9 +10,10 @@ if not cc.has_function('atexit')
 endif
 
 resources = gnome.compile_resources(
-  'hitori-resources',
+  'kuro-resources',
   '@0@.gresource.xml'.format(meson.project_name()),
-  source_dir: meson.source_root(),
+  source_dir: [meson.source_root(), meson.project_build_root()],
+  dependencies: compiled_ui_files,
 )
 
 config_header = configure_file(

@@ -3,10 +3,10 @@
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
          xmlns:gnome="http://api.gnome.org/doap-extensions#"
          xmlns="http://usefulinc.com/ns/doap#">
-	<name xml:lang="en">hitori</name>
-	<shortdesc xml:lang="en">GTK+ application to generate and let you play games of Hitori</shortdesc>
+	<name xml:lang="en">kuro</name>
+	<shortdesc xml:lang="en">GTK+ application to generate and let you play games of Kuro</shortdesc>
 	<description xml:lang="en">
-		Hitori is a small logic puzzle in a similar vein to the more
+		Kuro is a small logic puzzle in a similar vein to the more
 		popular Sudoku. In the game, the player starts with a square
 		board of numbers, and has to paint out cells until there are no
 		duplicate numbers in each row and column. The following rules
@@ -18,11 +18,11 @@
 		 • All the unpainted cells must be joined together vertically
 		   and horizontally in one group.
 		These are the only three rules of the game, and so there may
-		well be multiple solutions to a Hitori puzzle board.
+		well be multiple solutions to a Kuro puzzle board.
 	</description>
-	<homepage rdf:resource="https://wiki.gnome.org/Apps/Hitori" />
-	<download-page rdf:resource="https://download.gnome.org/sources/hitori/" />
-	<bug-database rdf:resource="https://gitlab.gnome.org/GNOME/hitori/issues" />
+	<homepage rdf:resource="https://wiki.gnome.org/Apps/Kuro" />
+	<download-page rdf:resource="https://download.gnome.org/sources/kuro/" />
+	<bug-database rdf:resource="https://gitlab.gnome.org/GNOME/kuro/issues" />
 	<programming-language>C</programming-language>
 	<maintainer>
 		<foaf:Person>

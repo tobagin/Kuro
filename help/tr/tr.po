@@ -1,13 +1,13 @@
-# Turkish translation for hitori.
-# Copyright (C) 2023 hitori's COPYRIGHT HOLDER
-# This file is distributed under the same license as the hitori package.
+# Turkish translation for kuro.
+# Copyright (C) 2023 kuro's COPYRIGHT HOLDER
+# This file is distributed under the same license as the kuro package.
 #
 # Sabri Ünal <libreajans@gmail.com>, 2023.
 # Emin Tufan Çetin <etcetin@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori main\n"
+"Project-Id-Version: kuro main\n"
 "POT-Creation-Date: 2023-02-28 18:25+0000\n"
 "PO-Revision-Date: 2023-03-01 03:20+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
@@ -50,35 +50,35 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
 "Tahta boyutunu değiştirmek için, pencerenin sağ üst köşesindeki menü "
 "düğmesine basın ve <gui style=\"menuitem\">Tahta Boyutu</gui>'dan bir "
-"seçenek seçin. Eğer geçerli bir oyundaysanız, <app>Hitori</app> istenen "
+"seçenek seçin. Eğer geçerli bir oyundaysanız, <app>Kuro</app> istenen "
 "tahta boyutuyla yeni bir oyun başlatmak için var olan oyunu durdurmak "
 "isteyip istemediğinizi soracaktır."
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Hitori oyununa giriş."
+msgid "Introduction to the game of Kuro."
+msgstr "Kuro oyununa giriş."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "Hitori Oyunu"
+msgid "Kuro the Game"
+msgstr "Kuro Oyunu"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"Hitori, Sudoku'ya benzer küçük bir mantık bulmacasıdır. Oyunda, oyuncu "
+"Kuro, Sudoku'ya benzer küçük bir mantık bulmacasıdır. Oyunda, oyuncu "
 "sayılardan oluşan bir kare tahtada başlar ve her satır ve sütunda "
 "tekrarlanan sayı kalmayana kadar hücreleri <em>boyamalıdır</em>. Aşağıdaki "
 "kurallar geçerlidir:"
@@ -109,9 +109,9 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
-"Bunlar oyunun yalnızca üç kuralıdır ve bu nedenle Hitori yapboz tahtası için "
+"Bunlar oyunun yalnızca üç kuralıdır ve bu nedenle Kuro yapboz tahtası için "
 "birden çok çözüm olabilir."
 
 #. (itstool) path: figure/title
@@ -121,8 +121,8 @@ msgstr "Ana oyun penceresi"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "<app>Hitori</app> ana penceresi"
+msgid "<app>Kuro</app> main window"
+msgstr "<app>Kuro</app> ana penceresi"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -132,34 +132,34 @@ msgstr "<app>Hitori</app> ana penceresi"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "<app>Hitori</app> ana penceresi."
+msgid "<app>Kuro</app> main window."
+msgstr "<app>Kuro</app> ana penceresi."
 
 #. (itstool) path: info/title
 #: C/index.page:4
 msgctxt "link:trail"
-msgid "Hitori Help"
-msgstr "Hitori Yardım"
+msgid "Kuro Help"
+msgstr "Kuro Yardım"
 
 #. (itstool) path: info/title
 #: C/index.page:5
 msgctxt "text"
-msgid "Hitori Help"
-msgstr "Hitori Yardım"
+msgid "Kuro Help"
+msgstr "Kuro Yardım"
 
 #. (itstool) path: info/title
 #: C/index.page:6
 msgctxt "link"
-msgid "Hitori Help"
-msgstr "Hitori Yardım"
+msgid "Kuro Help"
+msgstr "Kuro Yardım"
 
 #. (itstool) path: credit/name
 #: C/index.page:11
@@ -184,8 +184,8 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-msgid "<_:media-1/> Hitori Help"
-msgstr "<_:media-1/> Hitori Yardım"
+msgid "<_:media-1/> Kuro Help"
+msgstr "<_:media-1/> Kuro Yardım"
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -209,8 +209,8 @@ msgstr "Bu çalışma <_:link-1/> ile lisanslanmıştır."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "Oyun oynamak için <app>Hitori</app> kullanmak."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "Oyun oynamak için <app>Kuro</app> kullanmak."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -222,12 +222,12 @@ msgstr "Oyun Oynamak"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "Yeni oyun başlatmak için, pencerenin sağ üst köşesindeki menü düğmesine "
 "basıp <gui style=\"menuitem\">Yeni Oyun</gui>'u seçin. Zaten oyun "
-"oynuyorsanız, <app>Hitori</app> var olan oyunu durdurup durdurmayacağınızı "
+"oynuyorsanız, <app>Kuro</app> var olan oyunu durdurup durdurmayacağınızı "
 "soracaktır."
 
 #. (itstool) path: page/p
@@ -244,14 +244,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
 "be un-tagged by clicking on them again while holding either <key>Ctrl</key> "
 "or <key>Shift</key> again."
 msgstr ""
-"<app>Hitori</app>, ayrıca tahtayı çözerken kendi referansınız için hücreleri "
+"<app>Kuro</app>, ayrıca tahtayı çözerken kendi referansınız için hücreleri "
 "etiketlemenizi sağlar. Bunu, <key>Ctrl</key> ya da <key>Shift</key> tuşunu "
 "basılı tutarak ve hücreye tıklayarak yapabilirsiniz. İkisi de hücreleri "
 "farklı şekilde etiketler ve hücreler aynı anda her iki şekilde de "
@@ -302,8 +302,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Hitori oynama stratejileri."
+msgid "Strategies for playing Kuro."
+msgstr "Kuro oynama stratejileri."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -313,13 +313,13 @@ msgstr "Oyun Oynama Stratejileri"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
 "em>."
 msgstr ""
-"Hitori, Sudoku'ya oldukça benzer, her ikisi de hangi hücreleri boyamak "
+"Kuro, Sudoku'ya oldukça benzer, her ikisi de hangi hücreleri boyamak "
 "gerektiğini bilmek için mantıksal çıkarım gerektirir. Bir strateji, her "
 "<em>sütundaki</em> tekrarlanan tüm sayıları etiketlemek için <key>Shift</"
 "key>-tıklama kullanmak, ardından her <em>satırdaki</em> tekrarlanan tüm "
@@ -332,25 +332,25 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Bu, tahtanın tamamı için yapıldığında, her iki şekilde etiketlenen hücreler "
 "boyamak için iyi adaylardır, ancak her zaman değil. Bir hücre boyanırken, "
 "aynı sayıya sahip diğer hücreleri aynı satır ve sütunda etiketini kaldırmak, "
-"<link xref=\"game\">Hitori'nin 1. kuralını</link> hala ihlal eden hücreleri "
+"<link xref=\"game\">Kuro'nin 1. kuralını</link> hala ihlal eden hücreleri "
 "takip etmenin iyi bir yoludur."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Hitori'nin ikinci kuralını daima akılda tutun: bitişik iki hücre aynı renge "
-"boyanamaz. <app>Hitori</app>, 2. kuralı ihlal eden hücreleri kırmızı renkte "
+"Kuro'nin ikinci kuralını daima akılda tutun: bitişik iki hücre aynı renge "
+"boyanamaz. <app>Kuro</app>, 2. kuralı ihlal eden hücreleri kırmızı renkte "
 "vurgulayacaktır. Benzer şekilde, 3. kuralı ihlal eden hücre grupları, diğer "
 "boyanmamış hücrelerden bir veya daha fazlasını ayıran hücreler kırmızı "
 "renkte vurgulanacaktır."
@@ -359,10 +359,10 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Eğer herhangi bir noktada takılırsanız, bir çözüme daha yakın olmak için "
 "hangi hücrenin boyanması veya boyanmaması gerektiği hakkında ipucu almak "
-"için <app>Hitori</app> başlık çubuğundaki <gui style=\"button\">İpucu</gui> "
+"için <app>Kuro</app> başlık çubuğundaki <gui style=\"button\">İpucu</gui> "
 "düğmesine basın."

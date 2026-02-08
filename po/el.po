@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hitori.master.el\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/hitori/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/tobagin/Kuro/issues\n"
 "POT-Creation-Date: 2024-07-29 20:47+0000\n"
 "PO-Revision-Date: 2020-09-11 14:16+0300\n"
 "Last-Translator: Giannis Antypas <gianni.antypas@gmail.com>\n"

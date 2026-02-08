@@ -1,5 +1,5 @@
-project('hitori', 'c',
-  version: '44.0',
+project('kuro', 'c',
+  version: '1.0.0',
   meson_version : '>= 0.48.0',
   license: 'GPLv3+',
   default_options : [
@@ -11,7 +11,7 @@ project('hitori', 'c',
 
 i18n = import('i18n')
 gnome = import('gnome')
-application_id = 'org.gnome.Hitori'
+application_id = 'io.github.tobagin.Kuro'
 
 # Dependencies
 glib_dependency = dependency('glib-2.0')
@@ -23,7 +23,7 @@ cairo_dependency = dependency('cairo', version: '>= 1.4')
 
 config_h = configuration_data()
 config_h.set_quoted('PACKAGE', meson.project_name())
-config_h.set_quoted('PACKAGE_URL', 'https://wiki.gnome.org/Apps/Hitori')
+config_h.set_quoted('PACKAGE_URL', 'https://github.com/tobagin/Kuro')
 config_h.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 config_h.set_quoted('PACKAGE_LOCALE_DIR', join_paths(get_option('prefix'), get_option('localedir')))
 config_h.set_quoted('VERSION', meson.project_version())
@@ -91,6 +91,7 @@ test_c_args = [
 cc = meson.get_compiler('c')
 add_project_arguments(cc.get_supported_arguments(test_c_args), language: 'c')
 
+compiled_ui_files = []
 subdir('data')
 subdir('help')
 subdir('po')

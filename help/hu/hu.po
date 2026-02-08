@@ -1,12 +1,12 @@
-# Hungarian translation for hitori.
+# Hungarian translation for kuro.
 # Copyright (C) 2013, 2014, 2016, 2019, 2021. Free Software Foundation, Inc.
-# This file is distributed under the same license as the hitori package.
+# This file is distributed under the same license as the kuro package.
 #
 # Balázs Úr <ur.balazs at fsf dot hu>, 2013, 2014, 2019, 2021.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: hitori master\n"
+"Project-Id-Version: kuro master\n"
 "POT-Creation-Date: 2021-03-16 11:31+0000\n"
 "PO-Revision-Date: 2021-03-18 01:28+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
@@ -49,35 +49,35 @@ msgstr ""
 msgid ""
 "To change the board size, press the menu button in the top-right corner of "
 "the window, and select an option from <gui style=\"menuitem\">Board Size</"
-"gui>. <app>Hitori</app> will ask if you want to stop the current game if "
+"gui>. <app>Kuro</app> will ask if you want to stop the current game if "
 "you’re in the middle of one, then start a new game with the requested board "
 "size."
 msgstr ""
 "A tábla méretének módosításához nyomja meg az ablak jobb felső sarkában lévő "
 "menügombot, és válasszon egy lehetőséget a <gui style=\"menuitem"
 "\">Táblaméret</gui> menüpont alatt. Ha éppen játék közben van, a "
-"<app>Hitori</app> meg fogja kérdezni, hogy leállítja-e az aktuális játékot "
+"<app>Kuro</app> meg fogja kérdezni, hogy leállítja-e az aktuális játékot "
 "és újat indít a kért táblamérettel."
 
 #. (itstool) path: info/desc
 #: C/game.page:6
-msgid "Introduction to the game of Hitori."
-msgstr "Bevezetés a Hitori játékba."
+msgid "Introduction to the game of Kuro."
+msgstr "Bevezetés a Kuro játékba."
 
 #. (itstool) path: page/title
 #: C/game.page:8
-msgid "Hitori the Game"
-msgstr "Hitori, a játék"
+msgid "Kuro the Game"
+msgstr "Kuro, a játék"
 
 #. (itstool) path: page/p
 #: C/game.page:10
 msgid ""
-"Hitori is a small logic puzzle in a similar vein to the more popular Sudoku. "
+"Kuro is a small logic puzzle in a similar vein to the more popular Sudoku. "
 "In the game, the player starts with a square board of numbers, and has to "
 "<em>paint out</em> cells until there are no duplicate numbers in each row "
 "and column. The following rules apply:"
 msgstr ""
-"A Hitori egy kis logikai fejtörő a népszerűbb Sudokuhoz hasonlóan. A "
+"A Kuro egy kis logikai fejtörő a népszerűbb Sudokuhoz hasonlóan. A "
 "játékban a játékos egy négyzet alakú számtáblával indul, és <em>ki kell "
 "festenie</em> a cellákat, amíg nem maradnak többször szereplő számok az "
 "egyes sorokban és oszlopokban. A következők a szabályok:"
@@ -110,10 +110,10 @@ msgstr ""
 #: C/game.page:17
 msgid ""
 "These are the only three rules of the game, and so there may well be "
-"multiple solutions to a Hitori puzzle board."
+"multiple solutions to a Kuro puzzle board."
 msgstr ""
 "A játéknak csak ez a három szabálya van, így több megoldása is lehet egy-egy "
-"Hitori fejtörőtáblának."
+"Kuro fejtörőtáblának."
 
 #. (itstool) path: figure/title
 #: C/game.page:20
@@ -122,8 +122,8 @@ msgstr "Fő játék ablak"
 
 #. (itstool) path: figure/desc
 #: C/game.page:21
-msgid "<app>Hitori</app> main window"
-msgstr "<app>Hitori</app> főablak"
+msgid "<app>Kuro</app> main window"
+msgstr "<app>Kuro</app> főablak"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -133,37 +133,37 @@ msgstr "<app>Hitori</app> főablak"
 #: C/game.page:22
 msgctxt "_"
 msgid ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 msgstr ""
-"external ref='figures/hitori_main_window.png' "
+"external ref='figures/kuro_main_window.png' "
 "md5='7aa0ef330099fdc2b2d9b93b19393033'"
 
 #. (itstool) path: media/p
 #: C/game.page:23
-msgid "<app>Hitori</app> main window."
-msgstr "<app>Hitori</app> főablak."
+msgid "<app>Kuro</app> main window."
+msgstr "<app>Kuro</app> főablak."
 
 #. (itstool) path: info/title
 #: C/index.page:4
-#| msgid "Hitori Help"
+#| msgid "Kuro Help"
 msgctxt "link:trail"
-msgid "Hitori Help"
-msgstr "Hitori súgó"
+msgid "Kuro Help"
+msgstr "Kuro súgó"
 
 #. (itstool) path: info/title
 #: C/index.page:5
-#| msgid "Hitori Help"
+#| msgid "Kuro Help"
 msgctxt "text"
-msgid "Hitori Help"
-msgstr "Hitori súgó"
+msgid "Kuro Help"
+msgstr "Kuro súgó"
 
 #. (itstool) path: info/title
 #: C/index.page:6
-#| msgid "Hitori Help"
+#| msgid "Kuro Help"
 msgctxt "link"
-msgid "Hitori Help"
-msgstr "Hitori súgó"
+msgid "Kuro Help"
+msgstr "Kuro súgó"
 
 #. (itstool) path: credit/name
 #: C/index.page:11
@@ -188,9 +188,9 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:20
-#| msgid "Hitori Help"
-msgid "<_:media-1/> Hitori Help"
-msgstr "<_:media-1/> Hitori súgó"
+#| msgid "Kuro Help"
+msgid "<_:media-1/> Kuro Help"
+msgstr "<_:media-1/> Kuro súgó"
 
 #. (itstool) path: section/title
 #: C/index.page:26
@@ -214,8 +214,8 @@ msgstr "Ez a mű a <_:link-1/> feltételei szerint terjeszthető."
 
 #. (itstool) path: info/desc
 #: C/playing.page:6
-msgid "Using <app>Hitori</app> to play a game."
-msgstr "A <app>Hitori</app> játék használata."
+msgid "Using <app>Kuro</app> to play a game."
+msgstr "A <app>Kuro</app> játék használata."
 
 #. (itstool) path: page/title
 #: C/playing.page:8
@@ -227,12 +227,12 @@ msgstr "Játékmenet"
 msgid ""
 "To start a new game, press the menu button in the top-right corner of the "
 "window, and select <gui style=\"menuitem\">New Game</gui>. If you are "
-"already playing a game, <app>Hitori</app> will ask if you want to stop the "
+"already playing a game, <app>Kuro</app> will ask if you want to stop the "
 "current game."
 msgstr ""
 "Új játék indításához nyomja meg az ablak jobb felső sarkában lévő "
 "menügombot, és válassza az <gui style=\"menuitem\">Új játék</gui> "
-"menüpontot. Ha már játszik, a <app>Hitori</app> meg fogja kérdezni, hogy "
+"menüpontot. Ha már játszik, a <app>Kuro</app> meg fogja kérdezni, hogy "
 "leállítja-e az aktuális játékot."
 
 #. (itstool) path: page/p
@@ -249,14 +249,14 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/playing.page:15
 msgid ""
-"<app>Hitori</app> also allows you to tag cells for your own reference when "
+"<app>Kuro</app> also allows you to tag cells for your own reference when "
 "solving a board. This can be achieved by holding <key>Ctrl</key> or "
 "<key>Shift</key> and clicking on a cell. They both tag cells differently, "
 "and cells can be tagged in both manners at the same time. Tagged cells can "
 "be un-tagged by clicking on them again while holding either <key>Ctrl</key> "
 "or <key>Shift</key> again."
 msgstr ""
-"A <app>Hitori</app> lehetővé teszi a tábla megoldása közben a cellák "
+"A <app>Kuro</app> lehetővé teszi a tábla megoldása közben a cellák "
 "felcímkézését saját jegyzettel. Ez a <key>Ctrl</key> vagy <key>Shift</key> "
 "billentyű lenyomva tartása közbeni cellára kattintással érhető el. A két "
 "billentyű eltérően címkézi fel a cellákat, és a cellák egyszerre mindkét "
@@ -306,8 +306,8 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/strategy.page:6
-msgid "Strategies for playing Hitori."
-msgstr "Stratégiák a Hitori játékhoz."
+msgid "Strategies for playing Kuro."
+msgstr "Stratégiák a Kuro játékhoz."
 
 #. (itstool) path: page/title
 #: C/strategy.page:8
@@ -317,13 +317,13 @@ msgstr "Játékmenet stratégiák"
 #. (itstool) path: page/p
 #: C/strategy.page:10
 msgid ""
-"Hitori is quite similar to Sudoku, in that it takes logical deduction to "
+"Kuro is quite similar to Sudoku, in that it takes logical deduction to "
 "work out which cells to paint out. One strategy is to use <key>Shift</key>-"
 "clicking to tag all the repeated numbers in each <em>column</em>, then use "
 "<key>Ctrl</key>-clicking to tag all the repeated numbers in each <em>row</"
 "em>."
 msgstr ""
-"A Hitori meglehetősen hasonló a Sudokuhoz, amennyiben logikai "
+"A Kuro meglehetősen hasonló a Sudokuhoz, amennyiben logikai "
 "következtetéssel lehet meghatározni a kifestendő cellákat. Az egyik "
 "stratégia szerint a <key>Shift</key> és kattintás használatával felcímkézzük "
 "az ismétlődő számokat az egyes <em>oszlopokban</em>, majd a <key>Ctrl</key> "
@@ -337,26 +337,26 @@ msgid ""
 "both ways are good candidates for painting, although not always. When "
 "painting a cell, un-tagging the other cells with the same number in the same "
 "row and column as that cell is a good way to keep track of which cells are "
-"still violating <link xref=\"game\">rule 1 of Hitori</link>."
+"still violating <link xref=\"game\">rule 1 of Kuro</link>."
 msgstr ""
 "Miután ez megvan a teljes táblán, a mindkét módon felcímkézett cellák jó "
 "jelöltek a kifestéshez, noha nem mindig. Egy cella kifestésekor az "
 "ugyanabban a sorban és oszlopban azonos számot tartalmazó cellák "
 "felcímkézésének megszüntetése jó módszer azon cellák nyilvántartására, "
-"amelyek még mindig megsértik a <link xref=\"game\">Hitori 1. szabályát</"
+"amelyek még mindig megsértik a <link xref=\"game\">Kuro 1. szabályát</"
 "link>."
 
 #. (itstool) path: page/p
 #: C/strategy.page:16
 msgid ""
-"Always bear in mind that rule 2 of Hitori means that two adjacent cells "
-"can’t both be painted. <app>Hitori</app> will highlight in red the cells "
+"Always bear in mind that rule 2 of Kuro means that two adjacent cells "
+"can’t both be painted. <app>Kuro</app> will highlight in red the cells "
 "which violate rule 2. Similarly, groups of cells which violate rule 3 by "
 "separating one or more unpainted cells from the other unpainted cells will "
 "be highlighted in red."
 msgstr ""
-"Mindig tartsa szem előtt a Hitori 2. szabályát, miszerint két szomszédos "
-"cella nem lehet egyszerre kifestve. A <app>Hitori</app> vörössel emeli ki a "
+"Mindig tartsa szem előtt a Kuro 2. szabályát, miszerint két szomszédos "
+"cella nem lehet egyszerre kifestve. A <app>Kuro</app> vörössel emeli ki a "
 "2. szabályt megsértő cellákat. Hasonlóan a 3. szabályt a kifestetlen cellák "
 "többi kifestetlen cellától való elválasztásával megsértő cellák is vörössel "
 "lesznek kiemelve."
@@ -365,10 +365,10 @@ msgstr ""
 #: C/strategy.page:20
 msgid ""
 "If you get stuck at any point, press <gui style=\"button\">Hint</gui> in the "
-"header bar for <app>Hitori</app> to hint a cell which should be painted or "
+"header bar for <app>Kuro</app> to hint a cell which should be painted or "
 "unpainted to move closer to a solution."
 msgstr ""
 "Ha bármikor elakad, válassza a fejlécsávon lévő <gui style=\"button"
-"\">Javaslat</gui> menüpontot, hogy a <app>Hitori</app> kiemeljen egy cellát, "
+"\">Javaslat</gui> menüpontot, hogy a <app>Kuro</app> kiemeljen egy cellát, "
 "amelynek kifestésével vagy kifestésének törlésével közelebb lehet jutni a "
 "megoldáshoz."
