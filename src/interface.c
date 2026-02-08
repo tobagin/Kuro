@@ -1349,7 +1349,8 @@ static void about_cb(GSimpleAction *action, GVariant *parameters,
   KuroApplication *self = KURO_APPLICATION(user_data);
   AdwDialog *about;
 
-  const char *developers[] = {"Thiago Fernandes", NULL};
+  const char *developers[] = {"Thiago Fernandes", "Philip Withnall",
+                              "Ben Windsor", NULL};
 
   const char *original_authors[] = {"Philip Withnall", "Ben Windsor", NULL};
 
