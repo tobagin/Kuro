@@ -51,7 +51,7 @@ static const KuroTheme theme_kuro = {
     {1.0, 0.482, 0.388, 1.0}    /* error_text: #ff7b63 */
 };
 
-static const KuroTheme theme_hitori = {
+static const KuroTheme theme_classic = {
     {0.929, 0.929, 0.929, 1.0}, /* unpainted_bg: #ededed */
     {0.957, 0.957, 0.957, 1.0}, /* painted_bg: #f4f4f4 */
     {0.180, 0.204, 0.212, 1.0}, /* unpainted_border: #2e3436 */
@@ -98,8 +98,12 @@ static void style_manager_dark_changed_cb(AdwStyleManager *style_manager,
                                           GParamSpec *pspec,
                                           gpointer user_data);
 
+static void high_scores_cb(GSimpleAction *action, GVariant *parameter,
+                           gpointer user_data);
+
 static GActionEntry app_entries[] = {
     {"new-game", new_game_cb, NULL, NULL, NULL},
+    {"high-scores", high_scores_cb, NULL, NULL, NULL},
     {"about", about_cb, NULL, NULL, NULL},
     {"help", help_cb, NULL, NULL, NULL},
     {"quit", quit_cb, NULL, NULL, NULL},
@@ -114,6 +118,324 @@ static GActionEntry win_entries[] = {
     {"pause", pause_cb, NULL, "false", NULL},
     {"show-help-overlay", show_help_overlay_cb, NULL, NULL, NULL},
 };
+
+static void on_new_high_score_done(GtkWidget *button, gpointer user_data) {
+  AdwDialog *dialog = ADW_DIALOG(user_data);
+  Kuro *kuro = g_object_get_data(G_OBJECT(dialog), "kuro");
+  GtkWidget *entry = g_object_get_data(G_OBJECT(dialog), "entry");
+  const char *name = gtk_editable_get_text(GTK_EDITABLE(entry));
+
+  if (name && *name) {
+    kuro_score_add(kuro, kuro->board_size, name, kuro->timer_value);
+  }
+
+  adw_dialog_close(dialog);
+  /* Show win dialog after high score is handled */
+  kuro_show_win_dialog(kuro);
+}
+
+static void win_dialog_response_cb(AdwAlertDialog *dialog, const char *response,
+                                   gpointer user_data) {
+  Kuro *kuro = (Kuro *)user_data;
+
+  if (g_strcmp0(response, "quit") == 0) {
+    kuro_quit(kuro);
+  } else if (g_strcmp0(response, "play-again") == 0) {
+    kuro_new_game(kuro, kuro->board_size);
+  }
+}
+
+void kuro_show_win_dialog(Kuro *kuro) {
+  AdwAlertDialog *dialog;
+  gchar *message;
+
+  message = g_strdup_printf(_("You’ve won in a time of %02u:%02u!"),
+                            kuro->timer_value / 60, kuro->timer_value % 60);
+  dialog = ADW_ALERT_DIALOG(adw_alert_dialog_new(_("You Won!"), message));
+  g_free(message);
+
+  adw_alert_dialog_add_responses(dialog, "quit", _("_Quit"), "play-again",
+                                 _("_Play Again"), NULL);
+
+  adw_alert_dialog_set_response_appearance(dialog, "play-again",
+                                           ADW_RESPONSE_SUGGESTED);
+  adw_alert_dialog_set_default_response(dialog, "play-again");
+  adw_alert_dialog_set_close_response(dialog, "play-again");
+
+  g_signal_connect(dialog, "response", G_CALLBACK(win_dialog_response_cb),
+                   kuro);
+
+  adw_dialog_present(ADW_DIALOG(dialog), GTK_WIDGET(kuro->window));
+}
+
+void kuro_show_new_high_score_dialog(Kuro *kuro) {
+  AdwDialog *dialog;
+  GtkWidget *entry;
+  GtkWidget *toolbar_view;
+  GtkWidget *header_bar;
+  GtkWidget *box;
+
+  dialog = adw_dialog_new();
+  g_object_set_data(G_OBJECT(dialog), "kuro", kuro);
+
+  toolbar_view = adw_toolbar_view_new();
+  header_bar = adw_header_bar_new();
+  adw_header_bar_set_show_end_title_buttons(ADW_HEADER_BAR(header_bar), FALSE);
+
+  char *size_str = g_strdup_printf(_("Grid Size: %d × %d"), kuro->board_size,
+                                   kuro->board_size);
+  GtkWidget *title_widget =
+      adw_window_title_new(_("Congratulations!"), size_str);
+  g_free(size_str);
+
+  adw_header_bar_set_title_widget(ADW_HEADER_BAR(header_bar), title_widget);
+
+  GtkWidget *done_btn = gtk_button_new_with_label(_("Done"));
+  gtk_widget_add_css_class(done_btn, "suggested-action");
+  adw_header_bar_pack_end(ADW_HEADER_BAR(header_bar), done_btn);
+
+  g_signal_connect(done_btn, "clicked", G_CALLBACK(on_new_high_score_done),
+                   dialog);
+
+  adw_toolbar_view_add_top_bar(ADW_TOOLBAR_VIEW(toolbar_view), header_bar);
+
+  gtk_widget_set_size_request(toolbar_view, 400, 520);
+
+  /* Content */
+  box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+
+  GtkWidget *msg_lbl = gtk_label_new(_("Your score has made the top ten."));
+  gtk_widget_set_margin_top(msg_lbl, 24);
+  gtk_widget_set_margin_bottom(msg_lbl, 24);
+  gtk_box_append(GTK_BOX(box), msg_lbl);
+
+  GtkWidget *separator = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
+  gtk_box_append(GTK_BOX(box), separator);
+
+  /* List of scores + New Score */
+  GList *scores = kuro_score_get_top_scores(kuro, kuro->board_size);
+  /* ... logic ... */
+
+  GtkWidget *list_box = gtk_list_box_new();
+  gtk_list_box_set_selection_mode(GTK_LIST_BOX(list_box), GTK_SELECTION_NONE);
+  gtk_widget_add_css_class(list_box, "boxed-list");
+  gtk_widget_set_margin_start(list_box, 24);
+  gtk_widget_set_margin_end(list_box, 24);
+  gtk_widget_set_margin_bottom(list_box, 24);
+
+  /* Header Row */
+  GtkWidget *header_row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+  gtk_widget_set_margin_top(header_row, 12);
+  gtk_widget_set_margin_bottom(header_row, 6);
+  gtk_widget_set_margin_start(header_row,
+                              36); /* Align with list content padding roughly */
+
+  GtkWidget *lbl_rank = gtk_label_new(_("Rank"));
+  gtk_widget_set_size_request(lbl_rank, 40, -1);
+  gtk_box_append(GTK_BOX(header_row), lbl_rank);
+
+  GtkWidget *lbl_score = gtk_label_new(_("Score"));
+  gtk_widget_set_size_request(lbl_score, 60, -1);
+  gtk_box_append(GTK_BOX(header_row), lbl_score);
+
+  GtkWidget *lbl_player = gtk_label_new(_("Player"));
+  gtk_widget_set_hexpand(lbl_player, TRUE);
+  gtk_widget_set_halign(lbl_player, GTK_ALIGN_START);
+  gtk_box_append(GTK_BOX(header_row), lbl_player);
+
+  gtk_box_append(GTK_BOX(box), header_row);
+  gtk_box_append(GTK_BOX(box), list_box);
+
+  /* Merge logic */
+  KuroScore *new_s = g_new0(KuroScore, 1);
+  new_s->board_size = kuro->board_size;
+  new_s->time = kuro->timer_value;
+  new_s->name = NULL;
+
+  GList *l;
+  gboolean inserted = FALSE;
+  GList *display_list = NULL;
+
+  for (l = scores; l != NULL; l = l->next) {
+    KuroScore *s = (KuroScore *)l->data;
+    if (!inserted && new_s->time < s->time) {
+      display_list = g_list_append(display_list, new_s);
+      inserted = TRUE;
+    }
+    display_list = g_list_append(display_list, s);
+  }
+  if (!inserted && g_list_length(display_list) < 10) {
+    display_list = g_list_append(display_list, new_s);
+  }
+
+  while (g_list_length(display_list) > 10) {
+    GList *last = g_list_last(display_list);
+    display_list = g_list_delete_link(display_list, last);
+  }
+
+  /* Render */
+  int rank = 1;
+  entry = NULL;
+
+  for (l = display_list; l != NULL; l = l->next) {
+    KuroScore *s = (KuroScore *)l->data;
+    GtkWidget *row_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+    gtk_widget_set_margin_top(row_box, 12);
+    gtk_widget_set_margin_bottom(row_box, 12);
+
+    char *rank_str = g_strdup_printf("%d", rank++);
+    GtkWidget *r_lbl = gtk_label_new(rank_str);
+    g_free(rank_str);
+    gtk_widget_set_size_request(r_lbl, 40, -1);
+    gtk_box_append(GTK_BOX(row_box), r_lbl);
+
+    char *time_str;
+    if (s->time < 3600)
+      time_str = g_strdup_printf("%02u:%02u", s->time / 60, s->time % 60);
+    else
+      time_str = g_strdup_printf("%u:%02u:%02u", s->time / 3600,
+                                 (s->time % 3600) / 60, s->time % 60);
+
+    GtkWidget *t_lbl = gtk_label_new(time_str);
+    g_free(time_str);
+    gtk_widget_set_size_request(t_lbl, 60, -1);
+    gtk_box_append(GTK_BOX(row_box), t_lbl);
+
+    if (s == new_s) {
+      /* Input field */
+      entry = gtk_entry_new();
+      gtk_widget_set_hexpand(entry, TRUE);
+      gtk_entry_set_placeholder_text(GTK_ENTRY(entry), _("Your Name"));
+      gtk_editable_set_text(GTK_EDITABLE(entry), g_get_real_name());
+      gtk_box_append(GTK_BOX(row_box), entry);
+    } else {
+      /* Name label */
+      GtkWidget *n_lbl = gtk_label_new(s->name);
+      gtk_widget_set_hexpand(n_lbl, TRUE);
+      gtk_widget_set_halign(n_lbl, GTK_ALIGN_START);
+      gtk_box_append(GTK_BOX(row_box), n_lbl);
+    }
+
+    gtk_list_box_append(GTK_LIST_BOX(list_box), row_box);
+  }
+
+  g_list_free(display_list);
+  g_list_free_full(scores, (GDestroyNotify)kuro_score_free);
+  g_free(new_s);
+
+  adw_toolbar_view_set_content(ADW_TOOLBAR_VIEW(toolbar_view), box);
+  adw_dialog_set_child(dialog, toolbar_view);
+
+  if (entry) {
+    g_object_set_data(G_OBJECT(dialog), "entry", entry);
+  }
+
+  adw_dialog_present(dialog, GTK_WIDGET(kuro->window));
+}
+
+void kuro_show_high_scores_dialog(Kuro *kuro) {
+  AdwDialog *dialog;
+  GtkWidget *toolbar_view;
+  GtkWidget *header_bar;
+  GtkWidget *box;
+
+  dialog = adw_dialog_new();
+
+  toolbar_view = adw_toolbar_view_new();
+  header_bar = adw_header_bar_new();
+
+  char *size_str = g_strdup_printf(_("Grid Size: %d × %d"), kuro->board_size,
+                                   kuro->board_size);
+  GtkWidget *title_widget = adw_window_title_new(_("High Scores"), size_str);
+  g_free(size_str);
+
+  adw_header_bar_set_title_widget(ADW_HEADER_BAR(header_bar), title_widget);
+
+  adw_toolbar_view_add_top_bar(ADW_TOOLBAR_VIEW(toolbar_view), header_bar);
+
+  gtk_widget_set_size_request(toolbar_view, 400, 520);
+
+  box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+
+  GtkWidget *separator = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
+  gtk_box_append(GTK_BOX(box), separator);
+
+  GtkWidget *list_box = gtk_list_box_new();
+  gtk_list_box_set_selection_mode(GTK_LIST_BOX(list_box), GTK_SELECTION_NONE);
+  gtk_widget_add_css_class(list_box, "boxed-list");
+  gtk_widget_set_margin_start(list_box, 24);
+  gtk_widget_set_margin_end(list_box, 24);
+  gtk_widget_set_margin_bottom(list_box, 24);
+
+  /* Header Row */
+  GtkWidget *header_row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+  gtk_widget_set_margin_top(header_row, 12);
+  gtk_widget_set_margin_bottom(header_row, 6);
+  gtk_widget_set_margin_start(header_row, 36);
+
+  GtkWidget *lbl_rank = gtk_label_new(_("Rank"));
+  gtk_widget_set_size_request(lbl_rank, 40, -1);
+  gtk_box_append(GTK_BOX(header_row), lbl_rank);
+
+  GtkWidget *lbl_score = gtk_label_new(_("Score"));
+  gtk_widget_set_size_request(lbl_score, 60, -1);
+  gtk_box_append(GTK_BOX(header_row), lbl_score);
+
+  GtkWidget *lbl_player = gtk_label_new(_("Player"));
+  gtk_widget_set_hexpand(lbl_player, TRUE);
+  gtk_widget_set_halign(lbl_player, GTK_ALIGN_START);
+  gtk_box_append(GTK_BOX(header_row), lbl_player);
+
+  gtk_box_append(GTK_BOX(box), header_row);
+  gtk_box_append(GTK_BOX(box), list_box);
+
+  GList *scores = kuro_score_get_top_scores(kuro, kuro->board_size);
+  int rank = 1;
+  GList *l;
+
+  for (l = scores; l != NULL; l = l->next) {
+    KuroScore *s = (KuroScore *)l->data;
+    GtkWidget *row_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+    gtk_widget_set_margin_top(row_box, 12);
+    gtk_widget_set_margin_bottom(row_box, 12);
+
+    char *rank_str = g_strdup_printf("%d", rank++);
+    GtkWidget *r_lbl = gtk_label_new(rank_str);
+    g_free(rank_str);
+    gtk_widget_set_size_request(r_lbl, 40, -1);
+    gtk_box_append(GTK_BOX(row_box), r_lbl);
+
+    char *time_str;
+    if (s->time < 3600)
+      time_str = g_strdup_printf("%02u:%02u", s->time / 60, s->time % 60);
+    else
+      time_str = g_strdup_printf("%u:%02u:%02u", s->time / 3600,
+                                 (s->time % 3600) / 60, s->time % 60);
+
+    GtkWidget *t_lbl = gtk_label_new(time_str);
+    g_free(time_str);
+    gtk_widget_set_size_request(t_lbl, 60, -1);
+    gtk_box_append(GTK_BOX(row_box), t_lbl);
+
+    GtkWidget *n_lbl = gtk_label_new(s->name);
+    gtk_widget_set_hexpand(n_lbl, TRUE);
+    gtk_widget_set_halign(n_lbl, GTK_ALIGN_START);
+    gtk_box_append(GTK_BOX(row_box), n_lbl);
+
+    gtk_list_box_append(GTK_LIST_BOX(list_box), row_box);
+  }
+  g_list_free_full(scores, (GDestroyNotify)kuro_score_free);
+
+  adw_toolbar_view_set_content(ADW_TOOLBAR_VIEW(toolbar_view), box);
+  adw_dialog_set_child(dialog, toolbar_view);
+  adw_dialog_present(dialog, GTK_WIDGET(kuro->window));
+}
+
+static void high_scores_cb(GSimpleAction *action, GVariant *parameter,
+                           gpointer user_data) {
+  Kuro *kuro = (Kuro *)user_data;
+  kuro_show_high_scores_dialog(kuro);
+}
 
 static void kuro_window_unmap_cb(GtkWidget *window, gpointer user_data) {
   gboolean window_maximized;
@@ -142,7 +464,11 @@ GtkWidget *kuro_create_interface(Kuro *kuro) {
   GtkCssProvider *css_provider;
   GAction *action;
 
-  builder = gtk_builder_new_from_resource("/io.github.tobagin.Kuro/ui/kuro.ui");
+  gchar *resource_path =
+      g_strconcat("/", g_strdelimit(g_strdup(APPLICATION_ID), ".", '/'),
+                  "/ui/kuro.ui", NULL);
+  builder = gtk_builder_new_from_resource(resource_path);
+  g_free(resource_path);
 
   gtk_builder_set_translation_domain(builder, PACKAGE);
 
@@ -209,6 +535,7 @@ GtkWidget *kuro_create_interface(Kuro *kuro) {
   const gchar *vaccels_undo[] = {"<Primary>z", NULL};
   const gchar *vaccels_shortcuts[] = {"<Primary>question", NULL};
   const gchar *vaccels_about[] = {"<Primary><Shift>a", NULL};
+  const gchar *vaccels_pause[] = {"<Primary>p", NULL};
 
   gtk_application_set_accels_for_action(GTK_APPLICATION(kuro), "app.help",
                                         vaccels_help);
@@ -226,7 +553,6 @@ GtkWidget *kuro_create_interface(Kuro *kuro) {
       GTK_APPLICATION(kuro), "win.show-help-overlay", vaccels_shortcuts);
   gtk_application_set_accels_for_action(GTK_APPLICATION(kuro), "app.about",
                                         vaccels_about);
-  const gchar *vaccels_pause[] = {"p", NULL};
   gtk_application_set_accels_for_action(GTK_APPLICATION(kuro), "win.pause",
                                         vaccels_pause);
 
@@ -238,8 +564,10 @@ GtkWidget *kuro_create_interface(Kuro *kuro) {
 
   /* Load CSS for the drawing area */
   css_provider = gtk_css_provider_new();
-  gtk_css_provider_load_from_resource(css_provider,
-                                      "/io.github.tobagin.Kuro/ui/kuro.css");
+  gtk_css_provider_load_from_resource(
+      css_provider,
+      g_strconcat("/", g_strdelimit(g_strdup(APPLICATION_ID), ".", '/'),
+                  "/ui/kuro.css", NULL));
   gtk_style_context_add_provider_for_display(
       gdk_display_get_default(), GTK_STYLE_PROVIDER(css_provider),
       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -890,52 +1218,6 @@ static void pause_cb(GSimpleAction *action, GVariant *parameter,
   gtk_widget_queue_draw(kuro->drawing_area);
 }
 
-static void preferences_cb(GSimpleAction *action, GVariant *parameter,
-                           gpointer user_data) {
-  KuroApplication *self = KURO_APPLICATION(user_data);
-  gchar *theme_str;
-  gchar *size_str;
-
-  /* Set initial selection based on GSettings */
-  theme_str = g_settings_get_string(self->settings, "board-theme");
-  if (g_strcmp0(theme_str, "hitori") == 0)
-    adw_combo_row_set_selected(ADW_COMBO_ROW(self->board_theme_row), 1);
-  else
-    adw_combo_row_set_selected(ADW_COMBO_ROW(self->board_theme_row), 0);
-  g_free(theme_str);
-
-  size_str = g_settings_get_string(self->settings, "board-size");
-  /* 5, 6, 7, 8, 9, 10 mapping to index 0, 1, 2, 3, 4, 5 */
-  int size = atoi(size_str);
-  if (size >= 5 && size <= 10)
-    adw_combo_row_set_selected(ADW_COMBO_ROW(self->board_size_row), size - 5);
-  g_free(size_str);
-
-  adw_dialog_present(ADW_DIALOG(self->preferences_dialog),
-                     GTK_WIDGET(self->window));
-}
-
-static void on_theme_row_selected_changed(GObject *object, GParamSpec *pspec,
-                                          gpointer user_data) {
-  KuroApplication *self = KURO_APPLICATION(user_data);
-  guint selected =
-      adw_combo_row_get_selected(ADW_COMBO_ROW(self->board_theme_row));
-  const gchar *theme = (selected == 1) ? "hitori" : "kuro";
-
-  g_settings_set_string(self->settings, "board-theme", theme);
-}
-
-static void on_size_row_selected_changed(GObject *object, GParamSpec *pspec,
-                                         gpointer user_data) {
-  KuroApplication *self = KURO_APPLICATION(user_data);
-  guint selected =
-      adw_combo_row_get_selected(ADW_COMBO_ROW(self->board_size_row));
-  gchar size_str[16];
-  g_snprintf(size_str, sizeof(size_str), "%u", selected + 5);
-
-  g_settings_set_string(self->settings, "board-size", size_str);
-}
-
 static void help_cb(GSimpleAction *action, GVariant *parameters,
                     gpointer user_data) {
   KuroApplication *self = KURO_APPLICATION(user_data);
@@ -1028,10 +1310,11 @@ static char *get_release_notes(const char *version) {
   char *result = NULL;
 
   /* Note: Path must match GResource prefix */
-  /* Prefix: /io.github.tobagin.Kuro/gtk */
-  /* Alias: io.github.tobagin.Kuro.metainfo.xml */
-  const char *resource_path =
-      "/io.github.tobagin.Kuro/gtk/io.github.tobagin.Kuro.metainfo.xml";
+  /* Prefix: /io/github/tobagin/Kuro/Devel/gtk */
+  /* Alias: io.github.tobagin.Kuro.Devel.metainfo.xml */
+  const gchar *resource_path =
+      g_strconcat("/", g_strdelimit(g_strdup(APPLICATION_ID), ".", '/'),
+                  "/gtk/", APPLICATION_ID, ".metainfo.xml", NULL);
 
   bytes = g_resources_lookup_data(resource_path, G_RESOURCE_LOOKUP_FLAGS_NONE,
                                   NULL);
@@ -1076,7 +1359,7 @@ static void about_cb(GSimpleAction *action, GVariant *parameters,
 
   adw_about_dialog_set_application_name(ADW_ABOUT_DIALOG(about), _("Kuro"));
   adw_about_dialog_set_application_icon(ADW_ABOUT_DIALOG(about),
-                                        "io.github.tobagin.Kuro");
+                                        APPLICATION_ID);
   adw_about_dialog_set_version(ADW_ABOUT_DIALOG(about), VERSION);
   adw_about_dialog_set_developer_name(ADW_ABOUT_DIALOG(about),
                                       "Thiago Fernandes");
@@ -1117,7 +1400,8 @@ static void show_help_overlay_cb(GSimpleAction *action, GVariant *parameter,
   GObject *overlay;
 
   builder = gtk_builder_new_from_resource(
-      "/io.github.tobagin.Kuro/gtk/help-overlay.ui");
+      g_strconcat("/", g_strdelimit(g_strdup(APPLICATION_ID), ".", '/'),
+                  "/gtk/help-overlay.ui", NULL));
   overlay = gtk_builder_get_object(builder, "help_overlay");
 
   if (overlay && ADW_IS_DIALOG(overlay)) {
@@ -1177,12 +1461,12 @@ static void board_theme_change_cb(GSettings *settings, const gchar *key,
   theme_str = g_settings_get_string(self->settings, "board-theme");
 
   if (g_strcmp0(theme_str, "auto") == 0) {
-    /* Auto: use hitori for light mode, kuro for dark mode */
+    /* Auto: use classic for light mode, kuro for dark mode */
     AdwStyleManager *style_manager = adw_style_manager_get_default();
     gboolean is_dark = adw_style_manager_get_dark(style_manager);
-    self->theme = is_dark ? &theme_kuro : &theme_hitori;
-  } else if (g_strcmp0(theme_str, "hitori") == 0) {
-    self->theme = &theme_hitori;
+    self->theme = is_dark ? &theme_kuro : &theme_classic;
+  } else if (g_strcmp0(theme_str, "classic") == 0) {
+    self->theme = &theme_classic;
   } else {
     self->theme = &theme_kuro;
   }

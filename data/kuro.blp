@@ -7,6 +7,10 @@ menu primary-menu {
       label: _("_New Game");
       action: "app.new-game";
     }
+    item {
+      label: _("High _Scores");
+      action: "app.high-scores";
+    }
   }
 
   section {
@@ -60,15 +64,16 @@ menu primary-menu {
           target: "kuro";
         }
         item {
-          label: _("Hitori");
+          label: _("Classic");
           action: "app.board-theme";
-          target: "hitori";
+          target: "classic";
         }
       }
     }
   }
 
   section {
+
     item {
       label: _("_Keyboard Shortcuts");
       action: "win.show-help-overlay";
@@ -87,12 +92,12 @@ menu primary-menu {
 Adw.ApplicationWindow kuro_main_window {
   close-request => $kuro_close_request_cb();
 
-  content: Adw.ToolbarView {
+  Adw.ToolbarView {
     [top]
     Adw.HeaderBar {
       title-widget: Adw.WindowTitle {
         title: "Kuro";
-        subtitle: _("GTK4 Hitori game");
+        subtitle: _("Logic Puzzle Game");
       };
 
       [start]
@@ -147,7 +152,7 @@ Adw.ApplicationWindow kuro_main_window {
       }
     }
 
-    content: Gtk.Box vbox1 {
+    Gtk.Box vbox1 {
       orientation: vertical;
       focus-on-click: true;
 
@@ -176,15 +181,21 @@ Adw.ApplicationWindow kuro_main_window {
 
           styles ["pause-overlay"]
 
-          Gtk.Box {
+          Gtk.CenterBox {
             orientation: vertical;
-            halign: center;
-            valign: center;
-            spacing: 12;
+            halign: fill;
+            valign: fill;
+            hexpand: true;
+            vexpand: true;
             margin-start: 24;
             margin-end: 24;
             margin-top: 24;
             margin-bottom: 24;
+
+            [center]
+            Gtk.Box {
+              orientation: vertical;
+              spacing: 12;
 
             Gtk.Label {
               label: _("Paused");
@@ -200,6 +211,7 @@ Adw.ApplicationWindow kuro_main_window {
               styles ["title-2"]
             }
           }
+        }
         }
       }
 
@@ -219,6 +231,6 @@ Adw.ApplicationWindow kuro_main_window {
           valign: center;
         }
       }
-    };
-  };
+    }
+  }
 }

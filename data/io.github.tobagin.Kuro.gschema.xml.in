@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<schema id="io.github.tobagin.kuro" path="/io.github.tobagin.kuro/" gettext-domain="kuro">
+	<schema id="@appid@" path="@apppath@" gettext-domain="kuro">
 		<key name="board-theme" type="s">
 			<default>"auto"</default>
 			<summary>Board theme</summary>
-			<description>The theme of the board (auto, kuro, or hitori). Auto uses hitori in light mode and kuro in dark mode.</description>
+			<description>The theme of the board (auto, kuro, or classic). Auto uses classic in light mode and kuro in dark mode.</description>
 		</key>
 		<key name="board-size" type="s">
 			<default>"5"</default>
@@ -25,6 +25,11 @@
 			<default>(-1, -1)</default>
 			<summary>Window size</summary>
 			<description>Window size (width and height).</description>
+		</key>
+		<key name="high-scores" type="a(usu)">
+			<default>[]</default>
+			<summary>High scores</summary>
+			<description>List of high scores (board_size, name, time).</description>
 		</key>
 	</schema>
 </schemalist>

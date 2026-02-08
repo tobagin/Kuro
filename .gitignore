@@ -1,0 +1,9 @@
+build/
+build-dir/
+_build/
+_build_strict/
+.flatpak-builder/
+data/gschemas.compiled
+*.o
+*.a
+*~

@@ -2,7 +2,7 @@ subdir('icons')
 
 desktop_file = i18n.merge_file(
   type: 'desktop',
-  input: '@0@.desktop.in'.format(application_id),
+  input: 'kuro.desktop.in',
   output: '@0@.desktop'.format(application_id),
   po_dir: join_paths(meson.source_root(), 'po'),
   install: true,
@@ -21,7 +21,7 @@ if desktop_file_validate.found()
 endif
 
 metainfo_file = i18n.merge_file(
-  input: '@0@.metainfo.xml.in'.format(application_id),
+  input: 'kuro.metainfo.xml.in',
   output: '@0@.metainfo.xml'.format(application_id),
   po_dir: join_paths(meson.source_root(), 'po'),
   install: true,
@@ -38,9 +38,16 @@ if appstreamcli.found()
   )
 endif
 
-install_data(
-    'io.github.tobagin.kuro.gschema.xml', 
-    install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
+schema_conf = configuration_data()
+schema_conf.set('appid', application_id)
+schema_conf.set('apppath', '/' + application_id.replace('.', '/') + '/')
+
+configure_file(
+  input: 'io.github.tobagin.Kuro.gschema.xml.in',
+  output: '@0@.gschema.xml'.format(application_id),
+  configuration: schema_conf,
+  install: true,
+  install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
 )
 
 

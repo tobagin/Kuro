@@ -11,7 +11,7 @@ project('kuro', 'c',
 
 i18n = import('i18n')
 gnome = import('gnome')
-application_id = 'io.github.tobagin.Kuro'
+application_id = get_option('application_id')
 
 # Dependencies
 glib_dependency = dependency('glib-2.0')

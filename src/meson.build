@@ -1,17 +1,29 @@
 sources = files(
-  'generator.c',
-  'interface.c',
   'main.c',
+  'interface.c',
   'rules.c',
+  'generator.c',
+  'score.c',
 )
 
 if not cc.has_function('atexit')
   error('atexit() needed for generated GResource files')
 endif
 
+resource_conf = configuration_data()
+resource_conf.set('METAINFO_FILE', '@0@.metainfo.xml'.format(application_id))
+resource_conf.set('appid', application_id)
+resource_conf.set('apppath', '/' + application_id.replace('.', '/') + '/')
+
+gresource_file = configure_file(
+  input: 'kuro.gresource.xml.in',
+  output: 'kuro.gresource.xml',
+  configuration: resource_conf
+)
+
 resources = gnome.compile_resources(
   'kuro-resources',
-  '@0@.gresource.xml'.format(meson.project_name()),
+  gresource_file,
   source_dir: [meson.source_root(), meson.project_build_root()],
   dependencies: compiled_ui_files,
 )
@@ -36,7 +48,8 @@ executable(
   install: true,
   c_args: [
     '-DHAVE_CONFIG_H',
-    '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name())
+    '-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()),
+    '-DAPPLICATION_ID="@0@"'.format (application_id)
   ],
   install_dir: get_option('bindir'),
 )

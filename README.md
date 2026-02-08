@@ -4,10 +4,25 @@ A modern, native GTK4 implementation of the Hitori logic puzzle game for GNOME.
 
 <div align="center">
 
-![Kuro Application](data/screenshots/main-window.png)
+<img src="data/screenshots/main-window.png" width="800" alt="Main Window" />
 
 <a href="https://flathub.org/apps/io.github.tobagin.Kuro"><img src="https://flathub.org/api/badge/io.github.tobagin.Kuro" height="52" alt="Get it on Flathub"></a>
 
+</div>
+
+## Screenshots
+
+<div align="center">
+  <img src="data/screenshots/dark-board-theme.png" width="45%" valign="top" alt="Dark Theme" />
+  <img src="data/screenshots/pause.png" width="45%" valign="top" alt="Pause Overlay" />
+</div>
+<div align="center">
+  <img src="data/screenshots/high-scores.png" width="45%" valign="top" alt="High Scores" />
+  <img src="data/screenshots/ab.png" width="45%" valign="top" alt="About Dialog" />
+</div>
+<div align="center">
+  <img src="data/screenshots/keyboard-shortcus.png" width="45%" valign="top" alt="Keyboard Shortcuts" />
+  <img src="data/screenshots/credits.png" width="45%" valign="top" alt="Credits" />
 </div>
 
 ## 🎉 Version 1.0.0 - Reimagined for GNOME

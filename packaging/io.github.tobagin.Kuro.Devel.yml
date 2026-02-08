@@ -1,4 +1,4 @@
-app-id: io.github.tobagin.Kuro
+app-id: io.github.tobagin.Kuro.Devel
 runtime: org.gnome.Platform
 runtime-version: '49'
 sdk: org.gnome.Sdk
@@ -12,6 +12,8 @@ finish-args:
 modules:
   - name: kuro
     buildsystem: meson
+    config-opts:
+      - -Dapplication_id=io.github.tobagin.Kuro.Devel
     sources:
       - type: dir
         path: ..

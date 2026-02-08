@@ -1,9 +1,9 @@
 # List of source files containing translatable strings.
-data/io.github.tobagin.Kuro.desktop.in
-data/io.github.tobagin.Kuro.metainfo.xml.in
+data/kuro.desktop.in
+data/kuro.metainfo.xml.in
 data/help-overlay.ui
 data/kuro.ui
-data/io.github.tobagin.kuro.gschema.xml
+data/io.github.tobagin.Kuro.gschema.xml.in
 src/interface.c
 src/main.c
 src/rules.c
