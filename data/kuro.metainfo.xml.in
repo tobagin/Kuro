@@ -31,6 +31,7 @@
   <screenshots>
     <screenshot type="default" width="1200" height="675">
       <image>https://raw.githubusercontent.com/tobagin/Kuro/main/data/screenshots/main-window.png</image>
+      <caption>Main Window</caption>
     </screenshot>
     <screenshot width="1200" height="675">
       <image>https://raw.githubusercontent.com/tobagin/Kuro/main/data/screenshots/dark-board-theme.png</image>
@@ -65,7 +66,6 @@
   <url type="bugtracker">https://github.com/tobagin/Kuro/issues</url>
   <url type="vcs-browser">https://github.com/tobagin/Kuro</url>
   <update_contact>philip_at_tecnocode.co.uk</update_contact>
-  <project_group>GNOME</project_group>
   <developer_name>Thiago Fernandes</developer_name>
   <kudos>
     <kudo>AppMenu</kudo>
@@ -97,104 +97,6 @@
         </ul>
       </description>
     </release>
-    <release version="44.0" date="2023-03-03" type="stable">
-      <description>
-        <ul>
-          <li>Remove GNOME branding as it’s not an official GNOME game any more.</li>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.38.4" date="2022-04-04" type="stable">
-      <description>
-        <ul>
-          <li>Add initial support for playing the game with a keyboard.</li>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.38.3" date="2021-09-17" type="stable">
-      <description>
-        <ul>
-          <li>Add metadata about hardware and display size requirements.</li>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.38.2" date="2021-05-25" type="stable">
-      <description>
-        <ul>
-          <li>Add scalable icon.</li>
-          <li>Fix app being listed as ‘proprietary’.</li>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.38.1" date="2021-03-05" type="stable">
-      <description>
-        <ul>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.38.0" date="2020-09-10" type="stable">
-      <description>
-        <ul>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.37.1" date="2020-09-03" type="development">
-      <description>
-        <ul>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.37.0" date="2020-08-19" type="development">
-      <description>
-        <ul>
-          <li>Documentation updates.</li>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.36.0" date="2020-03-11" type="stable">
-      <description>
-        <ul>
-          <li>No changes; version bump only.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.35.0" date="2020-02-24" type="development">
-      <description>
-        <ul>
-          <li>Allow resizing the window smaller.</li>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.34.0" date="2019-09-02" type="stable">
-      <description>
-        <ul>
-          <li>Translation updates.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.33.0" date="2019-08-22" type="development">
-      <description>
-        <ul>
-          <li>Remember window size and position.</li>
-          <li>Support localised (non-Arabic) digits on the game board.</li>
-          <li>Add keyboard shortcuts dialogue and improve keyboard shortcuts and mnemonics.</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.32.0" date="2019-08-22" type="stable" />
-    <release version="3.31.92" date="2019-03-04" type="development" />
-    <release version="3.31.0" date="2019-02-19" type="development" />
-    <release version="3.22.4" date="2017-10-02" type="stable" />
-    <release version="3.22.3" date="2017-04-30" type="stable" />
   </releases>
   <content_rating type="oars-1.1" />
 </component>
